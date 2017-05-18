@@ -1,0 +1,28 @@
+{% extends 'MyAppPIBundle:layout:layout.html.twig' %}
+
+{% block title %}
+    <title>Actualite</title>
+{% endblock %}
+{% block neuf %}
+<div align="center" class="container">
+
+    <div class="row">
+    <h2 align="center">Creation Actualite</h2>
+
+    {{ form(form) }}
+
+        <div align="center" class="pagination">
+        <table align="center" class="record_actions">
+    <tr>
+        <td>
+        <a href="{{ path('admin_actualite') }}" >
+            Retour a la liste
+        </a>
+        </td>
+
+    </tr>
+</table>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "@FOSUser/admin/modelUsed/categories.html.twig" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-9">
+        <h2>Categories list</h2>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for category in categories %}
+            <tr>
+                <td><a href="{{ path('admin_categories_show', { 'id': category.id }) }}">{{ category.id }}</a></td>
+                <td>{{ category.nom }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_categories_show', { 'id': category.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_categories_edit', { 'id': category.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+        </div>
+    <ul>
+        <li>
+            <a href="{{ path('admin_categories_new') }}">Create a new category</a>
+        </li>
+    </ul>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Forummessages list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Idmessage</th>
+                <th>Dateheurecreation</th>
+                <th>Contenu</th>
+                <th>Dateheureedition</th>
+                <th>Meilleurereponse</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for forumMessage in forumMessages %}
+            <tr>
+                <td><a href="{{ path('forummessage_show', { 'id': forumMessage.idMessage }) }}">{{ forumMessage.idMessage }}</a></td>
+                <td>{% if forumMessage.dateHeureCreation %}{{ forumMessage.dateHeureCreation|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ forumMessage.contenu }}</td>
+                <td>{% if forumMessage.dateHeureEdition %}{{ forumMessage.dateHeureEdition|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ forumMessage.meilleureReponse }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('forummessage_show', { 'id': forumMessage.idMessage }) }}"></a>
+                        </li>
+                        <li>
+                            <a href="{{ path('forummessage_edit', { 'id': forumMessage.idMessage }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('forummessage_new') }}">Create a new forumMessage</a>
+        </li>
+    </ul>
+{% endblock %}

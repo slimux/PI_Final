@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div id="mydiv">
+            <h2>Bordered Table</h2>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <tr>
+                        <th>titre</th>
+                        <th>genre</th>
+                        <th>date de sortie</th>
+                        <th>note de presse</th>
+                        <th>prix</th>
+                        <th>console</th>
+                        <th>developpeur</th>
+                        <th>image</th>
+                        <th>Action</th>
+
+                    </tr>
+                    {% for jeu in jeux %}
+                        <tr>
+                            <td>{{ jeu.titre }}</td>
+                            <td>{{ jeu.genre }}</td>
+                            <td>{{ jeu.DateSortie|date('Y-m-d') }}</td>
+                            <td>{{ jeu.notePresse }}</td>
+                            <td>{{ jeu.prix }}</td>
+                            <td>{{ jeu.console }}</td>
+                            <td>{{ jeu.developpeur }}</td>
+                            <td><img height="187" width="150" src='{{ asset("/BACKUP/PI/web/images/"~ jeu.image)}}' /></td>
+                            <td><a href="{{ path('Delete_Game', {'IdJeu':jeu.IdJeu}) }}">Supprimer</a>
+                                <a href="{{ path('Update_Game', {'IdJeu':jeu.IdJeu}) }}">Update</a></td>
+                            </a>
+                            </td>
+                        </tr>
+
+                    {% endfor %}
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

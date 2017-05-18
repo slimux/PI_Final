@@ -1,0 +1,51 @@
+{% extends "@FOSUser/admin/modelUsed/serveur.html.twig" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-9">
+        <h2>Serveurs list</h2>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                <th>Idserveur</th>
+                <th>Nom</th>
+                <th>Location</th>
+                <th>Typejeu</th>
+                <th>Rank</th>
+                <th>Ip</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for serveur in serveurs %}
+            <tr>
+                <td><a href="{{ path('serveur_show', { 'idServeur': serveur.idServeur }) }}">{{ serveur.idServeur }}</a></td>
+                <td>{{ serveur.nom }}</td>
+                <td>{{ serveur.location }}</td>
+                <td>{{ serveur.typeJeu }}</td>
+                <td>{{ serveur.rank }}</td>
+                <td>{{ serveur.ip }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('serveur_show', { 'idServeur': serveur.idServeur }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('serveur_edit', { 'idServeur': serveur.idServeur }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+        </div>
+    <ul>
+        <li>
+            <a href="{{ path('serveur_new') }}">Create a new serveur</a>
+        </li>
+    </ul>
+    </div>
+</div>
+{% endblock %}

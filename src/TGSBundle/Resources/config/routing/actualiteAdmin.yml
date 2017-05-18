@@ -1,0 +1,30 @@
+admin_actualite:
+    path:  /
+    defaults: { _controller: "TGSBundle:ActualiteAdmin:index" }
+
+admin_actualite_show:
+    path:  /{id}/show
+    defaults: { _controller: "TGSBundle:ActualiteAdmin:show" }
+
+admin_actualite_new:
+    path:  /new
+    defaults: { _controller: "TGSBundle:ActualiteAdmin:new" }
+
+admin_actualite_create:
+    path:  /create
+    defaults: { _controller: "TGSBundle:ActualiteAdmin:create" }
+    requirements: { _method: post }
+
+admin_actualite_edit:
+    path:  /{id}/edit
+    defaults: { _controller: "TGSBundle:ActualiteAdmin:edit" }
+
+admin_actualite_update:
+    path:  /{id}/update
+    defaults: { _controller: "TGSBundle:ActualiteAdmin:update" }
+    requirements: { _method: post|put }
+
+admin_actualite_delete:
+    path:  /{id}/delete
+    defaults: { _controller: "TGSBundle:ActualiteAdmin:delete" }
+    requirements: { _method: post|delete }

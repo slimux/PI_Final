@@ -1,0 +1,69 @@
+{% extends "MyAppPIBundle:layout:layout.html.twig" %}
+{% block title %} <title>Store</title>{% endblock %}
+{% block store %}
+    <link rel="stylesheet" href="{{ asset('css/store.css') }}">
+{% endblock store %}
+{% block neuf %}
+    <div class="container">
+
+            {#<form class="navbar-form form-search pull-right">#}
+                {#<input id="Search" name="Search" type="text" class="input-medium search-query">#}
+                {#<button type="submit" class="btn">Rechercher</button>#}
+            {#</form>#}
+            {{ render(controller('MyAppPIBundle:Produits:recherche')) }}
+        <br><br>
+
+        <div class="row">
+
+            <div class="span3">
+                    {% include ':modulesUsed:genre.html.twig' %}
+                    {% include ':modulesUsed:navigation.html.twig' %}
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    {% include ':modulesUsed:utilisateurConnecte.html.twig' %}
+                {% else %}
+                    {#{% include ':modulesUsed:utilisateur.html.twig' %}#}
+                {% endif %}
+                {{  render(controller('MyAppPIBundle:Panier:menu')) }}
+            </div>
+            <div class="span9">
+                {% if produits|length != 0 %}
+                <ul class="thumbnails">
+                    {% for produit in produits %}
+                    <li class="span3">
+                        <div class="thumbnail" >
+                            <img src="{{ produit.image.AssetPath|imagine_filter('storeThumb') }}" alt="{{ produit.image.name }}" height="200" width="auto">
+                            <div class="caption">
+                                <h4 style="color: #fff">{{ produit.nom }}</h4>
+                                <p style="color: #ffffdd">{{ produit.prix|tva(produit.tva.multiplicate) }} €</p>
+                                <a class="btn btn-primary" style="width: 42%" href="{{ path('presentation', { 'id' : produit.id }) }}">Plus d'infos</a>
+                                {% if panier[produit.id] is not defined %}
+                                <a class="btn btn-success pull-lg-right" style="width: 56%" href="{{ path('ajouter', { 'id' : produit.id }) }}">Ajouter au panier</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </li>
+                        {% endfor %}
+                </ul>
+
+                    <div class="navigation">
+                        {{ knp_pagination_render(produits) }}
+                    </div>
+                {#<div class="pagination">#}
+                    {#<ul>#}
+                        {#<li class="disabled"><span>Précédent</span></li>#}
+                        {#<li class="disabled"><span>1</span></li>#}
+                        {#<li><a href="#">2</a></li>#}
+                        {#<li><a href="#">3</a></li>#}
+                        {#<li><a href="#">4</a></li>#}
+                        {#<li><a href="#">5</a></li>#}
+                        {#<li><a href="#">Suivant</a></li>#}
+                    {#</ul>#}
+                {#</div>#}
+                {% else %}
+                    Aucun produit
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

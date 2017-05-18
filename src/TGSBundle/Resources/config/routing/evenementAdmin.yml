@@ -1,0 +1,30 @@
+admin_evenement:
+    path:  /
+    defaults: { _controller: "TGSBundle:EvenementAdmin:index" }
+
+admin_evenement_show:
+    path:  /{id}/show
+    defaults: { _controller: "TGSBundle:EvenementAdmin:show" }
+
+admin_evenement_new:
+    path:  /new
+    defaults: { _controller: "TGSBundle:EvenementAdmin:new" }
+
+admin_evenement_create:
+    path:  /create
+    defaults: { _controller: "TGSBundle:EvenementAdmin:create" }
+    requirements: { _method: post }
+
+admin_evenement_edit:
+    path:  /{id}/edit
+    defaults: { _controller: "TGSBundle:EvenementAdmin:edit" }
+
+admin_evenement_update:
+    path:  /{id}/update
+    defaults: { _controller: "TGSBundle:EvenementAdmin:update" }
+    requirements: { _method: post|put }
+
+admin_evenement_delete:
+    path:  /{id}/delete
+    defaults: { _controller: "TGSBundle:EvenementAdmin:delete" }
+    requirements: { _method: post|delete }

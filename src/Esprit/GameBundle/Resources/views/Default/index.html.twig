@@ -1,0 +1,1306 @@
+<html>
+<head>
+    {% block head %}
+        <meta charset="utf-8" />
+        <title>{% block title %} wiouw {% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/svg-icons.css') }}" />
+        <link rel="stylesheet" href="{{ asset('js/core.min.js') }}" />
+        <link rel="stylesheet" href="{{ asset('js/script.js') }}" />
+        {% block stylesheet %}
+        {% endblock %}
+    {% endblock %}
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport"
+          content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/plugins/ua/ec.js"></script>
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+    <script async="" src="http://www.googletagmanager.com/gtm.js?id=GTM-P9FT69"></script>
+    <script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script>
+    <script async="" src="http://ajax.cloudflare.com/cdn-cgi/nexp/dok3v=f2befc48d1/cloudflare.min.js"></script>
+    <script type="text/javascript">
+        //<![CDATA[
+        try {
+            if (!window.CloudFlare) {
+                var CloudFlare = [{
+                    verbose: 0,
+                    p: 0,
+                    byc: 0,
+                    owlid: "cf",
+                    bag2: 1,
+                    mirage2: 0,
+                    oracle: 0,
+                    paths: {cloudflare: "/cdn-cgi/nexp/dok3v=1613a3a185/"},
+                    atok: "0990115ae424311cc566aeef9cb33b2c",
+                    petok: "9fd8cda7d76103856269ff3579befa5188ebf83e-1488990843-1800",
+                    zone: "template-help.com",
+                    rocket: "0",
+                    apps: {"abetterbrowser": {"ie": "7"}}
+                }];
+                !function (a, b) {
+                    a = document.createElement("script"), b = document.getElementsByTagName("script")[0], a.async = !0, a.src = "http://ajax.cloudflare.com/cdn-cgi/nexp/dok3v=f2befc48d1/cloudflare.min.js", b.parentNode.insertBefore(a, b)
+                }()
+            }
+        } catch (e) {
+        }
+        ;
+        //]]>
+    </script>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" type="text/css"
+          href="http://fonts.googleapis.com/css?family=Montserrat:400,500,700%7CUbuntu:300,300italic,400,500,700">
+    <link rel="stylesheet" href="css/style.css">
+    <!--[if lt IE 10]>
+    <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;">
+        <a href="https://windows.microsoft.com/en-US/internet-explorer/"><img
+                src="{{ asset('images/ie8-panel/warning_bar_0000_us.jpg') }}" border="0" height="42" width="820"
+                alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a>
+    </div>
+    <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+    <style type="text/css">.cf-hidden {
+            display: none;
+        }
+
+        .cf-invisible {
+            visibility: hidden;
+        }</style>
+
+    <div class="page text-center">
+
+
+        <div class="rd-navbar-wrap" style="height: 135px;">
+            <nav class="rd-navbar rd-navbar-original rd-navbar-static" data-layout="rd-navbar-fixed"
+                 data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fullwidth"
+                 data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static"
+                 data-lg-device-layout="rd-navbar-static" data-sm-stick-up-offset="225px" data-md-stick-up-offset="45px"
+                 data-lg-stick-up-offset="45px">
+                <div class="rd-navbar-top-panel">
+                    <div class="rd-navbar-top-panel-inner">
+                        <p class="rd-navbar-fixed--hidden">Welcome to the<span
+                                    class="text-white"> world of gaming news!</span></p>
+                        <div>
+                            <p class="rd-navbar-fixed--hidden">{% block formulaire %} {% endblock %} </p>
+                            <a href="about.html" class="rd-navbar-fixed--hidden">Store</a>
+                            <a href="about.html" class="rd-navbar-fixed--hidden">About us</a>
+                            <a href="contact.html" class="rd-navbar-fixed--hidden">Contacts</a>
+
+                            <div class="rd-navbar-search toggle-original-elements">
+                                <button data-rd-navbar-toggle=".rd-navbar-search"
+                                        class="rd-navbar-search-toggle toggle-original"><span class="fa-search"></span>
+                                </button>
+                                <form action="search-results.html" data-search-live="rd-search-results-live"
+                                      method="GET" class="rd-search">
+                                    <div class="form-group">
+                                        <label for="rd-navbar-search-form-input" class="form-label rd-input-label">Search</label>
+                                        <input id="rd-navbar-search-form-input" type="text" name="s" autocomplete="off"
+                                               class="rd-navbar-search-form-input form-control form-control-gray-lightest">
+                                        <div id="rd-search-results-live" class="rd-search-results-live"></div>
+                                    </div>
+                                    <button type="submit" class="fa-search"></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rd-navbar-inner">
+
+                    <div class="rd-navbar-panel">
+
+                        <button data-rd-navbar-toggle=".rd-navbar-nav-wrap" class="rd-navbar-toggle toggle-original">
+                            <span></span></button>
+
+                        <div class="rd-navbar-brand"><a href="./"><img src="{{ asset('images/logo.png') }}" alt=""></a></div>
+                        <ul class="rd-navbar-list-inline">
+                            <li><a href="login" class="icon">LOGIN</a></li>
+
+                        </ul>
+                    </div>
+                    <div class="rd-navbar-nav-wrap toggle-original-elements">
+
+                        <ul class="rd-navbar-nav">
+                            <li><a href="product">jeux</a></li>
+                            <li><a href="previews.html">actu</a></li>
+                            <li><a href="reviews.html">vidéos</a></li>
+                            <li><a href="videos.html">forum</a></li>
+                            <li><a href="platforms.html">serveur</a></li>
+                            <li class="rd-navbar-fixed--visible rd-navbar--hidden"><a href="about.html">about</a></li>
+                            <li class="rd-navbar-fixed--visible rd-navbar--hidden"><a href="contact.html">contact</a>
+                            </li>
+                            <li class="rd-navbar-fixed--visible rd-navbar--hidden">
+                                <ul class="rd-navbar-list-inline">
+                                    <li><a href="#" class="icon icon-sm fa-facebook"></a></li>
+                                    <li><a href="#" class="icon icon-sm fa-twitter"></a></li>
+                                    <li><a href="#" class="icon icon-sm fa-pinterest-p"></a></li>
+                                    <li><a href="#" class="icon icon-sm fa-vimeo"></a></li>
+                                    <li><a href="#" class="icon icon-sm fa-youtube-play"></a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        </head>
+
+
+<body>
+<main class="page-content">
+    <section>
+        <div class="news-items">
+            <div class="news-item news-item-lg"><img src="{{ asset('images/index-01.jpg') }}" width="1175" height="660" alt=""
+                                                     class="news-item-img">
+                <div class="news-item-caption">
+                    <div><a href="PREVIEWS.html" class="label label-primary">Preview</a></div>
+                    <div><a href="blog-single-post.html" class="news-item-title">The Legend of Zelda: Twilight
+                            Princess HD</a>
+                        <div class="news-item-meta">
+                            <div class="news-item-author">by <a href="blog-list.html">Mike Dikow</a></div>
+                            <div class="news-item-date"><a href="blog-list.html"> Jan. 12, 2016</a></div>
+                            <div class="news-item-comment"><a href="blog-single-post.html#comments">4</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="news-item news-item-sm"><img src="{{ asset('images/index-02.jpg') }}" width="805" height="330" alt=""
+                                                     class="news-item-img">
+                <div class="news-item-caption">
+                    <div><a href="./" class="label label-primary">NEWS</a></div>
+                    <div><a href="blog-single-post.html" class="news-item-title">Homefront: The Revolution gives
+                            away single-player season pass, 1 year of free co-op</a>
+                        <div class="news-item-meta">
+                            <div class="news-item-author">by <a href="blog-list.html">Mike Dikow</a></div>
+                            <div class="news-item-date"><a href="blog-list.html"> Jan. 12, 2016</a></div>
+                            <div class="news-item-comment"><a href="blog-single-post.html#comments">4</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="news-item news-item-sm"><img src="{{ asset('images/index-03.jpg') }}" width="805" height="330" alt=""
+                                                     class="news-item-img">
+                <div class="news-item-caption">
+                    <div><a href="PREVIEWS.html" class="label label-primary">Preview</a></div>
+                    <div><a href="blog-single-post.html" class="news-item-title">Dark Souls 3: game walkthrough done
+                            in under 5 hours</a>
+                        <div class="news-item-meta">
+                            <div class="news-item-author">by <a href="blog-list.html">Mike Dikow</a></div>
+                            <div class="news-item-date"><a href="blog-list.html"> Jan. 12, 2016</a></div>
+                            <div class="news-item-comment"><a href="blog-single-post.html#comments">4</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section-top-90">
+        <div class="shell">
+            <div class="range">
+                <div class="cell-md-8 text-md-left">
+                    <div class="inset-md-right-30">
+                        <div class="range">
+                            <div class="cell-md-6">
+                                <h4>Latest News</h4>
+                            </div>
+                            <div class="cell-md-6 offset-top-4 offset-md-top-0 text-md-right small"><a href="./">See
+                                    All News</a></div>
+                        </div>
+                        <div class="range offset-top-32">
+                            <div class="cell-sm-6">
+                                <div class="post-blog post-blog-no-link">
+                                    <div class="post-blog-media">
+                                        <div class="thumbnail"><a href="blog-single-post.html"><img
+                                                        src="{{ asset('images/index-04.jpg') }}" width="370" height="200" alt=""
+                                                        class="img-responsive"></a>
+                                            <div class="caption"><a href="./" class="label label-primary">news</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="post-blog-body">
+                                        <h4 class="post-blog-title"><a href="blog-single-post.html">Homefront: The
+                                                Revolution gives away single-player season pass</a></h4>
+                                        <p></p>
+                                        <div class="post-blog-meta small">
+                                            <div class="text-gray small post-blog-author">by <a
+                                                        href="blog-list.html">Mike Dikow</a></div>
+                                            <a href="blog-list.html" class="post-blog-date">Jan. 12, 2016</a>
+                                            <div class="post-blog-comment"><a href="blog-single-post.html#comments">4</a>
+                                            </div>
+                                        </div>
+                                        <div class="post-blog-link"><a href="blog-single-post.html">Continue
+                                                reading</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cell-sm-6 offset-top-32 offset-sm-top-0">
+                                <div class="post-blog post-blog-no-link">
+                                    <div class="post-blog-media">
+                                        <div class="thumbnail"><a href="blog-single-post.html"><img
+                                                        src="{{ asset('images/index-05.jpg') }}" width="370" height="200" alt=""
+                                                        class="img-responsive"></a>
+                                            <div class="caption"><a href="./" class="label label-primary">news</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="post-blog-body">
+                                        <h4 class="post-blog-title"><a href="blog-single-post.html">“Enter the
+                                                Gungeon” arcade game will be released soon</a></h4>
+                                        <p></p>
+                                        <div class="post-blog-meta small">
+                                            <div class="text-gray small post-blog-author">by <a
+                                                        href="blog-list.html">Mike Dikow</a></div>
+                                            <a href="blog-list.html" class="post-blog-date">Jan. 12, 2016</a>
+                                            <div class="post-blog-comment"><a href="blog-single-post.html#comments">4</a>
+                                            </div>
+                                        </div>
+                                        <div class="post-blog-link"><a href="blog-single-post.html">Continue
+                                                reading</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cell-sm-6 offset-top-32">
+                                <div class="post-blog post-blog-no-link">
+                                    <div class="post-blog-media">
+                                        <div class="thumbnail"><a href="blog-single-post.html"><img
+                                                        src="{{ asset('images/index-06.jpg') }}" width="370" height="200" alt=""
+                                                        class="img-responsive"></a>
+                                            <div class="caption"><a href="./" class="label label-primary">news</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="post-blog-body">
+                                        <h4 class="post-blog-title"><a href="blog-single-post.html">Quantum Break:
+                                                PC system specs are demanding</a></h4>
+                                        <p></p>
+                                        <div class="post-blog-meta small">
+                                            <div class="text-gray small post-blog-author">by <a
+                                                        href="blog-list.html">Mike Dikow</a></div>
+                                            <a href="blog-list.html" class="post-blog-date">Jan. 12, 2016</a>
+                                            <div class="post-blog-comment"><a href="blog-single-post.html#comments">4</a>
+                                            </div>
+                                        </div>
+                                        <div class="post-blog-link"><a href="blog-single-post.html">Continue
+                                                reading</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cell-sm-6 offset-top-32">
+                                <div class="post-blog post-blog-no-link">
+                                    <div class="post-blog-media">
+                                        <div class="thumbnail"><a href="blog-single-post.html"><img
+                                                        src="{{ asset('images/index-07.jpg') }}" width="370" height="200" alt=""
+                                                        class="img-responsive"></a>
+                                            <div class="caption"><a href="./" class="label label-primary">news</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="post-blog-body">
+                                        <h4 class="post-blog-title"><a href="blog-single-post.html">The Division
+                                                Xbox One, PS4, PC file sizes revealed</a></h4>
+                                        <p></p>
+                                        <div class="post-blog-meta small">
+                                            <div class="text-gray small post-blog-author">by <a
+                                                        href="blog-list.html">Mike Dikow</a></div>
+                                            <a href="blog-list.html" class="post-blog-date">Jan. 12, 2016</a>
+                                            <div class="post-blog-comment"><a href="blog-single-post.html#comments">4</a>
+                                            </div>
+                                        </div>
+                                        <div class="post-blog-link"><a href="blog-single-post.html">Continue
+                                                reading</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="range offset-top-90">
+                            <div class="cell-md-6">
+                                <h4>Latest Gaming Videos &amp; Trailers</h4>
+                            </div>
+                            <div class="cell-md-6 offset-top-4 offset-md-top-0 text-md-right small"><a
+                                        href="videos.html">See All Videos</a></div>
+                        </div>
+
+                        <div data-arrows="false" data-loop="false" data-dots="false" data-swipe="true"
+                             data-items="1" data-child="#child-carousel" data-for="#child-carousel"
+                             class="laizy-embed offset-top-32 carousel-parent slick-initialized slick-slider">
+
+
+                            <div aria-live="polite" class="slick-list draggable">
+                                <div class="slick-track"
+                                     style="opacity: 1; width: 2960px; transform: translate3d(0px, 0px, 0px);"
+                                     role="listbox">
+                                    <div class="item slick-slide slick-current slick-active" style="width: 740px;"
+                                         data-slick-index="0" aria-hidden="false" tabindex="-1" role="option"
+                                         aria-describedby="slick-slide00">
+                                        <div class="embed-responsive embed-responsive-16by9 embed-responsive-custom">
+                                            <iframe data-src="//www.youtube.com/embed/QInALa8mu-0?rel=0&amp;amp;showinfo=0&amp;version=3&amp;enablejsapi=1"></iframe>
+                                        </div>
+                                    </div>
+                                    <div class="item slick-slide" style="width: 740px;" data-slick-index="1"
+                                         aria-hidden="true" tabindex="-1" role="option"
+                                         aria-describedby="slick-slide01">
+                                        <div class="embed-responsive embed-responsive-16by9 embed-responsive-custom">
+                                            <iframe data-src="//www.youtube.com/embed/cyH4VqPYdAo?rel=0&amp;amp;showinfo=0&amp;version=3&amp;enablejsapi=1"></iframe>
+                                        </div>
+                                    </div>
+                                    <div class="item slick-slide" style="width: 740px;" data-slick-index="2"
+                                         aria-hidden="true" tabindex="-1" role="option"
+                                         aria-describedby="slick-slide02">
+                                        <div class="embed-responsive embed-responsive-16by9 embed-responsive-custom">
+                                            <iframe data-src="//www.youtube.com/embed/EO0jAPxzi04?rel=0&amp;amp;showinfo=0&amp;version=3&amp;enablejsapi=1"></iframe>
+                                        </div>
+                                    </div>
+                                    <div class="item slick-slide" style="width: 740px;" data-slick-index="3"
+                                         aria-hidden="true" tabindex="-1" role="option"
+                                         aria-describedby="slick-slide03">
+                                        <div class="embed-responsive embed-responsive-16by9 embed-responsive-custom">
+                                            <iframe data-src="//www.youtube.com/embed/CDxY6NGEKRU?rel=0&amp;amp;showinfo=0&amp;version=3&amp;enablejsapi=1"></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="child-carousel" data-for=".carousel-parent" data-arrows="false" data-loop="false"
+                             data-dots="false" data-swipe="true" data-items="1" data-xs-items="2" data-sm-items="3"
+                             data-md-items="4" data-lg-items="4" data-slide-to-scroll="1"
+                             class="carousel-child slick-initialized slick-slider">
+
+
+                            <div aria-live="polite" class="slick-list draggable">
+                                <div class="slick-track"
+                                     style="opacity: 1; width: 748px; transform: translate3d(0px, 0px, 0px);"
+                                     role="listbox">
+                                    <div class="item slick-slide slick-current slick-active" style="width: 187px;"
+                                         data-slick-index="0" aria-hidden="false" tabindex="-1" role="option"
+                                         aria-describedby="slick-slide10">
+                                        <div class="img-outer">
+                                            <div class="img-wrap"><img src="{{ asset('images/index-08.jpg') }}" width="355"
+                                                                       height="200" alt=""></div>
+                                        </div>
+                                        <div class="caption">
+                                            <div class="caption-title"> Fallout 4 Ultimate walkthrough and review
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item slick-slide slick-active" style="width: 187px;"
+                                         data-slick-index="1" aria-hidden="false" tabindex="-1" role="option"
+                                         aria-describedby="slick-slide11">
+                                        <div class="img-outer">
+                                            <div class="img-wrap"><img src="{{ asset('images/index-09.jpg') }}" width="355"
+                                                                       height="200" alt=""></div>
+                                        </div>
+                                        <div class="caption">
+                                            <div class="caption-title">Skyforge - Knight Class: trailer</div>
+                                        </div>
+                                    </div>
+                                    <div class="item slick-slide slick-active" style="width: 187px;"
+                                         data-slick-index="2" aria-hidden="false" tabindex="-1" role="option"
+                                         aria-describedby="slick-slide12">
+                                        <div class="img-outer">
+                                            <div class="img-wrap"><img src="{{ asset('images/index-10.jpg') }}" width="355"
+                                                                       height="200" alt=""></div>
+                                        </div>
+                                        <div class="caption">
+                                            <div class="caption-title">Mortal Kombat X: see every new DLC
+                                                character’s fatality
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item slick-slide slick-active" style="width: 187px;"
+                                         data-slick-index="3" aria-hidden="false" tabindex="-1" role="option"
+                                         aria-describedby="slick-slide13">
+                                        <div class="img-outer">
+                                            <div class="img-wrap"><img src="{{ asset('images/index-11.jpg') }}" width="355"
+                                                                       height="200" alt=""></div>
+                                        </div>
+                                        <div class="caption">
+                                            <div class="caption-title">The Division trailler shows Nvidia exclusive
+                                                PC features
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="range offset-top-90">
+                            <div class="cell-md-6">
+                                <h4>Latest Previews</h4>
+                            </div>
+                            <div class="cell-md-6 offset-top-4 offset-md-top-0 text-md-right small"><a
+                                        href="previews.html">See All Previews</a></div>
+                        </div>
+                        <div class="range offset-top-32">
+                            <div class="cell-sm-6">
+                                <div class="post-blog post-blog-no-link">
+                                    <div class="post-blog-media">
+                                        <div class="thumbnail"><a href="blog-single-post.html"><img
+                                                        src="{{ asset('images/index-12.jpg') }}" width="370" height="200" alt=""
+                                                        class="img-responsive"></a>
+                                            <div class="caption"><a href="Previews.html"
+                                                                    class="label label-primary">Previews</a></div>
+                                        </div>
+                                    </div>
+                                    <div class="post-blog-body">
+                                        <h4 class="post-blog-title"><a href="blog-single-post.html">Dark Souls 3:
+                                                game walkthrough done in under 5 hours</a></h4>
+                                        <p></p>
+                                        <div class="post-blog-meta small">
+                                            <div class="text-gray small post-blog-author">by <a
+                                                        href="blog-list.html">Mike Dikow</a></div>
+                                            <a href="blog-list.html" class="post-blog-date">Jan. 12, 2016</a>
+                                            <div class="post-blog-comment"><a href="blog-single-post.html#comments">4</a>
+                                            </div>
+                                        </div>
+                                        <div class="post-blog-link"><a href="blog-single-post.html">Continue
+                                                reading</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cell-sm-6 offset-top-32 offset-sm-top-0">
+                                <div class="post-blog post-blog-no-link">
+                                    <div class="post-blog-media">
+                                        <div class="thumbnail"><a href="blog-single-post.html"><img
+                                                        src="{{ asset('images/index-13.jpg') }}" width="370" height="200" alt=""
+                                                        class="img-responsive"></a>
+                                            <div class="caption"><a href="Previews.html"
+                                                                    class="label label-primary">Previews</a></div>
+                                        </div>
+                                    </div>
+                                    <div class="post-blog-body">
+                                        <h4 class="post-blog-title"><a href="blog-single-post.html">Gears of War:
+                                                Ultimate Edition is out now for Windows…</a></h4>
+                                        <p></p>
+                                        <div class="post-blog-meta small">
+                                            <div class="text-gray small post-blog-author">by <a
+                                                        href="blog-list.html">Mike Dikow</a></div>
+                                            <a href="blog-list.html" class="post-blog-date">Jan. 12, 2016</a>
+                                            <div class="post-blog-comment"><a href="blog-single-post.html#comments">4</a>
+                                            </div>
+                                        </div>
+                                        <div class="post-blog-link"><a href="blog-single-post.html">Continue
+                                                reading</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cell-sm-6 offset-top-32">
+                                <div class="post-blog post-blog-no-link">
+                                    <div class="post-blog-media">
+                                        <div class="thumbnail"><a href="blog-single-post.html"><img
+                                                        src="{{ asset('images/index-14.jpg') }}" width="370" height="200" alt=""
+                                                        class="img-responsive"></a>
+                                            <div class="caption"><a href="Previews.html"
+                                                                    class="label label-primary">Previews</a></div>
+                                        </div>
+                                    </div>
+                                    <div class="post-blog-body">
+                                        <h4 class="post-blog-title"><a href="blog-single-post.html">Quantum Break:
+                                                PC system specs are demanding</a></h4>
+                                        <p></p>
+                                        <div class="post-blog-meta small">
+                                            <div class="text-gray small post-blog-author">by <a
+                                                        href="blog-list.html">Mike Dikow</a></div>
+                                            <a href="blog-list.html" class="post-blog-date">Jan. 12, 2016</a>
+                                            <div class="post-blog-comment"><a href="blog-single-post.html#comments">4</a>
+                                            </div>
+                                        </div>
+                                        <div class="post-blog-link"><a href="blog-single-post.html">Continue
+                                                reading</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cell-sm-6 offset-top-32">
+                                <div class="post-blog post-blog-no-link">
+                                    <div class="post-blog-media">
+                                        <div class="thumbnail"><a href="blog-single-post.html"><img
+                                                        src="{{ asset('images/index-15.jpg') }}" width="370" height="200" alt=""
+                                                        class="img-responsive"></a>
+                                            <div class="caption"><a href="Previews.html"
+                                                                    class="label label-primary">Previews</a></div>
+                                        </div>
+                                    </div>
+                                    <div class="post-blog-body">
+                                        <h4 class="post-blog-title"><a href="blog-single-post.html">“Tom Clancy’s
+                                                Division” – the power of 60 Frames per…</a></h4>
+                                        <p></p>
+                                        <div class="post-blog-meta small">
+                                            <div class="text-gray small post-blog-author">by <a
+                                                        href="blog-list.html">Mike Dikow</a></div>
+                                            <a href="blog-list.html" class="post-blog-date">Jan. 12, 2016</a>
+                                            <div class="post-blog-comment"><a href="blog-single-post.html#comments">4</a>
+                                            </div>
+                                        </div>
+                                        <div class="post-blog-link"><a href="blog-single-post.html">Continue
+                                                reading</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="range">
+                            <div class="cell-md-6">
+                                <h4>Latest Reviews</h4>
+                            </div>
+                            <div class="cell-md-6 offset-top-4 offset-md-top-0 text-md-right small"><a
+                                        href="Reviews.html">See All Reviews</a></div>
+                        </div>
+                        <div class="range offset-top-32">
+                            <div class="cell-sm-6">
+                                <div class="post-blog post-blog-no-link">
+                                    <div class="post-blog-media">
+                                        <div class="thumbnail"><a href="blog-single-post.html"><img
+                                                        src="{{ asset('images/index-16.jpg') }}" width="370" height="200" alt=""
+                                                        class="img-responsive"></a>
+                                            <div class="caption"><a href="Reviews.html" class="label label-primary">Reviews</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="post-blog-body">
+                                        <h4 class="post-blog-title"><a href="blog-single-post.html">Far Cry Primal’s
+                                                map is made from Far Cry 4</a></h4>
+                                        <p></p>
+                                        <div class="post-blog-meta small">
+                                            <div class="text-gray small post-blog-author">by <a
+                                                        href="blog-list.html">Mike Dikow</a></div>
+                                            <a href="blog-list.html" class="post-blog-date">Jan. 12, 2016</a>
+                                            <div class="post-blog-comment"><a href="blog-single-post.html#comments">4</a>
+                                            </div>
+                                        </div>
+                                        <div class="post-blog-link"><a href="blog-single-post.html">Continue
+                                                reading</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cell-sm-6 offset-top-32 offset-sm-top-0">
+                                <div class="post-blog post-blog-no-link">
+                                    <div class="post-blog-media">
+                                        <div class="thumbnail"><a href="blog-single-post.html"><img
+                                                        src="{{ asset('images/index-17.jpg') }}" width="370" height="200" alt=""
+                                                        class="img-responsive"></a>
+                                            <div class="caption"><a href="Reviews.html" class="label label-primary">Reviews</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="post-blog-body">
+                                        <h4 class="post-blog-title"><a href="blog-single-post.html">Manual
+                                                transmission as a part of Need for Speed's update</a></h4>
+                                        <p></p>
+                                        <div class="post-blog-meta small">
+                                            <div class="text-gray small post-blog-author">by <a
+                                                        href="blog-list.html">Mike Dikow</a></div>
+                                            <a href="blog-list.html" class="post-blog-date">Jan. 12, 2016</a>
+                                            <div class="post-blog-comment"><a href="blog-single-post.html#comments">4</a>
+                                            </div>
+                                        </div>
+                                        <div class="post-blog-link"><a href="blog-single-post.html">Continue
+                                                reading</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cell-sm-6 offset-top-32">
+                                <div class="post-blog post-blog-no-link">
+                                    <div class="post-blog-media">
+                                        <div class="thumbnail"><a href="blog-single-post.html"><img
+                                                        src="{{ asset('images/index-04.jpg') }}" width="370" height="200" alt=""
+                                                        class="img-responsive"></a>
+                                            <div class="caption"><a href="./" class="label label-primary">news</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="post-blog-body">
+                                        <h4 class="post-blog-title"><a href="blog-single-post.html">Homefront: The
+                                                Revolution gives away single-player season pass</a></h4>
+                                        <p></p>
+                                        <div class="post-blog-meta small">
+                                            <div class="text-gray small post-blog-author">by <a
+                                                        href="blog-list.html">Mike Dikow</a></div>
+                                            <a href="blog-list.html" class="post-blog-date">Jan. 12, 2016</a>
+                                            <div class="post-blog-comment"><a href="blog-single-post.html#comments">4</a>
+                                            </div>
+                                        </div>
+                                        <div class="post-blog-link"><a href="blog-single-post.html">Continue
+                                                reading</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cell-sm-6 offset-top-32">
+                                <div class="post-blog post-blog-no-link">
+                                    <div class="post-blog-media">
+                                        <div class="thumbnail"><a href="blog-single-post.html"><img
+                                                        src="{{ asset('images/index-07.jpg') }}" width="370" height="200" alt=""
+                                                        class="img-responsive"></a>
+                                            <div class="caption"><a href="./" class="label label-primary">news</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="post-blog-body">
+                                        <h4 class="post-blog-title"><a href="blog-single-post.html">The Division
+                                                Xbox One, PS4, PC file sizes revealed</a></h4>
+                                        <p></p>
+                                        <div class="post-blog-meta small">
+                                            <div class="text-gray small post-blog-author">by <a
+                                                        href="blog-list.html">Mike Dikow</a></div>
+                                            <a href="blog-list.html" class="post-blog-date">Jan. 12, 2016</a>
+                                            <div class="post-blog-comment"><a href="blog-single-post.html#comments">4</a>
+                                            </div>
+                                        </div>
+                                        <div class="post-blog-link"><a href="blog-single-post.html">Continue
+                                                reading</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cell-md-4 text-md-left">
+                    <div class="inset-md-left-30">
+                        <div class="range">
+                            <div class="cell-md-12 bg-pseudo-gray-md section-39">
+                                <h4>Social Gaming News</h4>
+                                <p class="offset-top-12">Read the Latest Gaming News on Facebook, Twitter &amp;
+                                    more!</p>
+                                <ul class="list-inline list-inline-lg offset-top-20">
+                                    <li><a href="#" class="fa-facebook icon icon-sm icon icon-gray"></a></li>
+                                    <li><a href="#" class="fa-twitter icon icon-sm icon icon-gray"></a></li>
+                                    <li><a href="#" class="icon icon-sm icon icon-gray fa-pinterest-p"></a></li>
+                                    <li><a href="#" class="icon icon-sm icon icon-gray fa-vimeo"></a></li>
+                                    <li><a href="#" class="icon icon-sm icon icon-gray fa-youtube-play"></a></li>
+                                </ul>
+                            </div>
+                            <div class="cell-md-12 offset-top-0 section-35">
+                                <h4>Sign up for Gaming Updates!</h4>
+                                <p class="offset-top-12">Give us your email and we will be updating you daily with
+                                    the latest gaming news!</p>
+
+                                <form data-form-output="form-output-global" data-form-type="subscribe" method="post"
+                                      action="bat/rd-mailform.php"
+                                      class="form-subscribe offset-top-25 rd-mailform text-left form-icon form-group-lg"
+                                      novalidate="novalidate">
+                                    <label for="contact-email" class="form-label rd-input-label">Enter
+                                        e-mail</label>
+                                    <input id="contact-email" type="email" name="email"
+                                           data-constraints="@Email @Required"
+                                           class="form-control form-control-has-validation"><span
+                                            class="form-validation"></span>
+                                    <button type="submit"
+                                            class="btn btn-default btn-icon btn-abs fa-envelope"></button>
+                                </form>
+                            </div>
+                            <div class="cell-md-12 offset-top-15 bg-pseudo-gray-md section-35">
+                                <h4>Popular Gaming News</h4>
+                                <div class="range offset-top-25 text-left">
+                                    <div class="cell-md-12 cell-sm-6">
+                                        <div class="unit unit-horizontal post-blog post-blog-sm">
+                                            <div class="unit-left"><a href="blog-single-post.html"
+                                                                      class="thumbnail"><img
+                                                            src="{{ asset('images/sidebar-01.jpg') }}" width="85" height="85" alt=""
+                                                            class="img-responsive"></a></div>
+                                            <div class="unit-body">
+                                                <div class="small"><a href="./">News</a></div>
+                                                <div><a href="blog-single-post.html" class="post-blog-title">Far Cry
+                                                        Primal's map is made from Far Cry 4</a></div>
+                                                <div>
+                                                    <ul class="reveal-inline-block list-inline list-inline-0 post-blog-rating">
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="reveal-inline-block text-gray small post-blog-author">
+                                                        by <a href="blog-list.html">Mike Dikow</a></div>
+                                                </div>
+                                                <div class="post-blog-meta small">
+                                                    <p class="text-gray">Jan. 12, 2016</p><span
+                                                            class="post-blog-comment"><a
+                                                                href="blog-single-post.html#comments">4</a></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cell-md-12 cell-sm-6 offset-top-25 offset-sm-top-0 offset-md-top-25">
+                                        <div class="unit unit-horizontal post-blog post-blog-sm">
+                                            <div class="unit-left"><a href="blog-single-post.html"
+                                                                      class="thumbnail"><img
+                                                            src="{{ asset('images/sidebar-02.jpg') }}" width="85" height="85" alt=""
+                                                            class="img-responsive"></a></div>
+                                            <div class="unit-body">
+                                                <div class="small"><a href="./">News</a></div>
+                                                <div><a href="blog-single-post.html" class="post-blog-title">The
+                                                        Division Xbox One, PS4, PC file sizes revealed</a></div>
+                                                <div>
+                                                    <ul class="reveal-inline-block list-inline list-inline-0 post-blog-rating">
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="reveal-inline-block text-gray small post-blog-author">
+                                                        by <a href="blog-list.html">Mike Dikow</a></div>
+                                                </div>
+                                                <div class="post-blog-meta small">
+                                                    <p class="text-gray">Jan. 12, 2016</p><span
+                                                            class="post-blog-comment"><a
+                                                                href="blog-single-post.html#comments">4</a></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cell-md-12 cell-sm-6 offset-top-25">
+                                        <div class="unit unit-horizontal post-blog post-blog-sm">
+                                            <div class="unit-left"><a href="blog-single-post.html"
+                                                                      class="thumbnail"><img
+                                                            src="{{ asset('images/sidebar-03.jpg') }}" width="85" height="85" alt=""
+                                                            class="img-responsive"></a></div>
+                                            <div class="unit-body">
+                                                <div class="small"><a href="./">News</a></div>
+                                                <div><a href="blog-single-post.html" class="post-blog-title">Manual
+                                                        transmission as a part of Need for Speed's update</a></div>
+                                                <div>
+                                                    <ul class="reveal-inline-block list-inline list-inline-0 post-blog-rating">
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="reveal-inline-block text-gray small post-blog-author">
+                                                        by <a href="blog-list.html">Mike Dikow</a></div>
+                                                </div>
+                                                <div class="post-blog-meta small">
+                                                    <p class="text-gray">Jan. 12, 2016</p><span
+                                                            class="post-blog-comment"><a
+                                                                href="blog-single-post.html#comments">4</a></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cell-md-12 cell-sm-6 offset-top-25">
+                                        <div class="unit unit-horizontal post-blog post-blog-sm">
+                                            <div class="unit-left"><a href="blog-single-post.html"
+                                                                      class="thumbnail"><img
+                                                            src="{{ asset('images/sidebar-04.jpg') }}" width="85" height="85" alt=""
+                                                            class="img-responsive"></a></div>
+                                            <div class="unit-body">
+                                                <div class="small"><a href="./">News</a></div>
+                                                <div><a href="blog-single-post.html" class="post-blog-title">Mass
+                                                        Effect: Andromeda to miss holiday 2016 release</a></div>
+                                                <div>
+                                                    <ul class="reveal-inline-block list-inline list-inline-0 post-blog-rating">
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="reveal-inline-block text-gray small post-blog-author">
+                                                        by <a href="blog-list.html">Mike Dikow</a></div>
+                                                </div>
+                                                <div class="post-blog-meta small">
+                                                    <p class="text-gray">Jan. 12, 2016</p><span
+                                                            class="post-blog-comment"><a
+                                                                href="blog-single-post.html#comments">4</a></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cell-md-12 cell-sm-6 offset-top-25">
+                                        <div class="unit unit-horizontal post-blog post-blog-sm">
+                                            <div class="unit-left"><a href="blog-single-post.html"
+                                                                      class="thumbnail"><img
+                                                            src="{{ asset('images/sidebar-05.jpg') }}" width="85" height="85" alt=""
+                                                            class="img-responsive"></a></div>
+                                            <div class="unit-body">
+                                                <div class="small"><a href="./">News</a></div>
+                                                <div><a href="blog-single-post.html" class="post-blog-title">Gears
+                                                        of War: Ultimate Edition is out now for Windows 10</a></div>
+                                                <div>
+                                                    <ul class="reveal-inline-block list-inline list-inline-0 post-blog-rating">
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="reveal-inline-block text-gray small post-blog-author">
+                                                        by <a href="blog-list.html">Mike Dikow</a></div>
+                                                </div>
+                                                <div class="post-blog-meta small">
+                                                    <p class="text-gray">Jan. 12, 2016</p><span
+                                                            class="post-blog-comment"><a
+                                                                href="blog-single-post.html#comments">4</a></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cell-md-12 section-35 offset-top-0">
+                                <h4>Recent Comments</h4>
+                                <ul class="list">
+                                    <li><a href="blog-list.html">Albert</a><span class="text-gray"> on </span><a
+                                                href="blog-single-post.html">How relevant is PS4 release for the
+                                            "Carmageddon"?</a></li>
+                                    <li><a href="blog-list.html">Danny</a><span class="text-gray"> on </span><a
+                                                href="blog-single-post.html">Why Uncharted 4 release gets postponed
+                                            (again)?</a></li>
+                                    <li><a href="blog-list.html">Steven</a><span class="text-gray"> on </span><a
+                                                href="blog-single-post.html">A new gaming VR device: HoloLens price
+                                            revealed</a></li>
+                                    <li><a href="blog-list.html">David</a><span class="text-gray"> on </span><a
+                                                href="blog-single-post.html">Halo 5 multiplayer mode is available for
+                                            gamers at last</a></li>
+                                    <li><a href="blog-list.html">Steve</a><span class="text-gray"> on </span><a
+                                                href="blog-single-post.html">Will new Mortal Combat feature Aliens and
+                                            Predators?</a></li>
+                                    <li><a href="blog-list.html">Albert</a><span class="text-gray"> on </span><a
+                                                href="blog-single-post.html">How relevant is PS4 release for the
+                                            "Carmageddon"?</a></li>
+                                    <li><a href="blog-list.html">Danny</a><span class="text-gray"> on </span><a
+                                                href="blog-single-post.html">Why Uncharted 4 release gets postponed
+                                            (again)?</a></li>
+                                    <li><a href="blog-list.html">Steven</a><span class="text-gray"> on </span><a
+                                                href="blog-single-post.html">A new gaming VR device: HoloLens price
+                                            revealed</a></li>
+                                </ul>
+                            </div>
+                            <div class="cell-md-12 offset-top-15 bg-pseudo-gray-md section-35">
+                                <h4>Recommended Posts</h4>
+                                <div class="range offset-top-25 text-left">
+                                    <div class="cell-md-12 cell-sm-6">
+                                        <div class="unit unit-horizontal post-blog post-blog-sm">
+                                            <div class="unit-left"><a href="blog-single-post.html"
+                                                                      class="thumbnail"><img
+                                                            src="{{ asset('images/sidebar-06.jpg') }}" width="85" height="85" alt=""
+                                                            class="img-responsive"></a></div>
+                                            <div class="unit-body">
+                                                <div class="small"><a href="Platforms.html">Platforms</a></div>
+                                                <div><a href="blog-single-post.html" class="post-blog-title">Homefront:
+                                                        The Revolution gives away single-player season pass</a></div>
+                                                <div>
+                                                    <ul class="reveal-inline-block list-inline list-inline-0 post-blog-rating">
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="reveal-inline-block text-gray small post-blog-author">
+                                                        by <a href="blog-list.html">Mike Dikow</a></div>
+                                                </div>
+                                                <div class="post-blog-meta small">
+                                                    <p class="text-gray">Jan. 12, 2016</p><span
+                                                            class="post-blog-comment"><a
+                                                                href="blog-single-post.html#comments">4</a></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cell-md-12 cell-sm-6 offset-top-25 offset-sm-top-0 offset-md-top-25">
+                                        <div class="unit unit-horizontal post-blog post-blog-sm">
+                                            <div class="unit-left"><a href="blog-single-post.html"
+                                                                      class="thumbnail"><img
+                                                            src="{{ asset('images/sidebar-07.jpg') }}" width="85" height="85" alt=""
+                                                            class="img-responsive"></a></div>
+                                            <div class="unit-body">
+                                                <div class="small"><a href="./">News</a></div>
+                                                <div><a href="blog-single-post.html" class="post-blog-title">Fallout
+                                                        4</a></div>
+                                                <div>
+                                                    <ul class="reveal-inline-block list-inline list-inline-0 post-blog-rating">
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="reveal-inline-block text-gray small post-blog-author">
+                                                        by <a href="blog-list.html">Mike Dikow</a></div>
+                                                </div>
+                                                <div class="post-blog-meta small">
+                                                    <p class="text-gray">Jan. 12, 2016</p><span
+                                                            class="post-blog-comment"><a
+                                                                href="blog-single-post.html#comments">4</a></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cell-md-12 cell-sm-6 offset-top-25">
+                                        <div class="unit unit-horizontal post-blog post-blog-sm">
+                                            <div class="unit-left"><a href="blog-single-post.html"
+                                                                      class="thumbnail"><img
+                                                            src="{{ asset('images/sidebar-08.jpg') }}" width="85" height="85" alt=""
+                                                            class="img-responsive"></a></div>
+                                            <div class="unit-body">
+                                                <div class="small"><a href="Platforms.html">Platforms</a></div>
+                                                <div><a href="blog-single-post.html" class="post-blog-title">World
+                                                        of Warcraft</a></div>
+                                                <div>
+                                                    <ul class="reveal-inline-block list-inline list-inline-0 post-blog-rating">
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="reveal-inline-block text-gray small post-blog-author">
+                                                        by <a href="blog-list.html">Mike Dikow</a></div>
+                                                </div>
+                                                <div class="post-blog-meta small">
+                                                    <p class="text-gray">Jan. 12, 2016</p><span
+                                                            class="post-blog-comment"><a
+                                                                href="blog-single-post.html#comments">4</a></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cell-md-12 cell-sm-6 offset-top-25">
+                                        <div class="unit unit-horizontal post-blog post-blog-sm">
+                                            <div class="unit-left"><a href="blog-single-post.html"
+                                                                      class="thumbnail"><img
+                                                            src="{{ asset('images/sidebar-09.jpg') }}" width="85" height="85" alt=""
+                                                            class="img-responsive"></a></div>
+                                            <div class="unit-body">
+                                                <div class="small"><a href="./">News</a></div>
+                                                <div><a href="blog-single-post.html" class="post-blog-title">Quantum
+                                                        Break: PC system specs are demanding</a></div>
+                                                <div>
+                                                    <ul class="reveal-inline-block list-inline list-inline-0 post-blog-rating">
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="reveal-inline-block text-gray small post-blog-author">
+                                                        by <a href="blog-list.html">Mike Dikow</a></div>
+                                                </div>
+                                                <div class="post-blog-meta small">
+                                                    <p class="text-gray">Jan. 12, 2016</p><span
+                                                            class="post-blog-comment"><a
+                                                                href="blog-single-post.html#comments">4</a></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cell-md-12 cell-sm-6 offset-top-25">
+                                        <div class="unit unit-horizontal post-blog post-blog-sm">
+                                            <div class="unit-left"><a href="blog-single-post.html"
+                                                                      class="thumbnail"><img
+                                                            src="{{ asset('images/sidebar-10.jpg') }}" width="85" height="85" alt=""
+                                                            class="img-responsive"></a></div>
+                                            <div class="unit-body">
+                                                <div class="small"><a href="./">News</a></div>
+                                                <div><a href="blog-single-post.html" class="post-blog-title">“Enter
+                                                        the Gungeon” arcade game will be released soon</a></div>
+                                                <div>
+                                                    <ul class="reveal-inline-block list-inline list-inline-0 post-blog-rating">
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                        <li><span class="icon icon-xs fa-star text-warning"></span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="reveal-inline-block text-gray small post-blog-author">
+                                                        by <a href="blog-list.html">Mike Dikow</a></div>
+                                                </div>
+                                                <div class="post-blog-meta small">
+                                                    <p class="text-gray">Jan. 12, 2016</p><span
+                                                            class="post-blog-comment"><a
+                                                                href="blog-single-post.html#comments">4</a></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section-top-80">
+        <div class="shell text-left">
+            <h4>Top Releases</h4>
+        </div>
+
+        <div data-nav="true" data-items="1" data-lg-items="4" data-md-items="3" data-xs-items="2" data-loop="false"
+             class="owl-nav-variant-1 owl-carousel offset-top-32 owl-theme owl-loaded">
+
+
+            <div class="owl-stage-outer">
+                <div class="owl-stage"
+                     style="transform: translate3d(0px, 0px, 0px); transition: 0s; width: 3130px;">
+                    <div class="owl-item active" style="width: 391.25px; margin-right: 0px;">
+                        <div class="item">
+                            <div class="thumbnail-custom"><img src="{{ asset('images/index-20.jpg') }}" width="560" height="320"
+                                                               alt="" class="img-responsive">
+                                <div class="caption">
+                                    <h4 class="caption-title"><a href="blog-single-post.html">Homefront: The
+                                            Revolution gives away…</a></h4>
+                                    <div class="caption-onhover small">
+                                        <p class="caption-text">Homefront: The Revolution's Goliath Edition gets its
+                                            name from the armored vehicle…</p><a href="blog-single-post.html"
+                                                                                 class="caption-link">Read more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="owl-item active" style="width: 391.25px; margin-right: 0px;">
+                        <div class="item">
+                            <div class="thumbnail-custom"><img src="{{ asset('images/index-21.jpg') }}" width="560" height="320"
+                                                               alt="" class="img-responsive">
+                                <div class="caption">
+                                    <h4 class="caption-title"><a href="blog-single-post.html">“Enter the Gungeon”
+                                            arcade game…</a></h4>
+                                    <div class="caption-onhover small">
+                                        <p class="caption-text">Enter the Gungeon is a gunfight dungeon crawler
+                                            following a band of misfits seeking…</p><a href="blog-single-post.html"
+                                                                                       class="caption-link">Read
+                                            more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="owl-item active" style="width: 391.25px; margin-right: 0px;">
+                        <div class="item">
+                            <div class="thumbnail-custom"><img src="{{ asset('images/index-22.jpg') }}" width="560" height="320"
+                                                               alt="" class="img-responsive">
+                                <div class="caption">
+                                    <h4 class="caption-title"><a href="blog-single-post.html">Quantum Break: PC
+                                            system specs…</a></h4>
+                                    <div class="caption-onhover small">
+                                        <p class="caption-text">Quantum Break is latest third-person shooter from
+                                            Remedy Entertainment, they of…</p><a href="blog-single-post.html"
+                                                                                 class="caption-link">Read more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="owl-item active" style="width: 391.25px; margin-right: 0px;">
+                        <div class="item">
+                            <div class="thumbnail-custom"><img src="{{ asset('images/index-23.jpg') }}" width="560" height="320"
+                                                               alt="" class="img-responsive">
+                                <div class="caption">
+                                    <h4 class="caption-title"><a href="blog-single-post.html">Fallout 4</a></h4>
+                                    <div class="caption-onhover small">
+                                        <p class="caption-text">Most of the way this huge roleplaying-shooter game
+                                            works is carried over from its…</p><a href="blog-single-post.html"
+                                                                                  class="caption-link">Read more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="owl-item" style="width: 391.25px; margin-right: 0px;">
+                        <div class="item">
+                            <div class="thumbnail-custom"><img src="{{ asset('images/index-20.jpg') }}" width="560" height="320"
+                                                               alt="" class="img-responsive">
+                                <div class="caption">
+                                    <h4 class="caption-title"><a href="blog-single-post.html">Homefront: The
+                                            Revolution gives away…</a></h4>
+                                    <div class="caption-onhover small">
+                                        <p class="caption-text">At the end of the story in Gears of War: Ultimate
+                                            Edition, Marcus Fenix’s character…</p><a href="blog-single-post.html"
+                                                                                     class="caption-link">Read
+                                            more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="owl-item" style="width: 391.25px; margin-right: 0px;">
+                        <div class="item">
+                            <div class="thumbnail-custom"><img src="{{ asset('images/index-21.jpg') }}" width="560" height="320"
+                                                               alt="" class="img-responsive">
+                                <div class="caption">
+                                    <h4 class="caption-title"><a href="blog-single-post.html">“Enter the Gungeon”
+                                            arcade game…</a></h4>
+                                    <div class="caption-onhover small">
+                                        <p class="caption-text">At the end of the story in Gears of War: Ultimate
+                                            Edition, Marcus Fenix’s character…</p><a href="blog-single-post.html"
+                                                                                     class="caption-link">Read
+                                            more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="owl-item" style="width: 391.25px; margin-right: 0px;">
+                        <div class="item">
+                            <div class="thumbnail-custom"><img src="{{ asset('images/index-22.jpg') }}" width="560" height="320"
+                                                               alt="" class="img-responsive">
+                                <div class="caption">
+                                    <h4 class="caption-title"><a href="blog-single-post.html">Quantum Break: PC
+                                            system specs…</a></h4>
+                                    <div class="caption-onhover small">
+                                        <p class="caption-text">At the end of the story in Gears of War: Ultimate
+                                            Edition, Marcus Fenix’s character…</p><a href="blog-single-post.html"
+                                                                                     class="caption-link">Read
+                                            more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="owl-item" style="width: 391.25px; margin-right: 0px;">
+                        <div class="item">
+                            <div class="thumbnail-custom"><img src="{{ asset('images/index-23.jpg') }}" width="560" height="320"
+                                                               alt="" class="img-responsive">
+                                <div class="caption">
+                                    <h4 class="caption-title"><a href="blog-single-post.html">Fallout 4</a></h4>
+                                    <div class="caption-onhover small">
+                                        <p class="caption-text">At the end of the story in Gears of War: Ultimate
+                                            Edition, Marcus Fenix’s character…</p><a href="blog-single-post.html"
+                                                                                     class="caption-link">Read
+                                            more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="owl-controls">
+                <div class="owl-nav">
+                    <div class="owl-prev" style=""></div>
+                    <div class="owl-next" style=""></div>
+                </div>
+                <div class="owl-dots" style="display: none;"></div>
+            </div>
+        </div>
+    </section>
+</main>
+{% block content %}
+
+{% endblock %}
+</body>
+
+
+{% block footer %}
+{% endblock %}
+<footer class="page-footer">
+    <section class="section-54 context-dark">
+        <div class="shell">
+            <div class="range text-md-left">
+                <div class="cell-sm-6 cell-md-3">
+                    <h4>Categories</h4>
+                    <ul class="list-11">
+                        <li><a href="./"> News</a></li>
+                        <li><a href="Previews.html"> Previews</a></li>
+                        <li><a href="Reviews.html"> Reviews</a></li>
+                        <li><a href="#"> Information</a></li>
+                        <li><a href="blog-single-post.html"> Recent Posts</a></li>
+                        <li><a href="videos.html"> Videos</a></li>
+                        <li><a href="Platforms.html"> Platforms</a></li>
+                    </ul>
+                </div>
+                <div class="cell-sm-6 cell-md-3">
+                    <h4>Information</h4>
+                    <ul class="list-11">
+                        <li><a href="About.html">About us</a></li>
+                        <li><a href="Contact.html">Contact us</a></li>
+                        <li><a href="#">Editorial Policy</a></li>
+                        <li><a href="privacy.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="cell-md-3">
+                    <h4>Recent Post</h4>
+                    <div class="post-blog"><a href="blog-single-post.html" class="thumbnail"><img src="{{ asset('images/footer-01.jpg') }}" width="" height="" alt="" class="img-responsive"></a>
+                        <div class="small"><a href="./">News</a></div>
+                        <div class="post-blog-title"><a href="blog-single-post.html">Homefront: The Revolution gives away single-player season pass</a></div>
+                        <div class="post-blog-meta small">
+                            <div class="reveal-inline-block text-gray small post-blog-author">by <a href="blog-list.html">Admin</a></div>
+                            <p class="text-gray">Jan. 12, 2016</p><span class="post-blog-comment"><a href="blog-single-post.html#comments">4</a></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cell-md-3">
+                    <h4>Recent Comments</h4>
+                    <ul class="list">
+                        <li><a href="blog-single-post.html">Albert on How relevant is PS4 release for the "Carmageddon"?</a></li>
+                        <li><a href="blog-single-post.html">Danny on Why Uncharted 4 release gets postponed (again)?</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="bg-gray-base post-footer">
+        <div class="shell">
+            <div class="range range-md-middle">
+                <div class="cell-md-6 text-md-right text-center cell-md-push-1">
+                    <ul class="list-inline list-inline-none">
+                        <li><a href="#" class="icon icon-sm fa-facebook"></a></li>
+                        <li><a href="#" class="icon icon-sm fa-twitter"></a></li>
+                        <li><a href="#" class="icon icon-sm fa-pinterest-p"></a></li>
+                        <li><a href="#" class="icon icon-sm fa-vimeo"></a></li>
+                        <li><a href="#" class="icon icon-sm fa-youtube-play"></a></li>
+                    </ul>
+                </div>
+                <div class="cell-md-6 text-md-left offset-top-25 offset-md-top-0">
+                    <p>© 2016 Finest Game, Inc. <a href="privacy.html">All Rights Reserved</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</footer>
+
+
+</html>

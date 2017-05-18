@@ -1,0 +1,10 @@
+pid_video:
+    resource: "@pidBundle/Resources/config/routing/video.yml"
+    prefix:   /video
+
+pid_homepage:
+    path:     /hello
+    defaults: { _controller: pidBundle:Default:index }
+pid:
+    path:     /
+    defaults: { _controller: pidBundle:Default:chat }

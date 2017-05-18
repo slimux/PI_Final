@@ -1,0 +1,24 @@
+serveur_index:
+    path:     /
+    defaults: { _controller: "MyAppPIBundle:ServeurAdmin:index" }
+    methods:  GET
+
+serveur_show:
+    path:     /{idServeur}/show
+    defaults: { _controller: "MyAppPIBundle:ServeurAdmin:show" }
+    methods:  GET
+
+serveur_new:
+    path:     /new
+    defaults: { _controller: "MyAppPIBundle:ServeurAdmin:new" }
+    methods:  [GET, POST]
+
+serveur_edit:
+    path:     /{idServeur}/edit
+    defaults: { _controller: "MyAppPIBundle:ServeurAdmin:edit" }
+    methods:  [GET, POST]
+
+serveur_delete:
+    path:     /{idServeur}/delete
+    defaults: { _controller: "MyAppPIBundle:ServeurAdmin:delete" }
+    methods:  DELETE

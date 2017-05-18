@@ -1,0 +1,526 @@
+{% extends 'MyAppVideoBundle:layout:layout.html.twig' %}
+{% block head %}
+    <title>{% block title %} Home {% endblock %}</title>
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <script type="text/javascript">
+        // thread id
+        var fos_comment_thread_id = 'foo';
+
+        // api base url to use for initial requests
+        var fos_comment_thread_api_base_url = '/Symfony/web/app_dev.php/api/threads';
+
+        // Snippet for asynchronously loading the comments
+        (function() {
+            var fos_comment_script = document.createElement('script');
+            fos_comment_script.async = true;
+            fos_comment_script.src = '/Symfony/web/app_dev.php/js/35a8e64_comments_1.js';
+            fos_comment_script.type = 'text/javascript';
+
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(fos_comment_script);
+        })();
+    </script>
+
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/plugins/ua/ec.js"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="http://www.googletagmanager.com/gtm.js?id=GTM-P9FT69"></script><script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script async="" src="http://ajax.cloudflare.com/cdn-cgi/nexp/dok3v=f2befc48d1/cloudflare.min.js"></script><script type="text/javascript">
+    //<![CDATA[
+    try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag2:1,mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/dok3v=1613a3a185/"},atok:"0990115ae424311cc566aeef9cb33b2c",petok:"9fd8cda7d76103856269ff3579befa5188ebf83e-1488990843-1800",zone:"template-help.com",rocket:"0",apps:{"abetterbrowser":{"ie":"7"}}}];!function(a,b){a=document.createElement("script"),b=document.getElementsByTagName("script")[0],a.async=!0,a.src="http://ajax.cloudflare.com/cdn-cgi/nexp/dok3v=f2befc48d1/cloudflare.min.js",b.parentNode.insertBefore(a,b)}()}}catch(e){};
+    //]]>
+</script>
+    {% block stylesheet %}
+        <link rel="icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
+
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Montserrat:400,500,700%7CUbuntu:300,300italic,400,500,700">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <!--[if lt IE 10]>
+        {% stylesheets '@FOSCommentBundle/Resources/public/css/comments.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+        {% endstylesheets %}
+
+        <![endif]-->
+    {% endblock %}
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+
+{% endblock %}
+{% block header %}
+
+    <div class="rd-navbar-wrap" style="height: 135px;">
+        <nav class="rd-navbar rd-navbar-original rd-navbar-static" data-layout="rd-navbar-fixed"
+             data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fullwidth"
+             data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static"
+             data-lg-device-layout="rd-navbar-static" data-sm-stick-up-offset="225px" data-md-stick-up-offset="45px"
+             data-lg-stick-up-offset="45px">
+            <div class="rd-navbar-top-panel">
+                <div class="rd-navbar-top-panel-inner">
+                    <p class="rd-navbar-fixed--hidden">Welcome to the<span
+                                class="text-white"> world of gaming news!</span></p>
+                    <div>
+                        <a href="about.html" class="rd-navbar-fixed--hidden">Store</a>
+                        <a href="about.html" class="rd-navbar-fixed--hidden">About us</a>
+                        <a href="contact.html" class="rd-navbar-fixed--hidden">Contacts</a>
+
+                        <div class="rd-navbar-search toggle-original-elements">
+                            <button data-rd-navbar-toggle=".rd-navbar-search"
+                                    class="rd-navbar-search-toggle toggle-original"><span class="fa-search"></span>
+                            </button>
+                            <form action="search-results.html" data-search-live="rd-search-results-live"
+                                  method="GET" class="rd-search">
+                                <div class="form-group">
+                                    <label for="rd-navbar-search-form-input" class="form-label rd-input-label">Search</label>
+                                    <input id="rd-navbar-search-form-input" type="text" name="s" autocomplete="off"
+                                           class="rd-navbar-search-form-input form-control form-control-gray-lightest">
+                                    <div id="rd-search-results-live" class="rd-search-results-live"></div>
+                                </div>
+                                <button type="submit" class="fa-search"></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="rd-navbar-inner">
+
+                <div class="rd-navbar-panel">
+
+                    <button data-rd-navbar-toggle=".rd-navbar-nav-wrap" class="rd-navbar-toggle toggle-original">
+                        <span></span></button>
+
+                    <div class="rd-navbar-brand"><a href="./"><img src="{{ asset('images/logo.png') }}" alt=""></a></div>
+                    <ul class="rd-navbar-list-inline">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>
+                                {{ user.username }}
+                                <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="{{ path('fos_user_profile_edit') }}"><i class="fa fa-fw fa-user"></i> Profile</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                    </ul>
+                </div>
+                <div class="rd-navbar-panel">
+
+
+                    <ul class="rd-navbar-list-inline">
+
+
+                    </ul>
+                </div>
+                <div class="rd-navbar-nav-wrap toggle-original-elements">
+
+                    <ul class="rd-navbar-nav">
+                        <li class="active rd-navbar--has-dropdown rd-navbar-submenu"><a href="./">Jeux</a>
+                            <ul class="rd-navbar-dropdown">
+                                <li class="rd-navbar--has-dropdown rd-navbar-submenu"><a href="#">Post format</a>
+                                    <ul class="rd-navbar-dropdown rd-navbar-open-right">
+                                        <li><a href="blog-single-post.html">Standard Format</a></li>
+                                        <li><a href="blog-audio-post.html">Audio Format</a></li>
+                                        <li><a href="blog-video-post.html">Video Format</a></li>
+                                        <li><a href="blog-quote-post.html">Quote Format</a></li>
+                                        <li><a href="blog-gallery-post.html">Gallery Format</a></li>
+                                        <li><a href="blog-link-post.html">Link Format</a></li>
+                                    </ul>
+                                    <span class="rd-navbar-submenu-toggle"></span></li>
+                                <li><a href="typography.html">Typography</a></li>
+                                <li><a href="404.html">404</a></li>
+                            </ul>
+
+
+
+
+                        <li class="active rd-navbar--has-dropdown rd-navbar-submenu"><a href="./">Live</a>
+                            <ul class="rd-navbar-dropdown">
+                                <li><a href="{{ path('live') }}">Twitch</a></li>
+                                <li><a href="{{ path('live') }}">Youtube</a></li>
+                            </ul>
+                            <span class="rd-navbar-submenu-toggle"></span></li>
+                        <li><a href="videos.html">forum</a></li>
+                        <li><a href="{{ path('videosh') }}">Videos</a> <ul class="rd-navbar-dropdown">
+
+                                    <span class="rd-navbar-submenu-toggle"></span></li>
+
+                            </ul>
+                            <span class="rd-navbar-submenu-toggle"></span></li>
+
+
+
+
+                        <li class="rd-navbar-fixed--visible rd-navbar--hidden"><a href="about.html">about</a></li>
+                        <li class="rd-navbar-fixed--visible rd-navbar--hidden"><a href="contact.html">contact</a>
+                        </li>
+                        <li class="rd-navbar-fixed--visible rd-navbar--hidden">
+                            <ul class="rd-navbar-list-inline">
+                                <li><a href="#" class="icon icon-sm fa-facebook"></a></li>
+                                <li><a href="#" class="icon icon-sm fa-twitter"></a></li>
+                                <li><a href="#" class="icon icon-sm fa-pinterest-p"></a></li>
+                                <li><a href="#" class="icon icon-sm fa-vimeo"></a></li>
+                                <li><a href="#" class="icon icon-sm fa-youtube-play"></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+
+    </div>
+{% endblock header %}
+
+    {% block content %}
+        <section class="bg-primary">
+            <div class="shell">
+                <ol class="breadcrumb">
+                    <li><a href="./">Home</a></li>
+                    <li class="active">Videos</li>
+                    <li>   <form class="navbar-form navbar-right" method="post" action="{{ path('video_recherche') }}">
+                        <input type="text" class="form-control" placeholder="Search..." name="motcle">
+                    </form></li>
+                </ol>
+
+            </div>
+        </section>
+        <section>
+            <div class="shell text-md-left section-top-48 section-bottom-80">
+                <div class="range">
+
+
+                    <div class="cell-md-8">
+                        <div class="inset-md-right-30">
+                            <div class="range">
+                                {% for video in pagination %}
+
+                                <div class="cell-md-6">
+                                    <div class="post-blog">
+                                        <div class="post-blog-media">
+                                            <div class="thumbnail reveal-block">
+                                                <div class="embed-responsive embed-responsive-16by9 embed-responsive-custom">
+                                                    <iframe src="https://www.youtube.com/embed/{{ video.codeVideo }}" width="200" height="200" frameborder="0" style="position:absolute;width:50%;height:100%;left:80" allowfullscreen></iframe>
+
+                                       </div>
+                                                <div class="caption"><a href="videos.html" class="label label-primary">videos</a></div>
+                                            </div>
+                                        </div>
+                                        <div class="post-blog-body">
+                                            <h4 class="post-blog-title"><a href="blog-video-post.html">{{ video.titre }} : {{ video.typeVideo }}</a></h4>
+                                            <div class="post-blog-meta small">
+                                                <div class="text-gray small post-blog-author">Description : <a href="blog-list.html">{{ video.description |raw }}</a></div><a href="blog-list.html" class="post-blog-date">{{ video.dateAjout|date('Y-m-d H:i:s') }}</a>
+                                                <div class="post-blog-comment"><a href="blog-single-post.html#comments">4</a></div>
+                                            </div>
+                                            <div class="post-blog-link"><a href="{{ path('single', { 'id' : video.idVideo }) }}">Regarder cette video</a></div>
+                                            {% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': 'foo'} %}
+
+
+
+                                        </div>
+                                        <div class="social-links square">
+                                          <strong>  {{ twitterButton() }} {{ facebookButton() }}  {{ linkedinButton() }}  {{ pinterestButton() }}  {{ googleplusButton() }}
+
+                                          </strong>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                {% endfor %}
+
+
+
+                            </div>
+                        </div>
+                        <br><br>
+                         <div class="navigation text-center">
+                            {{ knp_pagination_render(pagination) }}
+                        </div>
+                    </div>
+
+                    <div class="cell-md-4">
+                        <aside class="inset-md-left-30">
+                            <div class="range">
+                                <div class="cell-md-12 bg-pseudo-gray-md section-39">
+                                    <h4>Social Gaming News</h4>
+                                    <p class="offset-top-12">Read the Latest Gaming News on Facebook, Twitter & more!</p>
+                                    <ul class="list-inline list-inline-lg offset-top-20">
+                                        <li><a href="#" class="fa-facebook icon icon-sm icon icon-gray"></a></li>
+                                        <li><a href="#" class="fa-twitter icon icon-sm icon icon-gray"></a></li>
+                                        <li><a href="#" class="icon icon-sm icon icon-gray fa-pinterest-p"></a></li>
+                                        <li><a href="#" class="icon icon-sm icon icon-gray fa-vimeo"></a></li>
+                                        <li><a href="#" class="icon icon-sm icon icon-gray fa-youtube-play"></a></li>
+                                    </ul>
+                                </div>
+                                <div class="cell-md-12 offset-top-0 section-35">
+                                    <h4>Sign up for Gaming Updates!</h4>
+                                    <p class="offset-top-12">Give us your email and we will be updating you daily with the latest gaming news!</p>
+
+                                    <form data-form-output="form-output-global" data-form-type="subscribe" method="post" action="bat/rd-mailform.php" class="form-subscribe offset-top-25 rd-mailform text-left form-icon form-group-lg">
+                                        <label for="contact-email" class="form-label">Enter e-mail</label>
+                                        <input id="contact-email" type="email" name="email" data-constraints="@Email @Required" class="form-control">
+                                        <button type="submit" class="btn btn-default btn-icon btn-abs fa-envelope"></button>
+                                    </form>
+                                </div>
+                                <div class="cell-md-12 offset-top-15 bg-pseudo-gray-md section-35">
+                                    <h4>Popular Gaming News</h4>
+                                    <div class="range offset-top-25 text-left">
+                                        <div class="cell-md-12 cell-sm-6">
+                                            <div class="unit unit-horizontal post-blog post-blog-sm">
+                                                <div class="unit-left"><a href="blog-single-post.html" class="thumbnail"><img src="images/sidebar-01.jpg" width="85" height="85" alt="" class="img-responsive"></a></div>
+                                                <div class="unit-body">
+                                                    <div class="small"><a href="./">News</a></div>
+                                                    <div><a href="blog-single-post.html" class="post-blog-title">Far Cry Primal's map is made from Far Cry 4</a></div>
+                                                    <div>
+                                                        <ul class="reveal-inline-block list-inline list-inline-0 post-blog-rating">
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                        </ul>
+                                                        <div class="reveal-inline-block text-gray small post-blog-author">by <a href="blog-list.html">Mike Dikow</a></div>
+                                                    </div>
+                                                    <div class="post-blog-meta small">
+                                                        <p class="text-gray">Jan. 12, 2016</p><span class="post-blog-comment"><a href="blog-single-post.html#comments">4</a></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="cell-md-12 cell-sm-6 offset-top-25 offset-sm-top-0 offset-md-top-25">
+                                            <div class="unit unit-horizontal post-blog post-blog-sm">
+                                                <div class="unit-left"><a href="blog-single-post.html" class="thumbnail"><img src="images/sidebar-02.jpg" width="85" height="85" alt="" class="img-responsive"></a></div>
+                                                <div class="unit-body">
+                                                    <div class="small"><a href="./">News</a></div>
+                                                    <div><a href="blog-single-post.html" class="post-blog-title">The Division Xbox One, PS4, PC file sizes revealed</a></div>
+                                                    <div>
+                                                        <ul class="reveal-inline-block list-inline list-inline-0 post-blog-rating">
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                        </ul>
+                                                        <div class="reveal-inline-block text-gray small post-blog-author">by <a href="blog-list.html">Mike Dikow</a></div>
+                                                    </div>
+                                                    <div class="post-blog-meta small">
+                                                        <p class="text-gray">Jan. 12, 2016</p><span class="post-blog-comment"><a href="blog-single-post.html#comments">4</a></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="cell-md-12 cell-sm-6 offset-top-25">
+                                            <div class="unit unit-horizontal post-blog post-blog-sm">
+                                                <div class="unit-left"><a href="blog-single-post.html" class="thumbnail"><img src="images/sidebar-03.jpg" width="85" height="85" alt="" class="img-responsive"></a></div>
+                                                <div class="unit-body">
+                                                    <div class="small"><a href="./">News</a></div>
+                                                    <div><a href="blog-single-post.html" class="post-blog-title">Manual transmission as a part of Need for Speed's update</a></div>
+                                                    <div>
+                                                        <ul class="reveal-inline-block list-inline list-inline-0 post-blog-rating">
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                        </ul>
+                                                        <div class="reveal-inline-block text-gray small post-blog-author">by <a href="blog-list.html">Mike Dikow</a></div>
+                                                    </div>
+                                                    <div class="post-blog-meta small">
+                                                        <p class="text-gray">Jan. 12, 2016</p><span class="post-blog-comment"><a href="blog-single-post.html#comments">4</a></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="cell-md-12 cell-sm-6 offset-top-25">
+                                            <div class="unit unit-horizontal post-blog post-blog-sm">
+                                                <div class="unit-left"><a href="blog-single-post.html" class="thumbnail"><img src="images/sidebar-04.jpg" width="85" height="85" alt="" class="img-responsive"></a></div>
+                                                <div class="unit-body">
+                                                    <div class="small"><a href="./">News</a></div>
+                                                    <div><a href="blog-single-post.html" class="post-blog-title">Mass Effect: Andromeda to miss holiday 2016 release</a></div>
+                                                    <div>
+                                                        <ul class="reveal-inline-block list-inline list-inline-0 post-blog-rating">
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                        </ul>
+                                                        <div class="reveal-inline-block text-gray small post-blog-author">by <a href="blog-list.html">Mike Dikow</a></div>
+                                                    </div>
+                                                    <div class="post-blog-meta small">
+                                                        <p class="text-gray">Jan. 12, 2016</p><span class="post-blog-comment"><a href="blog-single-post.html#comments">4</a></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="cell-md-12 cell-sm-6 offset-top-25">
+                                            <div class="unit unit-horizontal post-blog post-blog-sm">
+                                                <div class="unit-left"><a href="blog-single-post.html" class="thumbnail"><img src="images/sidebar-05.jpg" width="85" height="85" alt="" class="img-responsive"></a></div>
+                                                <div class="unit-body">
+                                                    <div class="small"><a href="./">News</a></div>
+                                                    <div><a href="blog-single-post.html" class="post-blog-title">Gears of War: Ultimate Edition is out now for Windows 10</a></div>
+                                                    <div>
+                                                        <ul class="reveal-inline-block list-inline list-inline-0 post-blog-rating">
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                        </ul>
+                                                        <div class="reveal-inline-block text-gray small post-blog-author">by <a href="blog-list.html">Mike Dikow</a></div>
+                                                    </div>
+                                                    <div class="post-blog-meta small">
+                                                        <p class="text-gray">Jan. 12, 2016</p><span class="post-blog-comment"><a href="blog-single-post.html#comments">4</a></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-md-12 section-35 offset-top-0">
+                                    <h4>Recent Comments</h4>
+                                    <ul class="list">
+                                        <li><a href="blog-list.html">Albert</a><span class="text-gray"> on </span><a href="blog-single-post.html">How relevant is PS4 release for the "Carmageddon"?</a></li>
+                                        <li><a href="blog-list.html">Danny</a><span class="text-gray"> on </span><a href="blog-single-post.html">Why Uncharted 4 release gets postponed (again)?</a></li>
+                                        <li><a href="blog-list.html">Steven</a><span class="text-gray"> on </span><a href="blog-single-post.html">A new gaming VR device: HoloLens price revealed</a></li>
+                                        <li><a href="blog-list.html">David</a><span class="text-gray"> on </span><a href="blog-single-post.html">Halo 5 multiplayer mode is available for gamers at last</a></li>
+                                        <li><a href="blog-list.html">Steve</a><span class="text-gray"> on </span><a href="blog-single-post.html">Will new Mortal Combat feature Aliens and Predators?</a></li>
+                                        <li><a href="blog-list.html">Albert</a><span class="text-gray"> on </span><a href="blog-single-post.html">How relevant is PS4 release for the "Carmageddon"?</a></li>
+                                        <li><a href="blog-list.html">Danny</a><span class="text-gray"> on </span><a href="blog-single-post.html">Why Uncharted 4 release gets postponed (again)?</a></li>
+                                        <li><a href="blog-list.html">Steven</a><span class="text-gray"> on </span><a href="blog-single-post.html">A new gaming VR device: HoloLens price revealed</a></li>
+                                    </ul>
+                                </div>
+                                <div class="cell-md-12 offset-top-15 bg-pseudo-gray-md section-35">
+                                    <h4>Recommended Posts</h4>
+                                    <div class="range offset-top-25 text-left">
+                                        <div class="cell-md-12 cell-sm-6">
+                                            <div class="unit unit-horizontal post-blog post-blog-sm">
+                                                <div class="unit-left"><a href="blog-single-post.html" class="thumbnail"><img src="images/sidebar-06.jpg" width="85" height="85" alt="" class="img-responsive"></a></div>
+                                                <div class="unit-body">
+                                                    <div class="small"><a href="Platforms.html">Platforms</a></div>
+                                                    <div><a href="blog-single-post.html" class="post-blog-title">Homefront: The Revolution gives away single-player season pass</a></div>
+                                                    <div>
+                                                        <ul class="reveal-inline-block list-inline list-inline-0 post-blog-rating">
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                        </ul>
+                                                        <div class="reveal-inline-block text-gray small post-blog-author">by <a href="blog-list.html">Mike Dikow</a></div>
+                                                    </div>
+                                                    <div class="post-blog-meta small">
+                                                        <p class="text-gray">Jan. 12, 2016</p><span class="post-blog-comment"><a href="blog-single-post.html#comments">4</a></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="cell-md-12 cell-sm-6 offset-top-25 offset-sm-top-0 offset-md-top-25">
+                                            <div class="unit unit-horizontal post-blog post-blog-sm">
+                                                <div class="unit-left"><a href="blog-single-post.html" class="thumbnail"><img src="images/sidebar-07.jpg" width="85" height="85" alt="" class="img-responsive"></a></div>
+                                                <div class="unit-body">
+                                                    <div class="small"><a href="./">News</a></div>
+                                                    <div><a href="blog-single-post.html" class="post-blog-title">Fallout 4</a></div>
+                                                    <div>
+                                                        <ul class="reveal-inline-block list-inline list-inline-0 post-blog-rating">
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                        </ul>
+                                                        <div class="reveal-inline-block text-gray small post-blog-author">by <a href="blog-list.html">Mike Dikow</a></div>
+                                                    </div>
+                                                    <div class="post-blog-meta small">
+                                                        <p class="text-gray">Jan. 12, 2016</p><span class="post-blog-comment"><a href="blog-single-post.html#comments">4</a></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="cell-md-12 cell-sm-6 offset-top-25">
+                                            <div class="unit unit-horizontal post-blog post-blog-sm">
+                                                <div class="unit-left"><a href="blog-single-post.html" class="thumbnail"><img src="images/sidebar-08.jpg" width="85" height="85" alt="" class="img-responsive"></a></div>
+                                                <div class="unit-body">
+                                                    <div class="small"><a href="Platforms.html">Platforms</a></div>
+                                                    <div><a href="blog-single-post.html" class="post-blog-title">World of Warcraft</a></div>
+                                                    <div>
+                                                        <ul class="reveal-inline-block list-inline list-inline-0 post-blog-rating">
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                        </ul>
+                                                        <div class="reveal-inline-block text-gray small post-blog-author">by <a href="blog-list.html">Mike Dikow</a></div>
+                                                    </div>
+                                                    <div class="post-blog-meta small">
+                                                        <p class="text-gray">Jan. 12, 2016</p><span class="post-blog-comment"><a href="blog-single-post.html#comments">4</a></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="cell-md-12 cell-sm-6 offset-top-25">
+                                            <div class="unit unit-horizontal post-blog post-blog-sm">
+                                                <div class="unit-left"><a href="blog-single-post.html" class="thumbnail"><img src="images/sidebar-09.jpg" width="85" height="85" alt="" class="img-responsive"></a></div>
+                                                <div class="unit-body">
+                                                    <div class="small"><a href="./">News</a></div>
+                                                    <div><a href="blog-single-post.html" class="post-blog-title">Quantum Break: PC system specs are demanding</a></div>
+                                                    <div>
+                                                        <ul class="reveal-inline-block list-inline list-inline-0 post-blog-rating">
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                        </ul>
+                                                        <div class="reveal-inline-block text-gray small post-blog-author">by <a href="blog-list.html">Mike Dikow</a></div>
+                                                    </div>
+                                                    <div class="post-blog-meta small">
+                                                        <p class="text-gray">Jan. 12, 2016</p><span class="post-blog-comment"><a href="blog-single-post.html#comments">4</a></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="cell-md-12 cell-sm-6 offset-top-25">
+                                            <div class="unit unit-horizontal post-blog post-blog-sm">
+                                                <div class="unit-left"><a href="blog-single-post.html" class="thumbnail"><img src="images/sidebar-10.jpg" width="85" height="85" alt="" class="img-responsive"></a></div>
+                                                <div class="unit-body">
+                                                    <div class="small"><a href="./">News</a></div>
+                                                    <div><a href="blog-single-post.html" class="post-blog-title">“Enter the Gungeon” arcade game will be released soon</a></div>
+                                                    <div>
+                                                        <ul class="reveal-inline-block list-inline list-inline-0 post-blog-rating">
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                            <li><span class="icon icon-xs fa-star text-warning"></span></li>
+                                                        </ul>
+                                                        <div class="reveal-inline-block text-gray small post-blog-author">by <a href="blog-list.html">Mike Dikow</a></div>
+                                                    </div>
+                                                    <div class="post-blog-meta small">
+                                                        <p class="text-gray">Jan. 12, 2016</p><span class="post-blog-comment"><a href="blog-single-post.html#comments">4</a></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+        </section>
+{% endblock %}

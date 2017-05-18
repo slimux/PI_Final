@@ -1,0 +1,415 @@
+{% extends "MyAppPIBundle:admin/layout:layout.html.twig" %}
+  {% block head %}
+      <title>{% block title %} Forum {% endblock %}</title>
+
+      <meta name="format-detection" content="telephone=no">
+      <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <script type="text/javascript" async="" src="https://www.google-analytics.com/plugins/ua/ec.js"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="http://www.googletagmanager.com/gtm.js?id=GTM-P9FT69"></script><script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script async="" src="http://ajax.cloudflare.com/cdn-cgi/nexp/dok3v=f2befc48d1/cloudflare.min.js"></script><script type="text/javascript">
+      //<![CDATA[
+      try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag2:1,mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/dok3v=1613a3a185/"},atok:"0990115ae424311cc566aeef9cb33b2c",petok:"9fd8cda7d76103856269ff3579befa5188ebf83e-1488990843-1800",zone:"template-help.com",rocket:"0",apps:{"abetterbrowser":{"ie":"7"}}}];!function(a,b){a=document.createElement("script"),b=document.getElementsByTagName("script")[0],a.async=!0,a.src="http://ajax.cloudflare.com/cdn-cgi/nexp/dok3v=f2befc48d1/cloudflare.min.js",b.parentNode.insertBefore(a,b)}()}}catch(e){};
+      //]]>
+  </script>
+      {% block stylesheet %}
+          <link rel="icon" href="{{ asset('FO/images/favicon.ico') }}" type="image/x-icon">
+
+          <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Montserrat:400,500,700%7CUbuntu:300,300italic,400,500,700">
+          <link rel="stylesheet" href="{{ asset('FO/css/style.css') }}">
+          <!--[if lt IE 10]>
+
+          <![endif]-->
+
+
+
+          <!-- Custom -->
+          <link href="{{ asset('Forum/css/custom.css') }}" rel="stylesheet">
+
+          <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+          <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+          <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+          <![endif]-->
+
+          <!-- fonts -->
+          <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+          <link rel="stylesheet" href="{{ asset('Forum/font-awesome-4.0.3/css/font-awesome.min.css') }}">
+
+          <!-- CSS STYLE-->
+
+
+          <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
+
+      {% endblock %}
+
+  {% endblock %}
+   {% block content %}
+
+
+
+
+       <!-- END REVOLUTION SLIDER -->
+       <main class="page-content">
+           <section class="bg-primary">
+               <div class="shell">
+                   <ol class="breadcrumb">
+                       <li><a href="{{ path('my_app_fourum_homepagef') }}">tous les categories</a></li>
+                       <li class="active">{{ categorie.titre}}</li>
+                   </ol>
+               </div>
+           </section>
+           <section>
+               <div class="shell text-md-left section-top-48 section-bottom-80">
+                   <div class="row">
+
+                       <div class="col-lg-8 search hidden-xs hidden-sm col-md-3">
+                           <div class="wrap">
+                               <form data-form-output="form-output-global" data-form-type="subscribe" method="post" action="bat/rd-mailform.php" class="form-subscribe offset-top-25 rd-mailform text-left form-icon form-group-lg" novalidate="novalidate">
+                                   <label for="contact-email" class="form-label rd-input-label">Enter e-mail</label>
+                                   <input id="contact-email" type="email" name="email" data-constraints="@Email @Required" class="form-control form-control-has-validation"><span class="form-validation"></span>
+                                   <button type="submit" class="btn btn-default btn-icon btn-abs fa-search"></button>
+
+                               </form>
+
+                           </div></div>
+                       <div class="col-lg-8 col-md-8">
+                           <!-- POST -->
+                           {% for sc in  categorie.souscategories%}
+                           {% for forumTopic in  sc.topic%}
+                                   <div class="post">
+
+                                   <div class="wrap-ut pull-left">
+                                       <div class="userinfo pull-left">
+                                           <div class="avatar">
+                                               <img src="{{asset('Forum/images/avatar.jpg')}}" alt="">
+
+                                               <div class="status green">&nbsp;</div>
+
+                                           </div>
+
+                                           <div class="icons">
+                                               <p>{{ forumTopic.idCreateur }} </p>                                           </div>
+                                       </div>
+                                       <div class="posttext pull-left">
+                                           <h2><a href="{{ path('forumtopics_showt', { 'id': forumTopic.idTopics }) }}">{{ forumTopic.sujet }}</a></h2>
+                                           <p></p>
+                                       </div>
+                                       <div class="clearfix"></div>
+                                   </div>
+                                   <div class="postinfo pull-left">
+                                       <div class="comments">
+                                           <div class="commentbg">
+                                               {% set nb= forumTopic.message|length()%}
+                                               {{ forumTopic.message|length() }}
+                                               <div class="mark"></div>
+                                           </div>
+
+                                       </div>
+                                       <div class="views"><i class="fa fa-eye"></i>{{ forumTopic.nbvue}}</div>
+                                       <div class="time"><i class="fa fa-clock-o"></i>{{ forumTopic.dateHeureCreation|date('d-m-Y ') }}</div>
+                                   </div>
+                                   <div class="clearfix"></div>
+                               </div>
+                           {% endfor %}
+                               <div class="navigation text=center" >
+                               {{ knp_pagination_render(sc.topic) }}
+                               </div>{% endfor %}
+
+                           {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                           <div class="post">
+                               <form action="#" class="form" method="post">
+                                   <div class="topwrap">
+                                       <div class="userinfo pull-left">
+                                           <div class="avatar">
+                                               <img src="images\avatar4.jpg" alt="">
+                                               <div class="status red">&nbsp;</div>
+                                           </div>
+
+                                           <div class="icons">
+                                               <img src="images\icon3.jpg" alt=""><img src="images\icon4.jpg" alt=""><img src="images\icon5.jpg" alt=""><img src="images\icon6.jpg" alt="">
+                                           </div>
+                                       </div>
+                                       <div class="posttext pull-left">
+                                           <div>
+                                               <div >ajouter topic</div>
+
+                                               {{ form_start(form) }}
+
+                                               {{ form_label(form.sujet, 'titre', { 'attr': {'class': 'form-label'} }) }}
+                                               {{ form_widget(form.sujet, { 'attr': {'class': 'form-control'} }) }}
+                                               {{ form_label(form.contenu, 'Descrption', { 'attr': {'class': 'form-label'} }) }}
+                                               {{ form_widget(form.contenu, { 'attr': {'class': 'form-control'} }) }}
+                                           </div>
+                                       </div>
+                                       <div class="clearfix"></div>
+                                   </div>
+                                   <div class="postinfobot">
+
+                                       <div class="notechbox pull-left">
+
+                                       </div>
+
+                                       <div class="pull-left">
+                                           {{ form_label(form.notifCreateur, 'Envoyez-moi un mail quand quelqu un repondre', { 'attr': {'class': 'form-label'} }) }}
+
+                                       </div>
+
+                                       <div class="pull-right postreply">
+                                           <div class="pull-left smile"><a href="#"><i class="fa fa-smile-o"></i></a></div>
+
+                                           <input type="submit" value="Create" class="btn btn-primary"/>
+                                           <div class="clearfix"></div>
+                                       </div>
+                                       {{ form_end(form) }}
+
+                                       <div class="clearfix"></div>
+                                   </div>
+                               </form>
+                           </div>
+
+{% else %}
+    <div><h3><a href="{{ path('fos_user_security_login') }}">conctez vous pour ajouter un sujet</a></h3></div>
+
+
+{% endif %}
+                       </div> <div class="col-lg-4 col-md-4">
+
+                           <!-- -->
+                           <div class="sidebarblock">
+                               <h3>Sous Categories</h3>
+                               <div class="divline"></div>
+                               <div class="blocktxt">
+                                   <ul class="cats">
+
+                                       {% for sc in categorie.souscategories %}
+                                           <li><a href="{{ path('sc', { 'id': sc.idSousCategorie }) }}">{{ sc.titre }}<span class="badge pull-right">{{ sc.topic|length }}</span></a></li>
+
+                                       {% endfor %}
+                                   </ul>
+                               </div>
+                           </div>
+
+                           <!-- -->
+                           <div class="sidebarblock">
+                               <h3>Poll of the Week</h3>
+                               <div class="divline"></div>
+                               <div class="blocktxt">
+                                   <p>Which game you are playing this week?</p>
+                                   <form action="#" method="post" class="form">
+                                       <table class="poll">
+                                           <tr>
+                                               <td>
+                                                   <div class="progress">
+                                                       <div class="progress-bar color1" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
+                                                           Call of Duty Ghosts
+                                                       </div>
+                                                   </div>
+                                               </td>
+                                               <td class="chbox">
+                                                   <input id="opt1" type="radio" name="opt" value="1">
+                                                   <label for="opt1"></label>
+                                               </td>
+                                           </tr>
+                                           <tr>
+                                               <td>
+                                                   <div class="progress">
+                                                       <div class="progress-bar color2" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 63%">
+                                                           Titanfall
+                                                       </div>
+                                                   </div>
+                                               </td>
+                                               <td class="chbox">
+                                                   <input id="opt2" type="radio" name="opt" value="2" checked="">
+                                                   <label for="opt2"></label>
+                                               </td>
+                                           </tr>
+                                           <tr>
+                                               <td>
+                                                   <div class="progress">
+                                                       <div class="progress-bar color3" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 75%">
+                                                           Battlefield 4
+                                                       </div>
+                                                   </div>
+                                               </td>
+                                               <td class="chbox">
+                                                   <input id="opt3" type="radio" name="opt" value="3">
+                                                   <label for="opt3"></label>
+                                               </td>
+                                           </tr>
+                                       </table>
+                                   </form>
+                                   <p class="smal">Voting ends on 19th of October</p>
+                               </div>
+                           </div>
+
+                           <!-- -->
+                           <div class="sidebarblock">
+                               <h3>My Active Threads</h3>
+                               <div class="divline"></div>
+                               <div class="blocktxt">
+                                   <a href="#">This Dock Turns Your iPhone Into a Bedside Lamp</a>
+                               </div>
+                               <div class="divline"></div>
+                               <div class="blocktxt">
+                                   <a href="#">Who Wins in the Battle for Power on the Internet?</a>
+                               </div>
+                               <div class="divline"></div>
+                               <div class="blocktxt">
+                                   <a href="#">Sony QX10: A Funky, Overpriced Lens Camera for Your Smartphone</a>
+                               </div>
+                               <div class="divline"></div>
+                               <div class="blocktxt">
+                                   <a href="#">FedEx Simplifies Shipping for Small Businesses</a>
+                               </div>
+                               <div class="divline"></div>
+                               <div class="blocktxt">
+                                   <a href="#">Loud and Brave: Saudi Women Set to Protest Driving Ban</a>
+                               </div>
+                           </div>
+
+
+                       </div>
+                   </div>
+               </div>
+           </section>
+       </main>
+
+       <footer class="page-footer">
+           <section class="section-54 context-dark">
+               <div class="shell">
+                   <div class="range text-md-left">
+                       <div class="cell-sm-6 cell-md-3">
+                           <h4>Categories</h4>
+                           <ul class="list-11">
+                               <li><a href="./"> News</a></li>
+                               <li><a href="Previews.html"> Previews</a></li>
+                               <li><a href="Reviews.html"> Reviews</a></li>
+                               <li><a href="#"> Information</a></li>
+                               <li><a href="blog-single-post.html"> Recent Posts</a></li>
+                               <li><a href="videos.html"> Videos</a></li>
+                               <li><a href="Platforms.html"> Platforms</a></li>
+                           </ul>
+                       </div>
+                       <div class="cell-sm-6 cell-md-3">
+                           <h4>Information</h4>
+                           <ul class="list-11">
+                               <li><a href="About.html">About us</a></li>
+                               <li><a href="Contact.html">Contact us</a></li>
+                               <li><a href="#">Editorial Policy</a></li>
+                               <li><a href="privacy.html">Terms of Service</a></li>
+                           </ul>
+                       </div>
+                       <div class="cell-md-3">
+                           <h4>Recent Post</h4>
+                           <div class="post-blog"><a href="blog-single-post.html" class="thumbnail"><img src="images/footer-01.jpg" width="" height="" alt="" class="img-responsive"></a>
+                               <div class="small"><a href="./">News</a></div>
+                               <div class="post-blog-title"><a href="blog-single-post.html">Homefront: The Revolution gives away single-player season pass</a></div>
+                               <div class="post-blog-meta small">
+                                   <div class="reveal-inline-block text-gray small post-blog-author">by <a href="blog-list.html">Admin</a></div>
+                                   <p class="text-gray">Jan. 12, 2016</p><span class="post-blog-comment"><a href="blog-single-post.html#comments">4</a></span>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="cell-md-3">
+                           <h4>Recent Comments</h4>
+                           <ul class="list">
+                               <li><a href="blog-single-post.html">Albert on How relevant is PS4 release for the "Carmageddon"?</a></li>
+                               <li><a href="blog-single-post.html">Danny on Why Uncharted 4 release gets postponed (again)?</a></li>
+                           </ul>
+                       </div>
+                   </div>
+               </div>
+           </section>
+           <section class="bg-gray-base post-footer">
+               <div class="shell">
+                   <div class="range range-md-middle">
+                       <div class="cell-md-6 text-md-right text-center cell-md-push-1">
+                           <ul class="list-inline list-inline-none">
+                               <li><a href="#" class="icon icon-sm fa-facebook"></a></li>
+                               <li><a href="#" class="icon icon-sm fa-twitter"></a></li>
+                               <li><a href="#" class="icon icon-sm fa-pinterest-p"></a></li>
+                               <li><a href="#" class="icon icon-sm fa-vimeo"></a></li>
+                               <li><a href="#" class="icon icon-sm fa-youtube-play"></a></li>
+                           </ul>
+                       </div>
+                       <div class="cell-md-6 text-md-left offset-top-25 offset-md-top-0">
+                           <p>© 2016 Finest Game, Inc. <a href="privacy.html">All Rights Reserved</a>
+                           </p>
+                       </div>
+                   </div>
+               </div>
+           </section>
+       </footer>
+
+
+       <div id="form-output-global" class="snackbars"></div>
+
+       <div tabindex="-1" role="dialog" aria-hidden="true" class="pswp">
+           <div class="pswp__bg"></div>
+           <div class="pswp__scroll-wrap">
+               <div class="pswp__container">
+                   <div class="pswp__item"></div>
+                   <div class="pswp__item"></div>
+                   <div class="pswp__item"></div>
+               </div>
+               <div class="pswp__ui pswp__ui--hidden">
+                   <div class="pswp__top-bar">
+                       <div class="pswp__counter"></div>
+                       <button title="Close (Esc)" class="pswp__button pswp__button--close"></button>
+                       <button title="Share" class="pswp__button pswp__button--share"></button>
+                       <button title="Toggle fullscreen" class="pswp__button pswp__button--fs"></button>
+                       <button title="Zoom in/out" class="pswp__button pswp__button--zoom"></button>
+                       <div class="pswp__preloader">
+                           <div class="pswp__preloader__icn">
+                               <div class="pswp__preloader__cut">
+                                   <div class="pswp__preloader__donut"></div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                       <div class="pswp__share-tooltip"></div>
+                   </div>
+                   <button title="Previous (arrow left)" class="pswp__button pswp__button--arrow--left"></button>
+                   <button title="Next (arrow right)" class="pswp__button pswp__button--arrow--right"></button>
+                   <div class="pswp__caption">
+                       <div class="pswp__caption__cent"></div>
+                   </div>
+               </div>
+           </div>
+       </div>
+
+       <script src="js/core.min.js"></script>
+       <script src="js/script.js"></script>
+       <!-- get jQuery from the google apis -->
+       <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.js"></script>
+
+
+       <!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
+       <script type="text/javascript" src="rs-plugin\js\jquery.themepunch.plugins.min.js"></script>
+       <script type="text/javascript" src="rs-plugin\js\jquery.themepunch.revolution.min.js"></script>
+
+       <script src="js\bootstrap.min.js"></script>
+
+
+       <!-- LOOK THE DOCUMENTATION FOR MORE INFORMATIONS -->
+       <script type="text/javascript">
+
+           var revapi;
+
+           jQuery(document).ready(function() {
+               "use strict";
+               revapi = jQuery('.tp-banner').revolution(
+                   {
+                       delay: 15000,
+                       startwidth: 1200,
+                       startheight: 278,
+                       hideThumbs: 10,
+                       fullWidth: "on"
+                   });
+
+           });	//ready
+
+       </script>
+   {% endblock %}

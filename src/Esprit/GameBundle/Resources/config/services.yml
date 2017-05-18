@@ -1,0 +1,4 @@
+services:
+#    esprit_game.example:
+#        class: Esprit\GameBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

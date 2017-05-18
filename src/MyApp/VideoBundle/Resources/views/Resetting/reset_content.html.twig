@@ -1,0 +1,42 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% extends "MyAppVideoBundle:layout:layout.html.twig" %}
+{% block title %} <title>Récupération du mot de passe</title>{% endblock %}
+{% block store %}
+    <link rel="stylesheet" href="{{ asset('css/store.css') }}">
+{% endblock store %}
+{% block neuf %}
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <h2>Mot de passe perdu</h2>
+                <div id="collapseOne" class="accordion-body collapse in">
+                    <div class="accordion-inner">
+                        <div class="span4">
+                            <h4 style="color: #0e0e0e">Récupération du mot de passe ?</h4>
+                            <em>
+                                Compléter le formulaire, votre mot de passe sera alors réinitialiser.<br /><br />
+                                Une fois validé, vous devrez utiliser le nouveau mot de passe que vous avez défini.
+                            </em>
+                        </div>
+
+                        <div class="span4 offset2">
+                            {{ form_start(form, { 'action': path('fos_user_resetting_reset', {'token': token}), 'attr': { 'class': 'fos_user_resetting_reset' } }) }}
+                            {{ form_widget(form) }}
+                            <div>
+                                <input class="btn btn-primary" type="submit" value="{{ 'resetting.reset.submit'|trans }}" />
+                            </div>
+                            {{ form_end(form) }}
+                            <br><br><br><br><br><br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {#{{ form_start(form, { 'action': path('fos_user_resetting_reset', {'token': token}), 'attr': { 'class': 'fos_user_resetting_reset' } }) }}#}
+    {#{{ form_widget(form) }}#}
+    {#<div>#}
+    {#<input type="submit" value="{{ 'resetting.reset.submit'|trans }}" />#}
+    {#</div>#}
+    {#{{ form_end(form) }}#}
+{% endblock neuf %}

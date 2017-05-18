@@ -1,0 +1,47 @@
+{% extends "MyAppPIBundle:layout:layout.html.twig" %}
+{% block title %} <title>Serveur</title>{% endblock %}
+{% block store %}
+    <link rel="stylesheet" href="{{ asset('css/store.css') }}">
+{% endblock store %}
+ {% block jeux %}  <li class="rd-navbar--has-dropdown rd-navbar-submenu"><a href="{{ path('pi_homepage') }}">Jeux</a>{% endblock jeux %}
+{% block serveur %} <li class="active"><a href="{{ path('serveur') }}">serveur</a></li> {% endblock serveur %}
+{% block neuf %}
+    <div class="container">
+        {#{{ render(controller('MyAppPIBundle:Serveur:recherche')) }}#}
+        <div class="row">
+            <div class="span9">
+                <h2>Liste des Serveurs</h2>
+                <form>
+                    <table class="table table-striped table-hover table-sm">
+                        <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Jeu</th>
+                            <th>Nom Serveur</th>
+                            <th>Localisation</th>
+                            <th>IP:Port</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for serveur in serveurs %}
+                        <tr>
+                            <td>{{ serveur.rank }}</td>
+                            <td>{{ serveur.typeJeu }}</td>
+                            <td>{{ serveur.nom }}</td>
+                            <td>{{ serveur.location }}</td>
+                            <td>{{ serveur.ip }}</td>
+                        </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+                </form>
+                <div class="navigation">
+                    {{ knp_pagination_render(serveurs) }}
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+{% endblock neuf %}

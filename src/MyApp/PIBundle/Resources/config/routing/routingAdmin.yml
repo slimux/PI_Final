@@ -1,0 +1,3 @@
+admin:
+    path:     /dashboard
+    defaults: { _controller: MyAppPIBundle:Admin:admin }

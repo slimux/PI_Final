@@ -1,0 +1,147 @@
+my_app_fourum_forumcategorie:
+    resource: "@MyAppFourumBundle/Resources/config/routing/forumcategorie.yml"
+    prefix:   /forumcategorie
+my_app_fourum_homepagef:
+    path:     /f
+    defaults: { _controller: "MyAppFourumBundle:Default:Categorie" }
+sc:
+    path:     /{id}/sousCategorie
+    defaults: { _controller: "MyAppFourumBundle:Default:topicsc" }
+my_app_fourum_homepage:
+    path:     /d
+    defaults: { _controller: "MyAppFourumBundle:Default:index" }
+BO:
+    path:     /forum
+    defaults: { _controller: "MyAppFourumBundle:Default:indexBO" }
+    methods:  [GET, POST]
+
+forumcategorie_index:
+    path:     /categorieAdmin
+    defaults: { _controller: "MyAppFourumBundle:ForumCategorie:index" }
+    methods:  [GET, POST]
+
+
+forumcategorie_edit:
+    path:     /{id}/editc
+    defaults: { _controller: "MyAppFourumBundle:ForumCategorie:edit" }
+    methods:  [GET, POST]
+
+forumcategorie_delete:
+    path:     /{id}/deletec
+    defaults: { _controller: "MyAppFourumBundle:ForumCategorie:delete" }
+    methods:  [GET, POST,DELETE]
+
+
+forumsouscategorie_show:
+    path:     /{id}/showsc
+    defaults: { _controller: "MyAppFourumBundle:ForumSousCategorie:show" }
+    methods: [GET, POST]
+
+forumsouscategorie_new:
+    path:     /newsc
+    defaults: { _controller: "MyAppFourumBundle:ForumSousCategorie:new" }
+    methods:  [GET, POST]
+
+forumsouscategorie_edit:
+    path:     /{id}/editsc
+    defaults: { _controller: "MyAppFourumBundle:ForumSousCategorie:edit" }
+    methods:  [GET, POST]
+
+forumsouscategorie_delete:
+    path:     /{id}/deletesc
+    defaults: { _controller: "MyAppFourumBundle:ForumSousCategorie:delete" }
+    methods:  DELETE
+forumtopics_index:
+    path:     /t
+    defaults: { _controller: "MyAppFourumBundle:ForumTopics:index" }
+    methods: [GET, POST]
+
+forumtopics_show:
+    path:     /{id}/showt
+    defaults: { _controller: "MyAppFourumBundle:ForumTopics:show" }
+    methods:  [GET, POST]
+
+forumtopics_new:
+    path:     /newt
+    defaults: { _controller: "MyAppFourumBundle:ForumTopics:new" }
+    methods:  [GET, POST]
+
+forumtopics_edit:
+    path:     /{id}/editt
+    defaults: { _controller: "MyAppFourumBundle:ForumTopics:edit" }
+    methods:  [GET, POST]
+
+forumtopics_delete:
+    path:     /{id}/deletet
+    defaults: { _controller: "MyAppFourumBundle:ForumTopics:delete" }
+    methods:  DELETE
+afficher:
+    path:     /{id}/a
+    defaults: { _controller: "MyAppFourumBundle:ForumCategorie:showS" }
+    methods:  [GET, POST]
+forumtopics_showt:
+    path:     /{id}/topic
+    defaults: { _controller: "MyAppFourumBundle:Default:topic" }
+    methods:  [GET, POST]
+forummessage_delete:
+    path:     /{forumMessage}/delete
+    defaults: { _controller: "MyAppFourumBundle:Default:supprimer" }
+    methods:  [GET, POST,DELETE]
+singaler_new:
+    path:     /new
+    defaults: { _controller: "MyAppFourumBundle:singaler:new" }
+    methods:  [GET, POST]
+singaler_index:
+    path:     /
+    defaults: { _controller: "MyAppFourumBundle:singaler:index" }
+    methods: [GET, POST]
+categorie:
+    path:     /{id}/categorie
+    defaults: { _controller: "MyAppFourumBundle:ForumCategorie:FOCategorie" }
+    methods:  [GET, POST]
+forumcategorie_show:
+    path:     /{id}/showCategorie
+    defaults: { _controller: "MyAppFourumBundle:ForumCategorie:show" }
+    methods:  [GET, POST]
+forumsouscategorie_index:
+    path:     /sousCategorieAdmin
+    defaults: { _controller: "MyAppFourumBundle:ForumSousCategorie:index" }
+    methods:  [GET, POST]
+forummessage_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MyAppFourumBundle:ForumMessage:edit" }
+    methods:  [GET, POST]
+forummessage_like:
+    path:     /{id}/like
+    defaults: { _controller: "MyAppFourumBundle:ForumMessage:like" }
+forummessage_deslike:
+    path:     /{id}/deslik
+    defaults: { _controller: "MyAppFourumBundle:ForumMessage:deslike" }
+singaler:
+    path:      /{id}/sss
+    defaults: { _controller: "MyAppFourumBundle:singaler:signaler" }
+    methods: [GET, POST]
+update:
+    path:      /{id}/k
+    defaults: { _controller: "MyAppFourumBundle:ForumMessage:modifier" }
+    methods: [GET, POST]
+topiclike:
+    path:      /{id}/liket
+    defaults: { _controller: "MyAppFourumBundle:ForumTopics:like" }
+    methods: [GET, POST]
+topicdeslike:
+    path:      /{id}/desliket
+    defaults: { _controller: "MyAppFourumBundle:ForumTopics:deslike" }
+    methods: [GET, POST]
+updatet:
+    path:      /{id}/kgg
+    defaults: { _controller: "MyAppFourumBundle:ForumTopics:modifier" }
+    methods: [GET, POST]
+BOadmin:
+    path:      /admin
+    defaults: { _controller: "MyAppFourumBundle:Default:BO" }
+    methods: [GET, POST]
+FO:
+    path:      /TGS
+    defaults: { _controller: "MyAppFourumBundle:Default:FO" }
+    methods: [GET, POST]

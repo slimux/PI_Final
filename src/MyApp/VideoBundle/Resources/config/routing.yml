@@ -1,0 +1,55 @@
+user_homepage:
+    path:     /
+    defaults: { _controller: MyAppVideoBundle:Default:index}
+profile:
+    path:     /front
+    defaults: { _controller: MyAppVideoBundle:Default:show }
+serveur:
+    path:     /serveur
+    defaults: { _controller: MyAppVideoBundle:Default:serveur }
+
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /profile
+
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /register
+
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: /resetting
+
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /profile
+single:
+    path:     /{id}/single
+    defaults: { _controller: MyAppVideoBundle:Video:single }
+    methods:  GET
+video_all:
+    path:     /vidall
+    defaults: { _controller: MyAppVideoBundle:Video:all }
+    methods:  GET
+
+videosh:
+    path:     /homev
+    defaults: { _controller: MyAppVideoBundle:Video:homevid }
+    methods:  GET
+video_recherche:
+    path:     /recherche
+    defaults: { _controller: MyAppVideoBundle:Video:recherche }
+live:
+    path:     /live
+    defaults: { _controller: MyAppVideoBundle:Video:live }
+inbox:
+    path:     /live
+    defaults: { _controller: MyAppVideoBundle:Message:newThread }
+
+routingAdmin:
+    resource: "@MyAppVideoBundle/Resources/config/routing/routingAdmin.yml"
+    prefix: /admin
+

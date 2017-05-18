@@ -1,0 +1,24 @@
+forumsouscategorie_index:
+    path:     /
+    defaults: { _controller: "MyAppFourumBundle:ForumSousCategorie:index" }
+    methods:  GET
+
+forumsouscategorie_show:
+    path:     /{id}/show
+    defaults: { _controller: "MyAppFourumBundle:ForumSousCategorie:show" }
+    methods:  GET
+
+forumsouscategorie_new:
+    path:     /new
+    defaults: { _controller: "MyAppFourumBundle:ForumSousCategorie:new" }
+    methods:  [GET, POST]
+
+forumsouscategorie_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MyAppFourumBundle:ForumSousCategorie:edit" }
+    methods:  [GET, POST]
+
+forumsouscategorie_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MyAppFourumBundle:ForumSousCategorie:delete" }
+    methods:  DELETE

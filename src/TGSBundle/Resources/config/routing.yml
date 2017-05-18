@@ -1,0 +1,12 @@
+tgs_homepage:
+    path:     /
+    defaults: { _controller: TGSBundle:Default:index }
+layout:
+    path:     /layout
+    defaults: { _controller: TGSBundle:Default:layout }
+routingAdminActualite:
+  resource: "@TGSBundle/Resources/config/routing/actualiteAdmin.yml"
+  prefix: /admin/actualite
+routingAdminEvenement:
+  resource: "@TGSBundle/Resources/config/routing/evenementAdmin.yml"
+  prefix: /admin/evenement

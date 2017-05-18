@@ -1,0 +1,36 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% extends "MyAppPIBundle:layout:layout.html.twig" %}
+{% block title %} <title>Editer mon profile</title>{% endblock %}
+{% block store %}
+    <link rel="stylesheet" href="{{ asset('css/store.css') }}">
+{% endblock store %}
+{% block neuf %}
+    <div class="container">
+        <div class="row">
+            <div class="span3">
+                {% include ':modulesUsed:genre.html.twig' %}
+                {% include ':modulesUsed:navigation.html.twig' %}
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    {% include ':modulesUsed:utilisateurConnecte.html.twig' %}
+                {% endif %}
+                {{  render(controller('MyAppPIBundle:Panier:menu')) }}
+            </div>
+            <div class="span9">
+                <h2>Modifier mes informations</h2>
+                <div id="collapseOne" class="accordion-body collapse in">
+                    <div class="accordion-inner">
+                        <div class="span4">
+                            {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
+                            {{ form_widget(form) }}
+                            <div>
+                                <input class="btn btn-primary" type="submit" value="{{ 'profile.edit.submit'|trans }}" />
+                            </div>
+                            {{ form_end(form) }}
+                            <br><br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock neuf %}

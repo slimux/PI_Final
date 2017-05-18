@@ -1,0 +1,86 @@
+{% extends 'MyAppVideoBundle:layout:layout.html.twig' %}
+
+{% block content %}
+
+
+    <div id="site-content">
+        <section class="bg-primary">
+            <div class="shell">
+                <ol class="breadcrumb">
+                    <li><a href="http://localhost/Pidev/web/app_dev.php/login">Home</a></li>
+                    <li class="active"><a href="http://localhost/Pidev/web/app_dev.php/product">Video</a></li>
+
+
+
+                </ol>
+            </div>
+        </section>
+    </div>
+
+    <br>
+    <main class="main-content">
+        <div class="container">
+            <div class="page">
+
+                <div class="entry-content">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-4">
+                            <div class="col-lg-12">
+                                <h1 class="page-header">
+                                    <main class="main-content">
+                                        <div class="container">
+                                            <div class="page">
+
+                                                <div class="entry-content">
+                                                    <div class="row">
+                                                        <div class="col-sm-6 col-md-4">
+                                                            <div class="product-images">
+                                                                <figure class="large-image">
+                                                                    <td  width="200%" height="200%"><div style="position:relative;height:0;padding-bottom:30.25%"><iframe src="https://www.youtube.com/embed/{{ video.codeVideo }}" width="500" height="500" frameborder="0" style="position:absolute;width:70%;height:200%;left:80" allowfullscreen></iframe></div></td>
+                                                                </figure><h1>
+
+                                                   </div>
+                                                    </div>
+                                                    <div class="col-sm-6 col-md-8">
+                                                        <h2 class="entry-title">         Video : {{ video.titre }}</h2>
+                                                        <br>
+                                                        <h4> Date de sortie: {{ video.dateAjout|date('Y-m-d H:i:s') }}</h4>
+                                                        <h4> Vu(s) par : {{ video.nbVue }} gamers</h4>
+
+
+                                                        <span class="label label-warning">Jeu :<small class="price" style="padding-left: 5px;">{{ video.typeVideo }}</small></span>
+                                                        <span class="label label-warning">Console :<small class="price" style="padding-left: 5px;">PS4  </small></span>
+
+                                                        <br>
+
+                                                        <p>{{ video.description |raw }}.</p>
+
+                                                        <div class="social-links square">
+                                                            <strong>{{ socialButtons() }}</strong>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <section>
+
+            </section>
+
+        </div>
+    </main>
+
+
+    </div> <!-- .container -->
+
+    <div class="overlay"></div>
+
+
+
+    </body>
+
+
+    <br>
+
+{% endblock %}

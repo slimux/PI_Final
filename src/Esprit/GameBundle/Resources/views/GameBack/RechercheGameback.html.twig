@@ -1,0 +1,215 @@
+{% extends "EspritGameBundle:GameBack:layoutback.html.twig" %}
+{% block head %}
+    <title> {% block title %}{{ parent() }}-Forum{% endblock %}</title>
+    {% block stylesheet %}
+
+        <!-- jQuery -->
+        <script src="{{ asset('back/js/jquery.js') }}"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="{{ asset('back/js/bootstrap.min.js') }}"></script>
+
+        <!-- Morris Charts JavaScript -->
+        <script src="{{ asset('back/js/plugins/morris/raphael.min.js') }}"></script>
+        <script src="{{ asset('back/js/plugins/morris/morris.min.js') }}"></script>
+        <script src="{{ asset('back/js/plugins/morris/morris-data.js') }}"></script>
+        <!-- Bootstrap Core CSS -->
+        <link href="{{ asset('back/css/bootstrap.min.css') }}" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="{{ asset('back/css/sb-admin.css') }}" rel="stylesheet">
+
+        <!-- Morris Charts CSS -->
+        <link href="{{ asset('back/css/plugins/morris.css') }}" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="{{ asset('back/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="{{ asset('https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js') }}"></script>
+        <script src="{{ asset('https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js') }}"></script>
+        <![endif]-->
+    {% endblock %}
+{% endblock %}
+{% block game %}
+
+    <body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">SB Admin</a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul >
+                <li style="margin-left: 80%"><a class="icon"> {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                            <a href="{{ path('fos_user_security_login') }}">
+                                {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                            </a>
+                        {% else %}
+                            <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                        {% endif %}</a></li>
+
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li>
+                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="graphe"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#slim"><i class="fa fa-fw fa-arrows-v"></i> Dropdown astuce<i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="slim" class="collapse">
+                            <li>
+                                <a href="Recherched">Rechercher astuce</a>
+                            </li>
+                            <li>
+                                <a href="Ajouter">Ajout astuce</a>
+                            </li>
+                            <li>
+                                <a href="Afficher">Liste des astuces</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li>
+                                <a href="Recherche">Rechercher jeu</a>
+                            </li>
+                            <li>
+                                <a href="AddGame">Ajout jeu</a>
+                            </li>
+                            <li>
+                                <a href="ListJeu">Liste des Jeu</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Tables Jeux
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li>
+
+
+                            <li class="active">
+                                <div class="form-group input-group">
+                                    <form method="post" action="{{ path('RechercheGame') }}">
+                                        <div class="form-group input-group">
+                                            <input type="text" class="form-control" name="motcle" >
+                                            <span class="input-group-btn"><button class="btn btn-default"type="submit"><i class="fa fa-search"></i></button></span>
+
+
+                                        </div>
+                                    </form>
+                                </div>
+
+
+                            </li>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2></h2>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <tr>
+                                    <th>titre</th>
+                                    <th>genre</th>
+                                    <th>date de sortie</th>
+                                    <th>note de presse</th>
+                                    <th>note des joueurs</th>
+                                    <th>description</th>
+                                    <th>prix</th>
+                                    <th>console</th>
+                                    <th>developpeur</th>
+                                    <th>image</th>
+                                    <th>Action</th>
+
+                                </tr>
+                                {% for jeu in jeux %}
+                                    <tr>
+                                        <td>{{ jeu.titre }}</td>
+                                        <td>{{ jeu.genre }}</td>
+                                        <td>{{ jeu.DateSortie|date('Y-m-d') }}</td>
+                                        <td>{{ jeu.notePresse }}</td>
+                                        <td>{{ jeu.noteJoueur }}</td>
+                                        <td>{{ jeu.description }}</td>
+                                        <td>{{ jeu.prix }}</td>
+                                        <td>{{ jeu.console }}</td>
+                                        <td>{{ jeu.developpeur }}</td>
+                                        <td><img height="187" width="150" src='{{ asset("/BACKUP/PI/web/images/"~ jeu.image)}}' /></td>
+                                        <td><a href="{{ path('Delete_Game', {'IdJeu':jeu.IdJeu}) }}">Supprimer</a>
+                                            <a href="{{ path('Update_Game', {'IdJeu':jeu.IdJeu}) }}">Update</a></td>
+                                        </a>
+                                        </td>
+                                    </tr>
+
+                                {% endfor %}
+                            </table>
+
+                        </div>
+
+                    </div>
+                    <div class="navigation-visible text-center" >
+                        {{ knp_pagination_render(jeux) }}
+                    </div>
+                </div>
+                <!-- /.row -->
+
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    </body>
+
+{% endblock %}

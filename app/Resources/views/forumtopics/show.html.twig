@@ -1,0 +1,244 @@
+{% extends "MyAppFourumBundle::BOLyaout.html.twig" %}
+
+    {% block head %}
+        <title>{% block title %} TGS BO{% endblock %}</title>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        {% block stylesheet %}
+
+
+            <!-- Custom -->
+            <link href="{{ asset('Forum/css/custom.css')}}" rel="stylesheet">
+            <!-- Bootstrap Core CSS -->
+            <link href="{{ asset('BO/css/bootstrap.min.css') }}" rel="stylesheet">
+
+            <!-- Custom CSS -->
+            <link href="{{ asset('BO/css/sb-admin.css') }}"rel="stylesheet">
+
+            <!-- Morris Charts CSS -->
+            <link href="{{ asset('BO/css/plugins/morris.css') }}" rel="stylesheet">
+
+            <!-- Custom Fonts -->
+            <link href="{{ asset('BO/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+        {% endblock %}
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <script type="text/javascript"
+                src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" >
+        </script>
+
+        <script type="text/javascript" src="{{ asset('bundles/obhighcharts/js/highcharts/highcharts.js') }}">
+        </script>
+
+
+    {% endblock %}
+
+{% block content %}
+
+    <div id="page-wrapper">
+
+        <div class="container-fluid">
+
+            <!-- Page Heading -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+                        {{ forumTopic.sujet }}
+                        <small></small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li>
+                            <i class="fa fa-dashboard"></i>  <a  href="{{ path('BO') }}">Forum</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-dashboard"></i>  <a  href="{{ path('forumcategorie_index') }}">Sujets</a>
+                        </li>
+                        <li class="active">
+                            <i class="fa fa-file"></i> {{ forumTopic.sujet }}
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="col-sm-12">
+
+
+                        <div class="post beforepagination" >
+                            <div class="topwrap">
+                                <div class="userinfo pull-left">
+                                    <div class="avatar">
+                                        {{ forumTopic.idCreateur }}
+                                    </div>
+
+                                    <div class="icons">
+
+                                    </div>
+                                </div>
+                                <div class="posttext pull-left">
+                                    <h2>{{ forumTopic.sujet }}</h2>
+                                    <p>{{ forumTopic.contenu }}</p>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="postinfobot">
+
+                                <div class="likeblock pull-left">
+                                    <a class="up"><i class="fa fa-thumbs-o-up"></i>{{ forumTopic.nblike }}</a>
+                                    <a class="down"><i class="fa fa-thumbs-o-down"></i>{{ forumTopic.nbdeslike }}</a>
+                                </div>
+
+
+                                <div class="posted pull-left"><i class="fa fa-clock-o"></i> Posted on : {{ forumTopic.dateHeureCreation|date('Y-m-d H:i:s') }}</div>
+
+                                <div class="next pull-right">
+                                    {{ form_start(delete_form) }}
+
+                                    <div class="col-sm-2">  <input type="submit" value="supprimer" class="btn btn-sm btn-info"/>
+                                        {{ form_end(delete_form) }}</div>
+                                </div>
+
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="panel panel-success">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Liste des commentaire</h3>
+                                </div>
+                                <div class="panel-body">
+                                    {% for forumm in forumTopic.message %}
+                                        <div class="post">
+                                            <div class="topwrap">
+                                                <div class="userinfo pull-left">
+                                                    <div class="avatar">
+                                                        {{ forumm.idPosteur }}
+                                                    </div>
+
+                                                    <div class="icons">
+
+                                                    </div>
+                                                </div>
+                                                <div class="posttext pull-left">
+                                                    <p>{{ forumm.contenu }}</p>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="postinfobot">
+
+                                                <div class="likeblock pull-left">
+                                                    <a href="#" class="up"><i class="fa fa-thumbs-o-up"></i>{{ forumm.nblike }}</a>
+                                                    <a href="#" class="down"><i class="fa fa-thumbs-o-down"></i>{{ forumm.nbdeslike }}</a>
+                                                </div>
+
+                                                <div class="prev pull-left">
+                                                    <a href="#"><i class="fa fa-reply"></i></a>
+                                                </div>
+
+                                                <div class="posted pull-left"><i class="fa fa-clock-o"></i> Posted on : {{ forumm.dateHeureCreation|date('Y-m-d H:i:s') }}</div>
+
+                                                <div class="next pull-right">
+                                                    <img  class="icon icons8-Warning-Shield-Filled" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAABFklEQVQ4T5VTy23DMAwlffA1HSEbdIQ4EzSdoCpgC741IyQbtFfKQJUN0g2SDTpCRmivOogFDUlwXKkfngSJj3zke0LIRNu2TVVVTwCwAYCj9/5lGIbTPBXjhVLqpq7rO2ZWiNjME5n5hIjWOfdmrf2Q9xHcdZ08rHIscndSyBizHsFaay4knUtFiQh/BEtCqfAU/A4At/PuJTAzn40xTexsAeDhr2AAOBCRiguTDb/+A3xPRMcRHGS6AMBiWqBA+9M5txS5ks5a6yz1jAp7ItolneXQ9/3Sey+LS90znVPXK3Awy9XswVXJbd779dSmiXakV6LPzI/GGBktxTdwYPCMiPIxYqQ5fwUHy26YWYpsRZacfb8AGD+SEMH5Y9AAAAAASUVORK5CYII=" width="15" height="15"> {{ render(controller('MyAppFourumBundle:singaler:nbsignaler',{'id':forumm.idMessage})) }}
+                                                                                 <a type="submit"  class="btn btn-sm btn-info" href="{{ path('forummessage_delete', { 'forumMessage':forumm.idMessage }) }}">supprimer</a>
+
+                                                </div>
+
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div> <br> {% endfor %}
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+        </div></div></div>
+        </div></div>
+    </div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% block body %}
+    <h1>Forumtopic</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Idtopics</th>
+                <td>{{ forumTopic.idTopics }}</td>
+            </tr>
+            <tr>
+                <th>Sujet</th>
+                <td>{{ forumTopic.sujet }}</td>
+            </tr>
+            <tr>
+                <th>Contenu</th>
+                <td>{{ forumTopic.contenu }}</td>
+            </tr>
+            <tr>
+                <th>Dateheurecreation</th>
+                <td>{% if forumTopic.dateHeureCreation %}{{ forumTopic.dateHeureCreation|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Resolu</th>
+                <td>{% if forumTopic.resolu %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Notifcreateur</th>
+                <td>{% if forumTopic.notifCreateur %}Yes{% else %}No{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('forumtopics_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('forumtopics_edit', { 'id': forumTopic.idTopics }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

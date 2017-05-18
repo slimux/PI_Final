@@ -1,0 +1,41 @@
+{% extends "@FOSUser/admin/layout/layout.html.twig" %}
+{% block navbar %}
+    <li>
+        <a href="{{ path('admin') }}"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+    </li>
+    <li class="active">
+        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i
+                    class="fa fa-fw fa-money"></i> Store <i class="fa fa-fw fa-caret-down"></i></a>
+        <ul id="demo" class="collapse">
+            <li>
+                <a href="{{ path('admin_produits_index') }}">Produits</a>
+            </li>
+            <li>
+                <a href="{{ path('admin_categories_index') }}">Catégorie</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="{{ path('serveur_index') }}"><i class="fa fa-fw fa-cloud"></i> Serveur</a>
+    </li>
+    <li>
+        <a href="{{ path('adminCommande') }}"><i class="fa fa-fw fa-credit-card"></i> Commandes</a>
+    </li>
+    <li>
+        <a href="{{ path('adminUtilisateurs') }}"><i class="fa fa-fw fa-user"></i>Utilisateurs</a>
+    </li>
+{% endblock navbar %}
+{% block breadcrumb %}
+    <ol class="breadcrumb">
+        <li>
+            <i class="fa fa-dashboard"></i>  <a href="{{ path('admin') }}">Dashboard</a>
+        </li>
+        <li>
+            <i class="fa fa-money"></i> Store
+        </li>
+        <li class="active">
+            <i class="fa fa-shopping-basket"></i> Produits
+        </li>
+    </ol>
+{% endblock breadcrumb %}
+{% block content %}{% endblock %}

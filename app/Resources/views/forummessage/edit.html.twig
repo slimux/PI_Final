@@ -1,0 +1,45 @@
+<style>
+    .c2{
+        display: none;}
+</style>
+<div class="post">
+    <form action="#" class="form" method="post">
+        <div class="topwrap">
+            <div class="userinfo pull-left">
+                <div class="avatar">
+                    <img src="images\avatar4.jpg" alt="">
+                    <div class="status red">&nbsp;</div>
+                </div>
+
+                <div class="icons">
+                    <img src="images\icon3.jpg" alt=""><img src="images\icon4.jpg" alt=""><img src="images\icon5.jpg" alt=""><img src="images\icon6.jpg" alt="">
+                </div>
+            </div>
+            <div class="posttext pull-left">
+                <div class="textwraper">
+
+                    {{ form_start(edit_form) }}
+                    {{ form_widget(edit_form) }}
+
+
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="postinfobot">
+
+
+
+
+            <div class="pull-right postreply">
+
+                <div class="pull-left"><button type="submit" class="btn btn-primary">modifier</button></div>
+
+            </div>
+
+
+            {{ form_end(edit_form) }}
+            <div class="clearfix"></div>
+        </div>
+    </form>
+</div>

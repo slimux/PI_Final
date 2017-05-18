@@ -1,0 +1,54 @@
+{% extends 'MyAppPIBundle:layout:layout.html.twig' %}
+{% block title %}
+    <title>Actualite</title>
+{% endblock %}
+{% block  neuf %}
+<div align="center" class="container">
+    <div class="row">
+    <h1>liste des Actualites</h1>
+
+    <table align="center" class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Dateheurecreation</th>
+                <th>Type</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('admin_actualite_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.nom }}</td>
+                <td>{% if entity.dateHeureCreation %}{{ entity.dateHeureCreation|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.type }}</td>
+                <td>{{ entity.description }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('admin_actualite_show', { 'id': entity.id }) }}">afficher</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('admin_actualite_edit', { 'id': entity.id }) }}">Modifier</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+        <table align="center">
+        <ul>
+        <li>
+            <a href="{{ path('admin_actualite_new') }}">
+                Creer une nouvelle Actualite
+            </a>
+        </li>
+    </ul>
+        </table>
+    </div>
+</div>
+{% endblock neuf %}

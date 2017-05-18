@@ -1,0 +1,40 @@
+my_app_user:
+    resource: "@MyAppUserBundle/Resources/config/routing.yml"
+    prefix:   /
+my_app_pi:
+    resource: "@MyAppPIBundle/Resources/config/routing.yml"
+    prefix:   /
+esprit_game:
+    resource: "@EspritGameBundle/Resources/config/routing.yml"
+    prefix:   /slim
+tgs:
+    resource: "@TGSBundle/Resources/config/routing.yml"
+    prefix:   /kais
+my_app_video:
+    resource: "@MyAppVideoBundle/Resources/config/routing.yml"
+    prefix:   /s
+my_app_fourum:
+    resource: "@MyAppFourumBundle/Resources/config/routing.yml"
+    prefix:   /k
+
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+_liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.xml"
+
+fos_message:
+    resource: "@FOSMessageBundle/Resources/config/routing.xml"
+    prefix: /msg
+
+fos_comment_api:
+    type: rest
+    resource: "@FOSCommentBundle/Resources/config/routing.yml"
+    prefix: /api
+    defaults: { _format: html }
+
+
+

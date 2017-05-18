@@ -1,0 +1,21 @@
+{% extends "@FOSUser/admin/modelUsed/serveur.html.twig" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-6">
+    <h1>Serveur creation</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <br><input type="submit" value="Create" class="btn btn-default" />
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('serveur_index') }}">Back to the list</a>
+        </li>
+    </ul>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,6 @@
+serveur:
+    path:     /
+    defaults: { _controller: MyAppPIBundle:Serveur:index }
+rechercheServeur:
+    path:   /recherche
+    defaults: { _controller: MyAppPIBundle:Serveur:rechercheTraitement }

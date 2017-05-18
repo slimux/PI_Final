@@ -1,0 +1,240 @@
+<html lang="en" class="wide wow-animation desktop landscape mag-js rd-navbar-static-linked">
+<head>
+    {% block title %} <title>Votre text</title>{% endblock %}
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport"
+          content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    {% block stylsheet %}
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/plugins/ua/ec.js"></script>
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+    <script async="" src="http://www.googletagmanager.com/gtm.js?id=GTM-P9FT69"></script>
+    <script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script>
+    <script async="" src="http://ajax.cloudflare.com/cdn-cgi/nexp/dok3v=f2befc48d1/cloudflare.min.js"></script>
+    <link rel="icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
+    {#<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Montserrat:400,500,700%7CUbuntu:300,300italic,400,500,700">#}
+        {% block store %}
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        {% endblock store %}
+        {#<link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">#}
+        <link rel="stylesheet" href="{{ asset('css/bootstrap-responsive.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/font-awesome.css') }}">
+
+    <!--[if lt IE 10]>
+    <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;">
+        <a href="https://windows.microsoft.com/en-US/internet-explorer/"><img
+                src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820"
+                alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a>
+    </div>
+    <script src="{{ asset('js/html5shiv.min.js') }}"></script>
+    <![endif]-->
+    <style type="text/css">.cf-hidden {
+            display: none;
+        }
+
+        .cf-invisible {
+            visibility: hidden;
+        }</style>
+    {% endblock %}
+
+</head>
+<body>
+
+{#<div class="page text-center">#}
+
+    <header class="page-header">
+        <div class="rd-navbar-wrap" style="height: 135px;">
+            <nav class="rd-navbar rd-navbar-original rd-navbar-static" data-layout="rd-navbar-fixed"
+                 data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fullwidth"
+                 data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static"
+                 data-lg-device-layout="rd-navbar-static" data-sm-stick-up-offset="225px" data-md-stick-up-offset="45px"
+                 data-lg-stick-up-offset="45px">
+                <div class="rd-navbar-top-panel">
+                    <div class="rd-navbar-top-panel-inner">
+                        <p class="rd-navbar-fixed--hidden">Welcome to the<span
+                                    style="color: #fff"> world of gaming news!</span></p>
+                        <div>
+                            <a href="{{ path('store') }}" class="icon-shopping-cart"> Store</a>
+                            <a href="#" class="rd-navbar-fixed--hidden">About us</a>
+                            <a href="#" class="rd-navbar-fixed--hidden">Contacts</a>
+
+                            <div class="rd-navbar-search toggle-original-elements">
+                                <button data-rd-navbar-toggle=".rd-navbar-search"
+                                        class="rd-navbar-search-toggle toggle-original"><span class="fa-search"></span>
+                                </button>
+                                <form action="search-results.html" data-search-live="rd-search-results-live"
+                                      method="GET" class="rd-search">
+                                    <div class="form-group">
+                                        <label for="rd-navbar-search-form-input" class="form-label rd-input-label">Search</label>
+                                        <input id="rd-navbar-search-form-input" type="text" name="s" autocomplete="off"
+                                               class="rd-navbar-search-form-input form-control form-control-gray-lightest">
+                                        <div id="rd-search-results-live" class="rd-search-results-live"></div>
+                                    </div>
+                                    <button type="submit" class="fa-search"></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rd-navbar-inner">
+                    <div class="rd-navbar-panel">
+                        <button data-rd-navbar-toggle=".rd-navbar-nav-wrap" class="rd-navbar-toggle toggle-original">
+                            <span></span>
+                        </button>
+                        <div class="rd-navbar-brand"><a href="../"><img src="{{ asset('images/logo.png') }}" alt=""></a></div>
+                        <ul class="rd-navbar-list-inline">
+                            {% if app.user %}
+                                <li><a href="{{ path('fos_user_profile_show') }}" class="">{{ app.user.username }}</a></li>
+                                {#<li><a href="{{ path('fos_user_profile_edit') }}" class="">{{ app.user.username }}</a></li>#}
+                            {% else %}
+                                <li><a href="{{ path('fos_user_security_login') }}" class="icon-signin"> login</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                    <div class="rd-navbar-nav-wrap toggle-original-elements">
+                        <ul class="rd-navbar-nav">
+                            {% block jeux %}  <li class="active rd-navbar--has-dropdown rd-navbar-submenu"><a href="{{ path('pi_homepage') }}">Jeux</a>{% endblock jeux %}
+                                <ul class="rd-navbar-dropdown">
+                                    <li class="rd-navbar--has-dropdown rd-navbar-submenu"><a href="#">Post format</a>
+                                        <ul class="rd-navbar-dropdown rd-navbar-open-right">
+                                            <li><a href="blog-single-post.html">Standard Format</a></li>
+                                            <li><a href="blog-audio-post.html">Audio Format</a></li>
+                                            <li><a href="blog-video-post.html">Video Format</a></li>
+                                            <li><a href="blog-quote-post.html">Quote Format</a></li>
+                                            <li><a href="blog-gallery-post.html">Gallery Format</a></li>
+                                            <li><a href="blog-link-post.html">Link Format</a></li>
+                                        </ul>
+                                        <span class="rd-navbar-submenu-toggle"></span></li>
+                                    <li><a href="typography.html">Typography</a></li>
+                                    <li><a href="404.html">404</a></li>
+                                </ul>
+                                <span class="rd-navbar-submenu-toggle"></span></li>
+                            <li><a href="previews.html">actu</a></li>
+                            <li><a href="reviews.html">vidéos</a></li>
+                            <li><a href="videos.html">forum</a></li>
+                           {% block serveur %} <li><a href="{{ path('serveur') }}">serveur</a></li> {% endblock serveur %}
+                            <li class="rd-navbar-fixed--visible rd-navbar--hidden"><a href="about.html">about</a></li>
+                            <li class="rd-navbar-fixed--visible rd-navbar--hidden"><a href="contact.html">contact</a>
+                            </li>
+                            <li class="rd-navbar-fixed--visible rd-navbar--hidden">
+                                <ul class="rd-navbar-list-inline">
+                                    <li><a href="#" class="icon icon-sm fa-facebook"></a></li>
+                                    <li><a href="#" class="icon icon-sm fa-twitter"></a></li>
+                                    <li><a href="#" class="icon icon-sm fa-pinterest-p"></a></li>
+                                    <li><a href="#" class="icon icon-sm fa-vimeo"></a></li>
+                                    <li><a href="#" class="icon icon-sm fa-youtube-play"></a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-content">
+        {% block content %}
+            {% block formulaire %}
+            {% endblock formulaire %}
+        {#<section class="section-top-90">#}
+            {% block neuf %}
+            {% endblock %}
+        {#</section>#}
+        <section class="section-top-80">
+            {% block huit %}
+            {% endblock %}
+        </section>
+        {% endblock %}
+    </main>
+
+    <footer class="page-footer">
+        <section class="bg-gray-base post-footer">
+            <div class="shell">
+                <div class="range range-md-middle">
+                    <div class="cell-md-6 text-md-right text-center cell-md-push-1">
+                        <ul class="list-inline list-inline-none">
+                            <li><a href="#" class="icon icon-sm fa-facebook"></a></li>
+                            <li><a href="#" class="icon icon-sm fa-twitter"></a></li>
+                            <li><a href="#" class="icon icon-sm fa-pinterest-p"></a></li>
+                            <li><a href="#" class="icon icon-sm fa-vimeo"></a></li>
+                            <li><a href="#" class="icon icon-sm fa-youtube-play"></a></li>
+                        </ul>
+                    </div>
+                    <div class="cell-md-6 text-md-left offset-top-25 offset-md-top-0">
+                        <p>© 2016 Finest Game, Inc. <a href="privacy.html">All Rights Reserved</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </footer>
+
+{#</div>#}
+
+<div id="form-output-global" class="snackbars"></div>
+
+<div tabindex="-1" role="dialog" aria-hidden="true" class="pswp">
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+                <button title="Close (Esc)" class="pswp__button pswp__button--close"></button>
+                <button title="Share" class="pswp__button pswp__button--share"></button>
+                <button title="Toggle fullscreen" class="pswp__button pswp__button--fs"></button>
+                <button title="Zoom in/out" class="pswp__button pswp__button--zoom"></button>
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+            <button title="Previous (arrow left)" class="pswp__button pswp__button--arrow--left"></button>
+            <button title="Next (arrow right)" class="pswp__button pswp__button--arrow--right"></button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__cent"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{{ asset('js/core.min.js') }}"></script>
+<script src="{{ asset('js/script.js') }}"></script>
+<script src="{{ asset('bundles/ivoryckeditor/ckeditor.js') }}"></script>
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-7078796-5']);
+    _gaq.push(['_trackPageview']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();</script>
+<noscript>&lt;iframe src="//www.googletagmanager.com/ns.html?id=GTM-P9FT69"height="0" width="0"
+    style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;</noscript>
+<script>(function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'http://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-P9FT69');</script><!-- End Google Tag Manager -->
+<a href="#" id="ui-to-top" class="ui-to-top fa fa-angle-up"></a>
+
+</body>
+</html>

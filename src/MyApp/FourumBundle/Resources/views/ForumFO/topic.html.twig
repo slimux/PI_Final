@@ -1,0 +1,443 @@
+{% extends "MyAppPIBundle:admin/layout:layout.html.twig" %}
+  {% block head %}
+      <title>{% block title %} Forum {% endblock %}</title>
+
+      <meta name="format-detection" content="telephone=no">
+      <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <script type="text/javascript" async="" src="https://www.google-analytics.com/plugins/ua/ec.js"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="http://www.googletagmanager.com/gtm.js?id=GTM-P9FT69"></script><script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script async="" src="http://ajax.cloudflare.com/cdn-cgi/nexp/dok3v=f2befc48d1/cloudflare.min.js"></script><script type="text/javascript">
+      //<![CDATA[
+      try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag2:1,mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/dok3v=1613a3a185/"},atok:"0990115ae424311cc566aeef9cb33b2c",petok:"9fd8cda7d76103856269ff3579befa5188ebf83e-1488990843-1800",zone:"template-help.com",rocket:"0",apps:{"abetterbrowser":{"ie":"7"}}}];!function(a,b){a=document.createElement("script"),b=document.getElementsByTagName("script")[0],a.async=!0,a.src="http://ajax.cloudflare.com/cdn-cgi/nexp/dok3v=f2befc48d1/cloudflare.min.js",b.parentNode.insertBefore(a,b)}()}}catch(e){};
+      //]]>
+  </script>
+      {% block stylesheet %}
+          <link rel="icon" href="{{ asset('FO/images/favicon.ico') }}" type="image/x-icon">
+
+          <link rel="stylesheet" href="{{ asset('FO/css/style.css') }}">
+          <!--[if lt IE 10]>
+
+          <![endif]-->
+
+          <script src="{{ asset('FO/js/j.min.js') }}"></script>
+
+          <!-- Custom -->
+          <link href="{{ asset('Forum/css/custom.css') }}" rel="stylesheet">
+
+          <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+          <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+          <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+          <![endif]-->
+
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+          <!-- fonts -->
+          <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+          <link rel="stylesheet" href="{{ asset('Forum/font-awesome-4.0.3/css/font-awesome.min.css') }}">
+
+          <!-- CSS STYLE-->
+
+
+          <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
+
+      {% endblock %}
+
+  {% endblock %}
+   {% block content %}
+
+
+
+
+
+
+       <main class="page-content">
+           <section class="bg-primary">
+               <div class="shell">
+                   <ol class="breadcrumb">
+
+                       <li><a href="{{ path('my_app_fourum_homepagef') }}">Tous les categories</a></li>                       <li><a href="{{ path('sc', {'id': forumTopic.idSousCategorie.idSousCategorie }) }}">{{forumTopic.idSousCategorie.idCategorie.titre  }}: {{forumTopic.idSousCategorie.titre  }}</a></li>
+                       <li class="active">{{forumTopic.sujet  }}</li>
+                   </ol>
+               </div>
+           </section>
+           <section>
+               <div class="shell text-md-left section-top-48 section-bottom-80">
+                   <div class="row">
+                       <div class="col-lg-8 col-md-8">
+                           <div class="post beforepagination">
+                               <div class="topwrap">
+                                   <div class="userinfo pull-left">
+                                       <div class="avatar">
+
+                                       </div>
+
+                                       <div class="icons">
+                                           {{ forumTopic.idCreateur }}
+                                       </div>
+                                   </div>
+                                   <div class="posttext pull-left">
+                                       <h2>{{ forumTopic.sujet }}</h2>
+                                       <p>{{ forumTopic.contenu }}</p>
+                                   </div>
+                                   <div class="clearfix"></div>
+                               </div>
+                               <div class="postinfobot">
+
+                                   <div class="likeblock pull-left">
+                                       <a href="{{ path('topiclike', { 'id':forumTopic.idtopics }) }}" ><img class="icon icons8-Facebook-Like" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAyUlEQVQ4T6WSzRGCQAxGvxw4SylagVqCFbgelrMdKBVwT5hRO7AE7UAbIk6YZUcYFAb2sofdl7z8EGYcmsFiFOy9X1oSEXl9JxuEvfcOQAHgLSKbUbBzLk2SpCAig1FV1bYsy8cgHDQvRFTrqqrpHoP6swkQtYPeHsANgCOidV8zVfUgIld7i3CWZWcAJwB5uH8NImdm+zsJ3jHzfRKsqqtmZC1tVbVarR7T7z3MHJluzXXDVDUNI1p0IsR6W9pT1nRww/4FnQV/ANg5SRB5BX5AAAAAAElFTkSuQmCC" width="15" height="15"></a>{{ forumTopic.nblike }}
+                                       <a href="{{ path('topicdeslike', { 'id':forumTopic.idtopics }) }}" ><img class="icon icons8-Thumbs-Down" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAzElEQVQ4T6WTwRHCIBBFd7cS04EdGDuwA3MJ51iBJWhuGbhgB5agnaSEnGGGdcgMDjJJnBCOwNvP3/0gbFi4gYURruv6hYgH59yRiPYAcJsqysytUqoJZ1NwCQDXuRcRUdF1Xe/PV8MA8JBSVlkwMw/W2kJrPeQoe9GLlPKeBTPzWylVZsHBd4ArRNwRkXbOneJReY+I2IbuM3NvrX1+PadjEUJoADiH/Xg88d3ZhCUFxgalIovxDAXSZP0kbCnfQojGGKO9x1XK/z7NB0hvexBuzRqFAAAAAElFTkSuQmCC" width="15" height="15"></a>{{ forumTopic.nbdeslike }}
+                                   </div>
+
+
+
+                                   <div class="posted pull-left"><i class="fa fa-clock-o"></i> Posted on : {{ forumTopic.dateHeureCreation|date('Y-m-d H:i:s') }}</div>
+
+                                   <div class="next pull-right">
+
+                                       {{ socialButtons( { 'facebook': {'locale':'fr_FR', 'send':true}} ) }}
+       {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+           {% if app.user.id==forumTopic.idCreateur.id %}
+
+                                       <a href="#"><img class="icon icons8-Delete" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAvUlEQVQ4T6WTURKCMAxE05OIR/IE4kd7DeUa2w/wBh6pniROmIYJLShj+YLJvnSzKY4aHtfA0gr23vfOuROAoWwaQngwc4oxTlpb4AyOUmDmKcZ4U1EIQYBr/r4AeMn7AktnIroroA0KUMoDANGubW8IExF1ZoQngL6yvWPRjr4Cq5NV6b1PEpwhE4BzGWK1qg3rM1OG+HNmZn5bB2WD3bSJaJ7xUNp2zwoe3rMIc4NO92gD+nrD/rnjTT/GB0imahCzvb2BAAAAAElFTkSuQmCC" width="15" height="15"></a>
+                                       <img   width="15" height="15" data-toggle="modal" data-target="#edit" class="icon icons8-Edit" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAABGUlEQVQ4T43SzW2EMBAF4Hkgcd50sOkgJZAKUkLYgxHHpINsB5sbGiPFJbAVLOlgU0FSQs5IeKIhZoX2B/AJCX/j5xmDFi5jTEZEzwAaZt4qwxJbFMXae/+mWPeLiLPWbmZxgN8isgGQDgWIaDuJQ9Q+HICPcQER+byJFQLYiUgqIisA67MC9VU8hgBeNGoURfdd16VawHv/WFVVc4GvQY1LREcieojjuCnL8uei2zPwAGDPzDqy/z4MHwvgOzPruE6rx3OQiF6tte78TfQ4z/OjiOyGOY7ueLgF+9jDI2jb9s459xtmq82ZhD0OmzNrbZpl2SpJkidNMXXiqWHGmBqAgibE/iIix8xaYHLpyTozjVmPZzgH9f8ftoW1M4dNKjcAAAAASUVORK5CYII=" width="15" height="15">
+
+                                       <div class="modal fade" id="edit" role="dialog">
+                                           <div class="modal-dialog">
+
+                                               <!-- Modal content-->
+                                               <div class="modal-content">
+                                                   <div class="modal-header">
+                                                       <button type="button"
+                                                               class="close" data-dismiss="modal">&times;</button>
+                                                       <h4 class="modal-title">modifier sujet</h4></div>
+                                                   <form action="{{ path('updatet',{'id':forumTopic.idtopics })}}", method="POST" >                                                       <div class="modal-body">
+                                                          <input value="{{ forumTopic.sujet }}" class="form-control" name="sujet" required >
+                                                           <textarea name="contenu"required class="form-control">{{ forumTopic.contenu }}</textarea>
+
+                                                           <div class="modal-footer">
+                                                           <input class="btn btn-primary" type="submit" value="modifier" />
+                                                       </div></div>
+                                                   </form></div>
+
+                                           </div>
+
+
+                                   </div>
+           {% endif %}      {% endif %}
+
+                                   <div class="clearfix"></div>
+                               </div>
+                               <br></div>
+                           </div>
+
+                           <!-- POST --><br>
+
+                           {% for forumm in forumTopic.message %}
+
+
+                           <div class="post">
+                               <div class="topwrap">
+                                   <div class="userinfo pull-left">
+                                       <div class="avatar">
+                                           {{ forumm.idPosteur }}
+                                       </div>
+
+                                       <div class="icons">
+
+                                       </div>
+                                   </div>
+                                   <div class="posttext pull-left">
+                                       <p>{{ forumm.contenu }}</p>
+                                   </div>
+                                   <div class="clearfix"></div>
+                               </div>
+                               <div class="postinfobot">
+
+                                   <div class="likeblock pull-left">
+                                       <a href="{{ path('forummessage_like', { 'id':forumm.idMessage }) }}" ><img class="icon icons8-Facebook-Like" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAyUlEQVQ4T6WSzRGCQAxGvxw4SylagVqCFbgelrMdKBVwT5hRO7AE7UAbIk6YZUcYFAb2sofdl7z8EGYcmsFiFOy9X1oSEXl9JxuEvfcOQAHgLSKbUbBzLk2SpCAig1FV1bYsy8cgHDQvRFTrqqrpHoP6swkQtYPeHsANgCOidV8zVfUgIld7i3CWZWcAJwB5uH8NImdm+zsJ3jHzfRKsqqtmZC1tVbVarR7T7z3MHJluzXXDVDUNI1p0IsR6W9pT1nRww/4FnQV/ANg5SRB5BX5AAAAAAElFTkSuQmCC" width="15" height="15"></a>{{ forumm.nblike }}
+                                       <a href="{{ path('forummessage_deslike', { 'id':forumm.idMessage }) }}" ><img class="icon icons8-Thumbs-Down" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAzElEQVQ4T6WTwRHCIBBFd7cS04EdGDuwA3MJ51iBJWhuGbhgB5agnaSEnGGGdcgMDjJJnBCOwNvP3/0gbFi4gYURruv6hYgH59yRiPYAcJsqysytUqoJZ1NwCQDXuRcRUdF1Xe/PV8MA8JBSVlkwMw/W2kJrPeQoe9GLlPKeBTPzWylVZsHBd4ArRNwRkXbOneJReY+I2IbuM3NvrX1+PadjEUJoADiH/Xg88d3ZhCUFxgalIovxDAXSZP0kbCnfQojGGKO9x1XK/z7NB0hvexBuzRqFAAAAAElFTkSuQmCC" width="15" height="15"></a>{{ forumm.nbdeslike }}
+                                   </div>
+
+                                   <div class="posted pull-left"><i class="fa fa-clock-o"></i> Posted on : {{ forumm.dateHeureCreation|date('Y-m-d H:i:s') }}</div>
+
+                                   <div class="next pull-right">
+                               {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                       {% if app.user.id==forumm.idPosteur.id %}
+                                       <a href="{{ path('forummessage_delete', { 'forumMessage':forumm.idMessage }) }}"><img class="icon icons8-Delete" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAvUlEQVQ4T6WTURKCMAxE05OIR/IE4kd7DeUa2w/wBh6pniROmIYJLShj+YLJvnSzKY4aHtfA0gr23vfOuROAoWwaQngwc4oxTlpb4AyOUmDmKcZ4U1EIQYBr/r4AeMn7AktnIroroA0KUMoDANGubW8IExF1ZoQngL6yvWPRjr4Cq5NV6b1PEpwhE4BzGWK1qg3rM1OG+HNmZn5bB2WD3bSJaJ7xUNp2zwoe3rMIc4NO92gD+nrD/rnjTT/GB0imahCzvb2BAAAAAElFTkSuQmCC" width="15" height="15"></a>
+                                           <img   width="15" height="15" data-toggle="modal" data-target="#{{ forumm.idMessage}}edit" class="icon icons8-Edit" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAABGUlEQVQ4T43SzW2EMBAF4Hkgcd50sOkgJZAKUkLYgxHHpINsB5sbGiPFJbAVLOlgU0FSQs5IeKIhZoX2B/AJCX/j5xmDFi5jTEZEzwAaZt4qwxJbFMXae/+mWPeLiLPWbmZxgN8isgGQDgWIaDuJQ9Q+HICPcQER+byJFQLYiUgqIisA67MC9VU8hgBeNGoURfdd16VawHv/WFVVc4GvQY1LREcieojjuCnL8uei2zPwAGDPzDqy/z4MHwvgOzPruE6rx3OQiF6tte78TfQ4z/OjiOyGOY7ueLgF+9jDI2jb9s459xtmq82ZhD0OmzNrbZpl2SpJkidNMXXiqWHGmBqAgibE/iIix8xaYHLpyTozjVmPZzgH9f8ftoW1M4dNKjcAAAAASUVORK5CYII=" width="15" height="15">
+
+                                           <div class="modal fade" id="{{ forumm.idMessage}}edit" role="dialog">
+                                               <div class="modal-dialog">
+
+                                                   <!-- Modal content-->
+                                                   <div class="modal-content">
+                                                       <div class="modal-header">
+                                                           <button type="button"
+                                                                   class="close" data-dismiss="modal">&times;</button>
+                                                           <h4 class="modal-title">Modifier</h4></div>
+                                                       <form action="{{ path('update',{'id':forumm.idMessage })}}", method="POST" >
+                                                       <div class="modal-body">
+                                                           <div class="topwrap">
+
+
+
+                                                               </div>
+                                                               <div class="posttext pull-left">
+                                                                   <div class="textwraper">
+                                                                       <div class="postreply"></div>
+                                                                       <textarea name="message">{{ forumm.contenu }}</textarea>
+
+                                                                   </div>
+                                                               </div>
+                                                               <div class="clearfix"></div>
+                                                           </div>
+
+                                                       <div class="modal-footer">
+                                                           <input class="btn btn-primary" type="submit" value="modifier" />
+                                                       </div>
+                                                       </form></div>
+
+                                               </div>
+                                           </div>
+                                       {% endif %}{% endif %}
+
+                                       <img  data-toggle="modal" data-target="#{{ forumm.idMessage}}" class="icon icons8-Warning-Shield-Filled" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAABFklEQVQ4T5VTy23DMAwlffA1HSEbdIQ4EzSdoCpgC741IyQbtFfKQJUN0g2SDTpCRmivOogFDUlwXKkfngSJj3zke0LIRNu2TVVVTwCwAYCj9/5lGIbTPBXjhVLqpq7rO2ZWiNjME5n5hIjWOfdmrf2Q9xHcdZ08rHIscndSyBizHsFaay4knUtFiQh/BEtCqfAU/A4At/PuJTAzn40xTexsAeDhr2AAOBCRiguTDb/+A3xPRMcRHGS6AMBiWqBA+9M5txS5ks5a6yz1jAp7ItolneXQ9/3Sey+LS90znVPXK3Awy9XswVXJbd779dSmiXakV6LPzI/GGBktxTdwYPCMiPIxYqQ5fwUHy26YWYpsRZacfb8AGD+SEMH5Y9AAAAAASUVORK5CYII=" width="15" height="15">
+
+
+
+                                       <div class="modal fade" id="{{ forumm.idMessage}}" role="dialog">
+                                           <div class="modal-dialog">
+
+                                               <!-- Modal content-->
+                                               <div class="modal-content">
+                                                   <div class="modal-header">
+                                                       <button type="button"
+                                                               class="close" data-dismiss="modal">&times;</button>
+                                                       <h4 class="modal-title">Aidez-nous à comprendre ce qui se passe</h4></div>
+                                                   <form action="{{ path('singaler',{'id':forumm.idMessage })}}", method="POST" >
+                                                   <div class="modal-body">
+
+                                                       <input type="text" name="cause">
+
+                                                   </div>
+                                                   <div class="modal-footer">
+                                                       <input class="btn btn-primary" type="submit" value="signaler" />
+
+
+                                                   </div></form>
+                                               </div>
+
+                                           </div>
+                                       </div>
+                                   </div>
+
+                                   <div class="clearfix"></div>
+                               </div>
+                           </div>  {% endfor %}
+
+
+
+
+
+
+       {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+
+
+                           <div class="post">
+                               <form action="#" class="form" method="post">
+                                   <div class="topwrap">
+                                       <div class="userinfo pull-left">
+                                           <div class="avatar">
+
+                                           </div>
+
+                                           <div class="icons"></div>
+                                       </div>
+                                       <div class="posttext pull-left">
+                                           <div class="textwraper">
+                                               <div class="postreply"></div>
+
+                                               {{ form_start(form) }}
+                                               {{ form_widget(form) }}
+
+
+                                           </div>
+                                       </div>
+                                       <div class="clearfix"></div>
+                                   </div>
+                                   <div class="postinfobot">
+
+                                       <div class="pull-right postreply">
+
+                                           <div class="pull-left"><button type="submit" class="btn btn-primary">Repondre</button></div>
+                                           <div class="clearfix"></div>
+                                       </div>
+
+                                       {{ form_end(form) }}
+                                       <div class="clearfix"></div>
+                                   </div>
+                               </form>
+                           </div>
+       {% else %}
+           <div><h3><a href="{{ path('fos_user_security_login') }}">conctez vous pour repondre</a></h3></div>
+
+
+       {% endif %}
+
+                       </div>
+                       <div class="col-lg-4 col-md-4">
+
+
+                           <!-- -->
+                           <div class="sidebarblock">
+                               <h3>Poll of the Week</h3>
+                               <div class="divline"></div>
+                               <div class="blocktxt">
+                                   <p>Which game you are playing this week?</p>
+                                   <form action="#" method="post" class="form">
+                                       <table class="poll">
+                                           <tr>
+                                               <td>
+                                                   <div class="progress">
+                                                       <div class="progress-bar color1" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
+                                                           Call of Duty Ghosts
+                                                       </div>
+                                                   </div>
+                                               </td>
+                                               <td class="chbox">
+                                                   <input id="opt1" type="radio" name="opt" value="1">
+                                                   <label for="opt1"></label>
+                                               </td>
+                                           </tr>
+                                           <tr>
+                                               <td>
+                                                   <div class="progress">
+                                                       <div class="progress-bar color2" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 63%">
+                                                           Titanfall
+                                                       </div>
+                                                   </div>
+                                               </td>
+                                               <td class="chbox">
+                                                   <input id="opt2" type="radio" name="opt" value="2" checked="">
+                                                   <label for="opt2"></label>
+                                               </td>
+                                           </tr>
+                                           <tr>
+                                               <td>
+                                                   <div class="progress">
+                                                       <div class="progress-bar color3" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 75%">
+                                                           Battlefield 4
+                                                       </div>
+                                                   </div>
+                                               </td>
+                                               <td class="chbox">
+                                                   <input id="opt3" type="radio" name="opt" value="3">
+                                                   <label for="opt3"></label>
+                                               </td>
+                                           </tr>
+                                       </table>
+                                   </form>
+                                   <p class="smal">Voting ends on 19th of October</p>
+                               </div>
+                           </div>
+
+                           <!-- -->
+                           <div class="sidebarblock">
+                               <h3>My Active Threads</h3>
+                               <div class="divline"></div>
+                               <div class="blocktxt">
+                                   <a href="#">This Dock Turns Your iPhone Into a Bedside Lamp</a>
+                               </div>
+                               <div class="divline"></div>
+                               <div class="blocktxt">
+                                   <a href="#">Who Wins in the Battle for Power on the Internet?</a>
+                               </div>
+                               <div class="divline"></div>
+                               <div class="blocktxt">
+                                   <a href="#">Sony QX10: A Funky, Overpriced Lens Camera for Your Smartphone</a>
+                               </div>
+                               <div class="divline"></div>
+                               <div class="blocktxt">
+                                   <a href="#">FedEx Simplifies Shipping for Small Businesses</a>
+                               </div>
+                               <div class="divline"></div>
+                               <div class="blocktxt">
+                                   <a href="#">Loud and Brave: Saudi Women Set to Protest Driving Ban</a>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </section>
+       </main>
+       <footer class="page-footer">
+           <section class="section-54 context-dark">
+               <div class="shell">
+                   <div class="range text-md-left">
+                       <div class="cell-sm-6 cell-md-3">
+                           <h4>Categories</h4>
+                           <ul class="list-11">
+                               <li><a href="./"> News</a></li>
+                               <li><a href="Previews.html"> Previews</a></li>
+                               <li><a href="Reviews.html"> Reviews</a></li>
+                               <li><a href="#"> Information</a></li>
+                               <li><a href="blog-single-post.html"> Recent Posts</a></li>
+                               <li><a href="videos.html"> Videos</a></li>
+                               <li><a href="Platforms.html"> Platforms</a></li>
+                           </ul>
+                       </div>
+                       <div class="cell-sm-6 cell-md-3">
+                           <h4>Information</h4>
+                           <ul class="list-11">
+                               <li><a href="About.html">About us</a></li>
+                               <li><a href="Contact.html">Contact us</a></li>
+                               <li><a href="#">Editorial Policy</a></li>
+                               <li><a href="privacy.html">Terms of Service</a></li>
+                           </ul>
+                       </div>
+                       <div class="cell-md-3">
+                           <h4>Recent Post</h4>
+                           <div class="post-blog"><a href="blog-single-post.html" class="thumbnail"><img src="images/footer-01.jpg" width="" height="" alt="" class="img-responsive"></a>
+                               <div class="small"><a href="./">News</a></div>
+                               <div class="post-blog-title"><a href="blog-single-post.html">Homefront: The Revolution gives away single-player season pass</a></div>
+                               <div class="post-blog-meta small">
+                                   <div class="reveal-inline-block text-gray small post-blog-author">by <a href="blog-list.html">Admin</a></div>
+                                   <p class="text-gray">Jan. 12, 2016</p><span class="post-blog-comment"><a href="blog-single-post.html#comments">4</a></span>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="cell-md-3">
+                           <h4>Recent Comments</h4>
+                           <ul class="list">
+                               <li><a href="blog-single-post.html">Albert on How relevant is PS4 release for the "Carmageddon"?</a></li>
+                               <li><a href="blog-single-post.html">Danny on Why Uncharted 4 release gets postponed (again)?</a></li>
+                           </ul>
+                       </div>
+                   </div>
+               </div>
+           </section>
+           <section class="bg-gray-base post-footer">
+               <div class="shell">
+                   <div class="range range-md-middle">
+                       <div class="cell-md-6 text-md-right text-center cell-md-push-1">
+                           <ul class="list-inline list-inline-none">
+                               <li><a href="#" class="icon icon-sm fa-facebook"></a></li>
+                               <li><a href="#" class="icon icon-sm fa-twitter"></a></li>
+                               <li><a href="#" class="icon icon-sm fa-pinterest-p"></a></li>
+                               <li><a href="#" class="icon icon-sm fa-vimeo"></a></li>
+                               <li><a href="#" class="icon icon-sm fa-youtube-play"></a></li>
+                           </ul>
+                       </div>
+                       <div class="cell-md-6 text-md-left offset-top-25 offset-md-top-0">
+                           <p>© 2016 Finest Game, Inc. <a href="privacy.html">All Rights Reserved</a>
+                           </p>
+                       </div>
+                   </div>
+               </div>
+           </section>
+       </footer>
+
+
+   {% endblock %}

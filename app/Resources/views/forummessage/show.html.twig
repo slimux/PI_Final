@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Forummessage</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Idmessage</th>
+                <td>{{ forumMessage.idMessage }}</td>
+            </tr>
+            <tr>
+                <th>Dateheurecreation</th>
+                <td>{% if forumMessage.dateHeureCreation %}{{ forumMessage.dateHeureCreation|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Contenu</th>
+                <td>{{ forumMessage.contenu }}</td>
+            </tr>
+            <tr>
+                <th>Dateheureedition</th>
+                <td>{% if forumMessage.dateHeureEdition %}{{ forumMessage.dateHeureEdition|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Meilleurereponse</th>
+                <td>{{ forumMessage.meilleureReponse }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('forummessage_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('forummessage_edit', { 'id': forumMessage.idMessage }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

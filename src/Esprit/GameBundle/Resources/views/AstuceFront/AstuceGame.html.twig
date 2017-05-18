@@ -1,0 +1,77 @@
+{% extends "EspritGameBundle:Game:layout.html.twig" %}
+{% block head %}
+    <title> {% block title %}{{ parent() }}-Forum{% endblock %}</title>
+    {% block stylesheet %}
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+    {% endblock %}
+{% endblock %}
+{% block content %}
+    <body>
+    <div id="site-content">
+        <section class="bg-primary">
+            <div class="shell">
+                <ol class="breadcrumb">
+                    <li><a href="http://localhost/Pidev/web/app_dev.php/login">Home</a></li>
+                    <li class="active"><a href="http://localhost/Pidev/web/app_dev.php/product">Produit</a></li>
+                    <li class="active"><a href="{{ path("esprit_gameS", {'id_jeu': jeu.idJeu }) }}">Jeu</a></li>
+                </ol>
+            </div>
+        </section>
+    </div>
+
+
+        <br>
+        <main class="main-content">
+            <div class="container">
+                <div class="page">
+
+
+                    {% for astuce in astuces %}
+                        <div style="margin-left: 15%" class="col-sm-6 col-md-8">
+                            <h2 class="entry-title">{{ astuce.Jeu.Titre}}</h2>
+                            <br>
+
+                            <p> <strong>{{ astuce.TitleAstuce }}.</strong></p>
+<br>
+                            <figure class="large-image">
+                                <a href=""><img height="281" width="500" src='{{ asset("/BACKUP/PI/web/images/"~ astuce.ImageAstuce)}}' /> </a>
+                            </figure>
+<br>
+                            <p>{{ astuce.DescriptionAstuce }}.</p>
+
+
+                            <div class="social-links square">
+                                <strong>{{ socialButtons() }}</strong>
+                            </div>
+
+                            <br>
+                            <a href="{{ path('my_app_mail_homepage') }}">Contribuer pour plus d'astuce</a>
+                        </div>
+                    {% endfor %}
+
+                </div>
+                <br>
+
+                <div class="navigation-visible text-center" >
+                    {{ knp_pagination_render(astuces) }}
+                </div>
+            </div>
+        </main>
+
+
+    </div> <!-- .container -->
+
+    <div class="overlay"></div>
+
+
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/app.js"></script>
+
+    </body>
+
+
+    <br>
+
+{% endblock %}

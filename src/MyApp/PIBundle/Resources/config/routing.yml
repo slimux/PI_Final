@@ -1,0 +1,33 @@
+pi_homepage:
+    path:     /
+    defaults: { _controller: MyAppPIBundle:PI:index }
+routingServeur:
+  resource: "@MyAppPIBundle/Resources/config/routing/routingServeur.yml"
+  prefix: /serveur
+routingPanier:
+  resource: "@MyAppPIBundle/Resources/config/routing/routingPanier.yml"
+  prefix: /panier
+routingProduits:
+  resource: "@MyAppPIBundle/Resources/config/routing/routingProduits.yml"
+  prefix: /
+routingCommandes:
+  resource: "@MyAppPIBundle/Resources/config/routing/routingCommades.yml"
+  prefix: /
+routingAdmin:
+  resource: "@MyAppPIBundle/Resources/config/routing/routingAdmin.yml"
+  prefix: /admin
+my_app_pi_serveur:
+  resource: "@MyAppPIBundle/Resources/config/routing/routingServeurAdmin.yml"
+  prefix:   /admin/serveur
+my_app_pi_admin_produits:
+  resource: "@MyAppPIBundle/Resources/config/routing/routingProduitsAdmin.yml"
+  prefix:   /admin/produits
+my_app_pi_admin_categories:
+  resource: "@MyAppPIBundle/Resources/config/routing/routingCategoriesAdmin.yml"
+  prefix:   /admin/categories
+my_app_pi_admin_commandes:
+  resource: "@MyAppPIBundle/Resources/config/routing/routingCommandesAdmin.yml"
+  prefix:   /admin/commandes
+my_app_pi_admin_utilisateurs:
+  resource: "@MyAppPIBundle/Resources/config/routing/routingUtilisateursAdmin.yml"
+  prefix:   /admin/utilisateurs

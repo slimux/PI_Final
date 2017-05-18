@@ -1,0 +1,25 @@
+{% extends 'MyAppPIBundle:layout:layout.html.twig' %}
+
+{% block title %}
+    <title>Evenement</title>
+{% endblock %}
+{% block neuf %}
+<div align="center" class="container">
+    <div class="row">
+    <h2 align="center">Creation Evenement</h2>
+
+
+    {{ form(form) }}
+
+        <table align="center" class="record_actions">
+            <tr>
+    <td>
+        <a href="{{ path('admin_evenement') }}">
+            Retour a la liste
+        </a>
+    </td>
+            </tr>
+</table>
+    </div>
+</div>
+{% endblock %}

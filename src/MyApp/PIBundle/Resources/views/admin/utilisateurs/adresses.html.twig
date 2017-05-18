@@ -1,0 +1,28 @@
+{% extends "@FOSUser/admin/modelUsed/utilisateurs.html.twig" %}
+{% block breadcrumb %}
+    <ol class="breadcrumb">
+        <li>
+            <i class="fa fa-dashboard"></i>  <a href="{{ path('admin') }}">Dashboard</a>
+        </li>
+        <li>
+            <i class="fa fa-user"></i> <a href="{{ path('adminUtilisateurs') }}">Utilisateurs</a>
+        </li>
+        <li class="active">
+            <i class="fa fa-bookmark"></i> Adresses
+        </li>
+    </ol>
+{% endblock breadcrumb %}
+{% block content %}
+    <h1>Utilisateur adresses</h1>
+
+    {% for adresse in utilisateur.adresses %}
+        <div class="span12">
+            <div class="span4">
+                <h4>Adresse {{ loop.index }} :</h4>
+                {{ adresse.adresse }}, {{ adresse.cp }} {{ adresse.ville }} - {{ adresse.pays }}
+                <br>{{ adresse.prenom }} {{ adresse.nom }}
+                <br /><br />
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

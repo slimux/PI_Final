@@ -1,0 +1,24 @@
+forumtopics_index:
+    path:     /
+    defaults: { _controller: "MyAppFourumBundle:ForumTopics:index" }
+    methods:  GET
+
+forumtopics_show:
+    path:     /{id}/show
+    defaults: { _controller: "MyAppFourumBundle:ForumTopics:show" }
+    methods:  GET
+
+forumtopics_new:
+    path:     /new
+    defaults: { _controller: "MyAppFourumBundle:ForumTopics:new" }
+    methods:  [GET, POST]
+
+forumtopics_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MyAppFourumBundle:ForumTopics:edit" }
+    methods:  [GET, POST]
+
+forumtopics_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MyAppFourumBundle:ForumTopics:delete" }
+    methods:  DELETE

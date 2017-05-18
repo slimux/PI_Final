@@ -1,0 +1,39 @@
+{% extends "@FOSUser/admin/modelUsed/categories.html.twig" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-6">
+        <h2>Categorie</h2>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ category.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ category.nom }}</td>
+            </tr>
+        </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <h2>Actions</h2><br>
+    <ul>
+        <li>
+            <a class="btn btn-default"  href="{{ path('admin_categories_index') }}">Back to the list</a>
+        </li><br>
+        <li>
+            <a class="btn btn-default"  href="{{ path('admin_categories_edit', { 'id': category.id }) }}">Edit</a>
+        </li><br>
+        <li>
+            {{ form_start(delete_form) }}
+            <button type="submit" class="btn btn-default">Delete</button>
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+    </div>
+</div>
+{% endblock %}

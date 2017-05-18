@@ -1,0 +1,12 @@
+categorieProduits:
+    path:  /categorie/{categorie}
+    defaults: { _controller: MyAppPIBundle:Produits:produits  }
+store:
+    path:   /store
+    defaults: { _controller: MyAppPIBundle:Produits:produits }
+presentation:
+    path:   /produits/{id}
+    defaults: { _controller: MyAppPIBundle:Produits:presentation }
+rechercheProduits:
+    path:   /recherche
+    defaults: { _controller: MyAppPIBundle:Produits:rechercheTraitement }

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Singalers list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Cause</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for singaler in singalers %}
+            <tr>
+                <td><a href="{{ path('singaler_show', { 'id': singaler.id }) }}">{{ singaler.id }}</a></td>
+                <td>{{ singaler.cause }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('singaler_show', { 'id': singaler.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('singaler_edit', { 'id': singaler.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('singaler_new') }}">Create a new singaler</a>
+        </li>
+    </ul>
+{% endblock %}

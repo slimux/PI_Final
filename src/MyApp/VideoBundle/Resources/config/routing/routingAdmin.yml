@@ -1,0 +1,35 @@
+backoffice:
+    path:     /
+    defaults: { _controller: MyAppVideoBundle:Default:admin }
+
+video_show:
+    path:     /{id}/show
+    defaults: { _controller: "MyAppVideoBundle:Video:show" }
+    methods:  GET
+
+video_new:
+    path:     /new
+    defaults: { _controller: MyAppVideoBundle:Video:new }
+    methods:  [GET, POST]
+
+video_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MyAppVideoBundle:Video:edit" }
+    methods:  [GET, POST]
+
+video_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MyAppVideoBundle:Video:delete" }
+    methods:  DELETE
+
+video_index:
+    path:     /vid
+    defaults: { _controller: MyAppVideoBundle:Video:index }
+    methods:  GET
+video_r:
+    path:     /search
+    defaults: { _controller: MyAppVideoBundle:Video:recherchev }
+chatback:
+    path:     /chatback
+    defaults: { _controller: VideoBundle:Video:chatadmin }
+    methods:  GET

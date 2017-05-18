@@ -1,0 +1,91 @@
+{% extends "MyAppPIBundle:layout:layout.html.twig" %}
+
+{% block head %}
+    <title> {% block title %}{{ parent() }}-Catalogue{% endblock %}</title>
+    {% block stylesheet %}
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+    {% endblock %}
+{% endblock %}
+{% block content %}
+
+    <body>
+    <div id="site-content">
+        <section class="bg-primary">
+            <div class="shell">
+                <ol class="breadcrumb">
+                    <li><a href="http://localhost/Pidev/web/app_dev.php/login">Home</a></li>
+                    <li class="active"><a href="http://localhost/Pidev/web/app_dev.php/product">Produit</a></li>
+                </ol>
+            </div>
+        </section>
+    </div>
+
+    <br>
+    <section class="padding-top-25 no-padding-bottom border-bottom-1 border-grey-300">
+        <div class="filter-bar">
+            
+            <div class="filter" style="margin-left: 35%">
+
+
+                <div class="count">
+                    <p> <strong>Nombre de jeu disponible: {{ jeux.getTotalItemCount }}</strong></p>
+                </div>
+
+                <span>
+			<label>Sort by:</label>
+					<th{% if jeux.isSorted('a.Titre') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(jeux, 'Titre', 'a.titre') }}</th>
+                    <th{% if jeux.isSorted('a.Genre') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(jeux, 'Genre', 'a.genre') }}</th>
+                   <th>{{ knp_pagination_sortable(jeux, 'Date de sortie', ['a.date_sortie']) }}</th>
+								</span>
+
+
+            </div> <!-- .filter -->
+
+
+
+        </div> <!-- .filter-bar -->
+        <br>
+    </section>
+
+    <section class="bg-grey-50">
+        <div class="container">
+            <div class="row">
+
+    {% for jeu in jeux %}
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="card">
+                        <div class="card-img">
+                            <a href="{{ path("esprit_gameS", {'id_jeu': jeu.idJeu }) }}">
+                                <img height="312" width="250" src='{{ asset("/BACKUP/PI/web/images/"~ jeu.image)}}' /></a>
+                            <br>
+                            <br>
+                            <div class="category"><span class="label label-primary">{{ jeu.console }}</span></div>
+                        </div>
+                        <br>
+                        <div class="caption">
+                            <h3 class="card-title"><a href="{{ path("esprit_gameS", {'id_jeu': jeu.idJeu }) }}">{{ jeu.titre }}</a></h3>
+                            <ul><li>Coming {{ jeu.DateSortie|date('Y-m-d') }}</li></ul>
+                            <p>{{ jeu.genre}}</p>
+                        </div>
+                    </div>
+                </div>
+    {% endfor %}
+
+
+            </div>
+<br>
+            <div class="navigation-visible text-center" >
+                {{ knp_pagination_render(jeux) }}
+            </div>
+        </div>
+    </section>
+    </div>
+    <!-- /#wrapper -->
+
+
+
+    </body>
+    <br>
+
+
+{% endblock %}

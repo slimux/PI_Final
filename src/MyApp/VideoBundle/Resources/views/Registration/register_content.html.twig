@@ -1,0 +1,43 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% extends "MyAppVideoBundle:layout:layout.html.twig" %}
+{% block title %} <title>Inscription</title>{% endblock %}
+{% block store %}
+    <link rel="stylesheet" href="{{ asset('css/store.css') }}">
+{% endblock store %}
+{% block neuf %}
+
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <h2>Connexion</h2>
+                <div id="collapseOne" class="accordion-body collapse in">
+                    <div class="accordion-inner">
+                        <div class="span4">
+                            <h4 style="color: #0e0e0e">Pas encore inscrit ?</h4>
+                            <em>
+                                Nous vous invitons à vous inscrire<br />
+                            </em>
+                        </div>
+
+                        <div class="span4 offset2">
+                            <h4 style="color: #0e0e0e">Inscription</h4>
+                            {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+                            {{ form_widget(form) }}
+                            <input type="submit" class="btn btn-primary" value="{{ 'registration.submit'|trans }}" />
+                            {{ form_end(form) }}
+                            <br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {##}
+    {##}
+    {#{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}#}
+    {#{{ form_widget(form) }}#}
+    {#<div class="cell-md-12 offset-top-32">#}
+    {#<input type="submit" class="btn btn-primary offset-top-40" value="{{ 'registration.submit'|trans }}" />#}
+    {#</div>#}
+    {#{{ form_end(form) }}#}
+{% endblock neuf %}

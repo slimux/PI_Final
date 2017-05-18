@@ -1,0 +1,301 @@
+{% extends 'FOSUserBundle::layout.html.twig' %}
+{% block head %}
+    <title>{% block title %} Home {% endblock %}</title>
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <script type="text/javascript">
+        // thread id
+        var fos_comment_thread_id = 'foo';
+
+        // api base url to use for initial requests
+        var fos_comment_thread_api_base_url = '/Symfony/web/app_dev.php/api/threads';
+
+        // Snippet for asynchronously loading the comments
+        (function() {
+            var fos_comment_script = document.createElement('script');
+            fos_comment_script.async = true;
+            fos_comment_script.src = '/Symfony/web/app_dev.php/js/35a8e64_comments_1.js';
+            fos_comment_script.type = 'text/javascript';
+
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(fos_comment_script);
+        })();
+    </script>
+
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/plugins/ua/ec.js"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="http://www.googletagmanager.com/gtm.js?id=GTM-P9FT69"></script><script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script async="" src="http://ajax.cloudflare.com/cdn-cgi/nexp/dok3v=f2befc48d1/cloudflare.min.js"></script><script type="text/javascript">
+    //<![CDATA[
+    try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag2:1,mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/dok3v=1613a3a185/"},atok:"0990115ae424311cc566aeef9cb33b2c",petok:"9fd8cda7d76103856269ff3579befa5188ebf83e-1488990843-1800",zone:"template-help.com",rocket:"0",apps:{"abetterbrowser":{"ie":"7"}}}];!function(a,b){a=document.createElement("script"),b=document.getElementsByTagName("script")[0],a.async=!0,a.src="http://ajax.cloudflare.com/cdn-cgi/nexp/dok3v=f2befc48d1/cloudflare.min.js",b.parentNode.insertBefore(a,b)}()}}catch(e){};
+    //]]>
+</script>
+    {% block stylesheet %}
+        <link rel="icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
+
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Montserrat:400,500,700%7CUbuntu:300,300italic,400,500,700">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <!--[if lt IE 10]>
+        {% stylesheets '@FOSCommentBundle/Resources/public/css/comments.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+        {% endstylesheets %}
+
+        <![endif]-->
+    {% endblock %}
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+
+{% endblock %}
+{% block header %}
+
+    <div class="rd-navbar-wrap" style="height: 135px;">
+        <nav class="rd-navbar rd-navbar-original rd-navbar-static" data-layout="rd-navbar-fixed"
+             data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fullwidth"
+             data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static"
+             data-lg-device-layout="rd-navbar-static" data-sm-stick-up-offset="225px" data-md-stick-up-offset="45px"
+             data-lg-stick-up-offset="45px">
+            <div class="rd-navbar-top-panel">
+                <div class="rd-navbar-top-panel-inner">
+                    <p class="rd-navbar-fixed--hidden">Welcome to the<span
+                                class="text-white"> world of gaming news!</span></p>
+                    <div>
+                        <a href="about.html" class="rd-navbar-fixed--hidden">Store</a>
+                        <a href="about.html" class="rd-navbar-fixed--hidden">About us</a>
+                        <a href="contact.html" class="rd-navbar-fixed--hidden">Contacts</a>
+
+                        <div class="rd-navbar-search toggle-original-elements">
+                            <button data-rd-navbar-toggle=".rd-navbar-search"
+                                    class="rd-navbar-search-toggle toggle-original"><span class="fa-search"></span>
+                            </button>
+                            <form action="search-results.html" data-search-live="rd-search-results-live"
+                                  method="GET" class="rd-search">
+                                <div class="form-group">
+                                    <label for="rd-navbar-search-form-input" class="form-label rd-input-label">Search</label>
+                                    <input id="rd-navbar-search-form-input" type="text" name="s" autocomplete="off"
+                                           class="rd-navbar-search-form-input form-control form-control-gray-lightest">
+                                    <div id="rd-search-results-live" class="rd-search-results-live"></div>
+                                </div>
+                                <button type="submit" class="fa-search"></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="rd-navbar-inner">
+
+                <div class="rd-navbar-panel">
+
+                    <button data-rd-navbar-toggle=".rd-navbar-nav-wrap" class="rd-navbar-toggle toggle-original">
+                        <span></span></button>
+
+                    <div class="rd-navbar-brand"><a href="./"><img src="{{ asset('images/logo.png') }}" alt=""></a></div>
+                    <ul class="rd-navbar-list-inline">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>
+                                {{ user.username }}
+                                <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="{{ path('profile') }}"><i class="fa fa-fw fa-user"></i> Profile</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                    </ul>
+                </div>
+                <div class="rd-navbar-panel">
+
+
+                    <ul class="rd-navbar-list-inline">
+
+
+                    </ul>
+                </div>
+                <div class="rd-navbar-nav-wrap toggle-original-elements">
+
+                    <ul class="rd-navbar-nav">
+                        <li class="active rd-navbar--has-dropdown rd-navbar-submenu"><a href="./">Jeux</a>
+                            <ul class="rd-navbar-dropdown">
+                                <li class="rd-navbar--has-dropdown rd-navbar-submenu"><a href="#">Post format</a>
+                                    <ul class="rd-navbar-dropdown rd-navbar-open-right">
+                                        <li><a href="blog-single-post.html">Standard Format</a></li>
+                                        <li><a href="blog-audio-post.html">Audio Format</a></li>
+                                        <li><a href="blog-video-post.html">Video Format</a></li>
+                                        <li><a href="blog-quote-post.html">Quote Format</a></li>
+                                        <li><a href="blog-gallery-post.html">Gallery Format</a></li>
+                                        <li><a href="blog-link-post.html">Link Format</a></li>
+                                    </ul>
+                                    <span class="rd-navbar-submenu-toggle"></span></li>
+                                <li><a href="typography.html">Typography</a></li>
+                                <li><a href="404.html">404</a></li>
+                            </ul>
+
+
+
+
+                        <li class="active rd-navbar--has-dropdown rd-navbar-submenu"><a href="{{ path('live') }}">Live</a>
+                            <ul class="rd-navbar-dropdown rd-navbar-open-right">
+                                <li><a href="{{ path('live') }}">Twitch</a></li>
+                                <li><a href="{{ path('live') }}">Youtube</a></li>
+                            </ul>
+                            <span class="rd-navbar-submenu-toggle"></span></li>
+
+                        <li><a href="{{ path('videosh') }}">vidéos</a></li>
+                        <li><a href="#">forum</a></li>
+                            <span class="rd-navbar-submenu-toggle"></span></li>
+
+
+
+
+                        <li class="rd-navbar-fixed--visible rd-navbar--hidden"><a href="about.html">about</a></li>
+                        <li class="rd-navbar-fixed--visible rd-navbar--hidden"><a href="contact.html">contact</a>
+                        </li>
+                        <li class="rd-navbar-fixed--visible rd-navbar--hidden">
+                            <ul class="rd-navbar-list-inline">
+                                <li><a href="#" class="icon icon-sm fa-facebook"></a></li>
+                                <li><a href="#" class="icon icon-sm fa-twitter"></a></li>
+                                <li><a href="#" class="icon icon-sm fa-pinterest-p"></a></li>
+                                <li><a href="#" class="icon icon-sm fa-vimeo"></a></li>
+                                <li><a href="#" class="icon icon-sm fa-youtube-play"></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+
+    </div>
+{% endblock header %}
+
+    {% block content %}
+        <section class="bg-primary">
+            <div class="shell">
+                <ol class="breadcrumb">
+                    <li><a href="./">Home</a></li>
+                    <li class="active">Videos</li>
+                    <li>   <form class="navbar-form navbar-right" method="post" action="{{ path('video_recherche') }}">
+                            <input type="text" class="form-control" placeholder="Search..." name="motcle">
+                        </form></li>
+                </ol>
+
+            </div>
+        </section>
+        <section>
+            <div class="shell text-md-left section-top-48 section-bottom-80">
+                <div class="range">
+
+
+                    <div class="cell-md-8">
+                        <div class="inset-md-right-30">
+                            <div class="range">
+
+                                    <div class="cell-md-6">
+                                        <iframe src="https://player.twitch.tv/?channel=ogamingtv" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe><a href="https://www.twitch.tv/ogamingtv?tt_medium=live_embed&tt_content=text_link" style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px; text-decoration:underline;">Regarder une vidéo en direct de OGamingTV sur www.TGS.tv</a>
+                                    </div>
+
+
+
+
+
+
+                            </div>
+                        </div>
+                        <br><br>
+                        <div class="navigation text-center">
+                        </div>
+                    </div>
+
+                    <div class="cell-md-4">
+                        <h1>Public chat</h1>
+                        <ul id="chat-list"></ul>
+                        <hr>
+                        <textarea id="form-message" placeholder="Your public message here"></textarea>
+                        <input type="button" id="form-submit" value="Send message"/>
+
+                        <script>
+                            // This object will be sent everytime you submit a message in the sendMessage function.
+                            var clientInformation = {
+                                username: new Date().getTime().toString()
+                                // You can add more information in a static object
+                            };
+
+                            // START SOCKET CONFIG
+                            /**
+                             * Note that you need to change the "sandbox" for the URL of your project.
+                             * According to the configuration in Sockets/Chat.php , change the port if you need to.
+                             * @type WebSocket
+                             */
+                            var conn = new WebSocket('ws://localhost:8080/chat');
+
+                            conn.onopen = function(e) {
+                                console.info("Connection established succesfully");
+                            };
+
+                            conn.onmessage = function(e) {
+                                var data = JSON.parse(e.data);
+                                Chat.appendMessage(data.username, data.message);
+
+                                console.log(data);
+                            };
+
+                            conn.onerror = function(e){
+                                alert("Error: something went wrong with the socket.");
+                                console.error(e);
+                            };
+                            // END SOCKET CONFIG
+
+
+                            /// Some code to add the messages to the list element and the message submit.
+                            document.getElementById("form-submit").addEventListener("click",function(){
+                                var msg = document.getElementById("form-message").value;
+
+                                if(!msg){
+                                    alert("Please send something on the chat");
+                                }
+
+                                Chat.sendMessage(msg);
+                                // Empty text area
+                                document.getElementById("form-message").value = "";
+                            }, false);
+
+                            // Mini API to send a message with the socket and append a message in a UL element.
+                            var Chat = {
+                                appendMessage: function(username,message){
+                                    var from;
+
+                                    if(username == clientInformation.username){
+                                        from = "me";
+                                    }else{
+                                        from = clientInformation.username;
+                                    }
+
+                                    // Append List Item
+                                    var ul = document.getElementById("chat-list");
+                                    var li = document.createElement("li");
+                                    li.appendChild(document.createTextNode(from + " : "+ message));
+                                    ul.appendChild(li);
+                                },
+                                sendMessage: function(text){
+                                    clientInformation.message = text;
+                                    // Send info as JSON
+                                    conn.send(JSON.stringify(clientInformation));
+                                    // Add my own message to the list
+                                    this.appendMessage(clientInformation.username, clientInformation.message);
+                                }
+                            };
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endblock %}

@@ -1,0 +1,70 @@
+esprit_game_homepage:
+    path:     /
+    defaults: { _controller: EspritGameBundle:Default:index }
+
+esprit_gameS:
+    path:     /single/{id_jeu}
+    defaults: { _controller: EspritGameBundle:Game:detailGame }
+
+esprit_gamesP:
+    path:  /product
+    defaults: { _controller: EspritGameBundle:Game:AffichageJeu }
+
+afficheJeu:
+    path:  /ListJeu
+    defaults: { _controller: EspritGameBundle:Game:AffichageJeuBack }
+
+esprit_gamedash:
+    path:  /dash
+    defaults: { _controller: EspritGameBundle:Game:gamedash }
+
+esprit_gameAdd:
+    path:  /AddGame
+    defaults: { _controller: EspritGameBundle:Game:AddgameBack }
+
+Delete_Game:
+    path:  /Delete/{IdJeu}
+    defaults: { _controller: EspritGameBundle:Game:DeleteGame }
+
+Update_Game:
+    path:  /Update/{IdJeu}
+    defaults: { _controller: EspritGameBundle:Game:UpdateGame }
+
+RechercheGame:
+    path: /Recherche
+    defaults: { _controller: EspritGameBundle:Game:RechercheGame}
+
+Ajout_Astuce:
+    path:  /Ajouter
+    defaults: { _controller: EspritGameBundle:Astuce:AjoutAstuce }
+
+Afficher_Astuce:
+    path:  /Afficher
+    defaults: { _controller: EspritGameBundle:Astuce:AfficheAstuceBack }
+
+Delete_Astuce:
+    path:  /Deleted/{IdAstuce}
+    defaults: { _controller: EspritGameBundle:Astuce:DeleteAstuce }
+
+Update_Astuce:
+    path:  /Updated/{IdAstuce}
+    defaults: { _controller: EspritGameBundle:Astuce:UpdateAstuce }
+
+RechercheAstuce:
+    path: /Recherched
+    defaults: { _controller: EspritGameBundle:Astuce:RechercheAstuce}
+
+det_mod:
+    path:     /det/{IdJeu}
+    defaults: { _controller: EspritGameBundle:Astuce:detailAstuce }
+
+Pie_chart:
+    path: /graphe
+    defaults: { _controller: EspritGameBundle:Game:chartPie}
+
+my_app_mail_homepage:
+    path: /mail
+    defaults: { _controller: EspritGameBundle:Astuce:Mail }
+
+
+

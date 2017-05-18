@@ -1,0 +1,164 @@
+{% extends "MyAppPIBundle:admin/layout:layout.html.twig" %}
+  {% block head %}
+      <title>{% block title %} Forum {% endblock %}</title>
+
+      <meta name="format-detection" content="telephone=no">
+      <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <script type="text/javascript" async="" src="https://www.google-analytics.com/plugins/ua/ec.js"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="http://www.googletagmanager.com/gtm.js?id=GTM-P9FT69"></script><script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script async="" src="http://ajax.cloudflare.com/cdn-cgi/nexp/dok3v=f2befc48d1/cloudflare.min.js"></script><script type="text/javascript">
+      //<![CDATA[
+      try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag2:1,mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/dok3v=1613a3a185/"},atok:"0990115ae424311cc566aeef9cb33b2c",petok:"9fd8cda7d76103856269ff3579befa5188ebf83e-1488990843-1800",zone:"template-help.com",rocket:"0",apps:{"abetterbrowser":{"ie":"7"}}}];!function(a,b){a=document.createElement("script"),b=document.getElementsByTagName("script")[0],a.async=!0,a.src="http://ajax.cloudflare.com/cdn-cgi/nexp/dok3v=f2befc48d1/cloudflare.min.js",b.parentNode.insertBefore(a,b)}()}}catch(e){};
+      //]]>
+  </script>
+      {% block stylesheet %}
+          <link rel="icon" href="{{ asset('FO/images/favicon.ico') }}" type="image/x-icon">
+
+          <link rel="stylesheet" href="{{ asset('FO/css/style.css') }}">
+          <!--[if lt IE 10]>
+
+          <![endif]-->
+
+          <script src="{{ asset('FO/js/j.min.js') }}"></script>
+
+          <!-- Custom -->
+          <link href="{{ asset('Forum/css/custom.css') }}" rel="stylesheet">
+
+          <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+          <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+          <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+          <![endif]-->
+
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+          <!-- fonts -->
+          <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+          <link rel="stylesheet" href="{{ asset('Forum/font-awesome-4.0.3/css/font-awesome.min.css') }}">
+
+          <!-- CSS STYLE-->
+
+
+          <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
+
+      {% endblock %}
+
+  {% endblock %}
+   {% block content %}
+
+
+    <main class="page-content">
+        <section>
+            <div class="news-items">
+                <div class="news-item news-item-lg"><img src="{{ asset('FO/images/index-01.jpg')}}" width="1175" height="660" alt=""
+                                                         class="news-item-img">
+                    <div class="news-item-caption">
+                        <div><a href="PREVIEWS.html" class="label label-primary">Preview</a></div>
+                        <div><a href="blog-single-post.html" class="news-item-title">The Legend of Zelda: Twilight
+                                Princess HD</a>
+                            <div class="news-item-meta">
+                                <div class="news-item-author">by <a href="blog-list.html">Mike Dikow</a></div>
+                                <div class="news-item-date"><a href="blog-list.html"> Jan. 12, 2016</a></div>
+                                <div class="news-item-comment"><a href="blog-single-post.html#comments">4</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="news-item news-item-sm"><img src="{{ asset('FO/images/index-02.jpg')}}" width="805" height="330" alt=""
+                                                         class="news-item-img">
+                    <div class="news-item-caption">
+                        <div><a href="./" class="label label-primary">NEWS</a></div>
+                        <div><a href="blog-single-post.html" class="news-item-title">Homefront: The Revolution gives
+                                away single-player season pass, 1 year of free co-op</a>
+                            <div class="news-item-meta">
+                                <div class="news-item-author">by <a href="blog-list.html">Mike Dikow</a></div>
+                                <div class="news-item-date"><a href="blog-list.html"> Jan. 12, 2016</a></div>
+                                <div class="news-item-comment"><a href="blog-single-post.html#comments">4</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="news-item news-item-sm"><img src="{{ asset('FO/images/index-03.jpg')}}" width="805" height="330" alt=""
+                                                         class="news-item-img">
+                    <div class="news-item-caption">
+                        <div><a href="PREVIEWS.html" class="label label-primary">Preview</a></div>
+                        <div><a href="blog-single-post.html" class="news-item-title">Dark Souls 3: game walkthrough done
+                                in under 5 hours</a>
+                            <div class="news-item-meta">
+                                <div class="news-item-author">by <a href="blog-list.html">Mike Dikow</a></div>
+                                <div class="news-item-date"><a href="blog-list.html"> Jan. 12, 2016</a></div>
+                                <div class="news-item-comment"><a href="blog-single-post.html#comments">4</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+       <footer class="page-footer">
+           <section class="section-54 context-dark">
+               <div class="shell">
+                   <div class="range text-md-left">
+                       <div class="cell-sm-6 cell-md-3">
+                           <h4>Categories</h4>
+                           <ul class="list-11">
+                               <li><a href="./"> News</a></li>
+                               <li><a href="Previews.html"> Previews</a></li>
+                               <li><a href="Reviews.html"> Reviews</a></li>
+                               <li><a href="#"> Information</a></li>
+                               <li><a href="blog-single-post.html"> Recent Posts</a></li>
+                               <li><a href="videos.html"> Videos</a></li>
+                               <li><a href="Platforms.html"> Platforms</a></li>
+                           </ul>
+                       </div>
+                       <div class="cell-sm-6 cell-md-3">
+                           <h4>Information</h4>
+                           <ul class="list-11">
+                               <li><a href="About.html">About us</a></li>
+                               <li><a href="Contact.html">Contact us</a></li>
+                               <li><a href="#">Editorial Policy</a></li>
+                               <li><a href="privacy.html">Terms of Service</a></li>
+                           </ul>
+                       </div>
+                       <div class="cell-md-3">
+                           <h4>Recent Post</h4>
+                           <div class="post-blog"><a href="blog-single-post.html" class="thumbnail"><img src="{{ asset('FO/images/footer-01.jpg')}}" width="" height="" alt="" class="img-responsive"></a>
+                               <div class="small"><a href="./">News</a></div>
+                               <div class="post-blog-title"><a href="blog-single-post.html">Homefront: The Revolution gives away single-player season pass</a></div>
+                               <div class="post-blog-meta small">
+                                   <div class="reveal-inline-block text-gray small post-blog-author">by <a href="blog-list.html">Admin</a></div>
+                                   <p class="text-gray">Jan. 12, 2016</p><span class="post-blog-comment"><a href="blog-single-post.html#comments">4</a></span>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="cell-md-3">
+                           <h4>Recent Comments</h4>
+                           <ul class="list">
+                               <li><a href="blog-single-post.html">Albert on How relevant is PS4 release for the "Carmageddon"?</a></li>
+                               <li><a href="blog-single-post.html">Danny on Why Uncharted 4 release gets postponed (again)?</a></li>
+                           </ul>
+                       </div>
+                   </div>
+               </div>
+           </section>
+           <section class="bg-gray-base post-footer">
+               <div class="shell">
+                   <div class="range range-md-middle">
+                       <div class="cell-md-6 text-md-right text-center cell-md-push-1">
+                           <ul class="list-inline list-inline-none">
+                               <li><a href="#" class="icon icon-sm fa-facebook"></a></li>
+                               <li><a href="#" class="icon icon-sm fa-twitter"></a></li>
+                               <li><a href="#" class="icon icon-sm fa-pinterest-p"></a></li>
+                               <li><a href="#" class="icon icon-sm fa-vimeo"></a></li>
+                               <li><a href="#" class="icon icon-sm fa-youtube-play"></a></li>
+                           </ul>
+                       </div>
+                       <div class="cell-md-6 text-md-left offset-top-25 offset-md-top-0">
+                           <p>© 2016 Finest Game, Inc. <a href="privacy.html">All Rights Reserved</a>
+                           </p>
+                       </div>
+                   </div>
+               </div>
+           </section>
+       </footer>
+{% endblock %}

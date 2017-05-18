@@ -1,0 +1,24 @@
+singaler_index:
+    path:     /
+    defaults: { _controller: "MyAppFourumBundle:singaler:index" }
+    methods:  GET
+
+singaler_show:
+    path:     /{id}/show
+    defaults: { _controller: "MyAppFourumBundle:singaler:show" }
+    methods:  GET
+
+singaler_new:
+    path:     /new
+    defaults: { _controller: "MyAppFourumBundle:singaler:new" }
+    methods:  [GET, POST]
+
+singaler_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MyAppFourumBundle:singaler:edit" }
+    methods:  [GET, POST]
+
+singaler_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MyAppFourumBundle:singaler:delete" }
+    methods:  DELETE

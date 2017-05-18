@@ -1,0 +1,54 @@
+{% extends "@FOSUser/admin/modelUsed/produits.html.twig" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-9">
+        <h2>Produits list</h2>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prix</th>
+                <th>Disponible</th>
+                <th>Note Presse</th>
+                <th>Note Globale</th>
+                <th>Video</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for produit in produits %}
+            <tr>
+                <td><a href="{{ path('admin_produits_show', { 'id': produit.id }) }}">{{ produit.id }}</a></td>
+                <td>{{ produit.nom }}</td>
+                <td>{{ produit.prix }}</td>
+                <td>{% if produit.disponible %}Yes{% else %}No{% endif %}</td>
+                <td>{{ produit.notePresse }}</td>
+                <td>{{ produit.noteGlobale }}</td>
+                <td>{{ produit.video }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_produits_show', { 'id': produit.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_produits_edit', { 'id': produit.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+        </div>
+    <ul>
+        <li>
+            <a href="{{ path('admin_produits_new') }}">Create a new produit</a>
+        </li>
+    </ul>
+    </div>
+</div>
+{% endblock %}

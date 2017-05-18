@@ -1,0 +1,63 @@
+
+{% extends "MyAppVideoBundle:layout:layout.html.twig" %}
+{% block title %} <title>Store</title>{% endblock %}
+{% block store %}
+    <link rel="stylesheet" href="{{ asset('css/store.css') }}">
+{% endblock store %}
+{% block neuf %}
+    <div class="container">
+        <div class="row">
+            <div class="span9">
+                <h2>Liste des Serveurs</h2>
+                <form>
+                    <table class="table table-striped table-hover table-sm">
+                        <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Jeu</th>
+                            <th>Nom Serveur</th>
+                            <th>Localisation</th>
+                            <th>IP:Port</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><a href="#">1</a></td>
+                            <td>GTA</td>
+                            <td>GTA TUNISIA</td>
+                            <td>Tunisie</td>
+                            <td>123.62.112.452:26584</td>
+                            <td><a href="#"><i class="icon-refresh"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">2</a></td>
+                            <td>PES</td>
+                            <td>PES 2016 USA</td>
+                            <td>USA</td>
+                            <td>123.66.215.12:26584</td>
+                            <td><a href="#"><i class="icon-refresh"></i></a></td>
+                        </tr><tr>
+                            <td><a href="#">3</a></td>
+                            <td>COD 4</td>
+                            <td>COD4 France</td>
+                            <td>France</td>
+                            <td>123.112.222.452:26584</td>
+                            <td><a href="#"><i class="icon-refresh"></i></a></td>
+                        </tr><tr>
+                            <td><a href="#">4</a></td>
+                            <td>GTA San Andreas</td>
+                            <td>GTA Egypte</td>
+                            <td>Egypte</td>
+                            <td>123.62.112.452:26584</td>
+                            <td><a href="#"><i class="icon-refresh"></i></a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+{% endblock neuf %}

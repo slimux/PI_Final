@@ -1,0 +1,43 @@
+{% extends "@FOSUser/admin/modelUsed/utilisateurs.html.twig" %}
+{% block breadcrumb %}
+    <ol class="breadcrumb">
+        <li>
+            <i class="fa fa-dashboard"></i>  <a href="{{ path('admin') }}">Dashboard</a>
+        </li>
+        <li>
+            <i class="fa fa-user"></i> <a href="{{ path('adminUtilisateurs') }}">Utilisateurs</a>
+        </li>
+        <li class="active">
+            <i class="fa fa-bookmark"></i> Factures
+        </li>
+    </ol>
+{% endblock breadcrumb %}
+{% block content %}
+    <h1>Utilisateurs factures list</h1>
+
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <th>Références</th>
+            <th>Date</th>
+            <th>Prix TTC</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% if utilisateur.commandes|length == 0 %}
+            <tr>
+                <td colspan="4"><center>Ancunne facture actuellement.</center></td>
+            </tr>
+        {% endif %}
+        {% for facture in utilisateur.commandes %}
+            <tr>
+                <td>ref : {{ facture.reference }}</td>
+                <td>{{ facture.date|date('d/m/Y') }}</td>
+                <td>{{ facture.commande.prixTTC }} €</td>
+                <td><a href="{{ path('adminShowFacture', { 'id' : facture.id }) }}" target="_blank"><i class="icon-refresh"></i></a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

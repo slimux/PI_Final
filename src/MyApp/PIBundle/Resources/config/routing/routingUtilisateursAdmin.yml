@@ -1,0 +1,11 @@
+adminUtilisateurs:
+    path:  /
+    defaults: { _controller: "MyAppPIBundle:UtilisateursAdmin:index" }
+
+adminAdressesUtilisateurs:
+    path:  /{id}/adresses
+    defaults: { _controller: "MyAppPIBundle:UtilisateursAdmin:utilisateur" }
+
+adminFacturesUtilisateurs:
+    path:  /{id}/factures
+    defaults: { _controller: "MyAppPIBundle:UtilisateursAdmin:utilisateur" }
