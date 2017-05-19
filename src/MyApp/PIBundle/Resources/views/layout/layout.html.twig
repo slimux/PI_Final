@@ -94,25 +94,27 @@
                     </div>
                     <div class="rd-navbar-nav-wrap toggle-original-elements">
                         <ul class="rd-navbar-nav">
-                            {% block jeux %}  <li class="active rd-navbar--has-dropdown rd-navbar-submenu"><a href="{{ path('pi_homepage') }}">Jeux</a>{% endblock jeux %}
-                                <ul class="rd-navbar-dropdown">
-                                    <li class="rd-navbar--has-dropdown rd-navbar-submenu"><a href="#">Post format</a>
-                                        <ul class="rd-navbar-dropdown rd-navbar-open-right">
-                                            <li><a href="blog-single-post.html">Standard Format</a></li>
-                                            <li><a href="blog-audio-post.html">Audio Format</a></li>
-                                            <li><a href="blog-video-post.html">Video Format</a></li>
-                                            <li><a href="blog-quote-post.html">Quote Format</a></li>
-                                            <li><a href="blog-gallery-post.html">Gallery Format</a></li>
-                                            <li><a href="blog-link-post.html">Link Format</a></li>
-                                        </ul>
-                                        <span class="rd-navbar-submenu-toggle"></span></li>
-                                    <li><a href="typography.html">Typography</a></li>
-                                    <li><a href="404.html">404</a></li>
+                            {% block jeux %}  <li class="active rd-navbar--has-dropdown rd-navbar-submenu"><a href="{{ path('esprit_gamesP') }}">Jeux</a>{% endblock jeux %}
+
+                                <span class="rd-navbar-submenu-toggle"></span></li>
+                            <li class="active rd-navbar--has-dropdown rd-navbar-submenu"><a href="{{ path('user_homepage') }}">Live</a>
+                                <ul class="rd-navbar-dropdown rd-navbar-open-right">
+                                    <li><a href="{{ path('live') }}">Twitch</a></li>
+                                    <li><a href="{{ path('live') }}">Youtube</a></li>
                                 </ul>
                                 <span class="rd-navbar-submenu-toggle"></span></li>
-                            <li><a href="previews.html">actu</a></li>
-                            <li><a href="reviews.html">vidéos</a></li>
-                            <li><a href="videos.html">forum</a></li>
+
+                            <li><a href="{{ path('videosh') }}">vidéos</a></li>
+                            <li class="active rd-navbar--has-dropdown rd-navbar-submenu"><a href="{{ path('user_homepage') }}">News</a>
+                                <ul class="rd-navbar-dropdown rd-navbar-open-right">
+                                    <li><a href="{{ path('admin_actualite') }}">Actu</a></li>
+                                    <li><a href="{{ path('admin_evenement') }}">Event</a></li>
+                                </ul>
+                                <span class="rd-navbar-submenu-toggle"></span></li>
+
+
+
+                            <li><a href="{{ path('my_app_fourum_homepagef') }}">forum</a></li>
                            {% block serveur %} <li><a href="{{ path('serveur') }}">serveur</a></li> {% endblock serveur %}
                             <li class="rd-navbar-fixed--visible rd-navbar--hidden"><a href="about.html">about</a></li>
                             <li class="rd-navbar-fixed--visible rd-navbar--hidden"><a href="contact.html">contact</a>

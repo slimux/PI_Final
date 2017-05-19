@@ -1,5 +1,4 @@
-
-{% extends "MyAppPIBundle:admin/layout:layout.html.twig" %}
+{% extends "MyAppFourumBundle::FOLayout.html.twig" %}
   {% block head %}
       <title>{% block title %} Forum {% endblock %}</title>
 
@@ -160,7 +159,7 @@
                                                        <h3>{{ forumCategorie.titre }}</h3>
                                                        {% for sc in forumCategorie.souscategories %}
                                                            <div class="divider clearfix"></div>
-                                                           <p><a  href="{{ path('sc', { 'id': sc.idSousCategorie }) }}"  > {{ sc.titre }}<span class="icon fa-comment pull-right">{{ sc.topic|length }}</span></a>.</p>
+                                                           <p><a  href="../../../../../../vendor/doctrine/orm/.coveralls.yml "  > {{ sc.titre }}<span class="icon fa-comment pull-right">{{ sc.topic|length }}</span></a>.</p>
 
                                                        {% endfor %}
                                                    </div>

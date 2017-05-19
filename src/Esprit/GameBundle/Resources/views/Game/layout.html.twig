@@ -82,7 +82,7 @@
                                     class="text-white"> world of gaming news!</span></p>
                         <div>
 
-                            <a href="about.html" class="rd-navbar-fixed--hidden">Store</a>
+                            <a href="{{ path('store') }}" class="rd-navbar-fixed--hidden">Store</a>
                             <a href="about.html" class="rd-navbar-fixed--hidden">About us</a>
                             <a href="contact.html" class="rd-navbar-fixed--hidden">Contacts</a>
 
@@ -125,13 +125,29 @@
                         </ul>
                     </div>
                     <div class="rd-navbar-nav-wrap toggle-original-elements">
-
                         <ul class="rd-navbar-nav">
-                            <li><a href="http://localhost/Pidev/web/app_dev.php/product">jeux</a></li>
-                            <li><a href="previews.html">actu</a></li>
-                            <li><a href="http://localhost/Pidev/web/app_dev.php/slim/homev">vidéos</a></li>
-                            <li><a href="http://localhost/Pidev/web/app_dev.php/khaoula/f">forum</a></li>
-                            <li><a href="http://localhost/Pidev/web/app_dev.php/slim/serveur">serveur</a></li>
+                            {% block jeux %}  <li class="active rd-navbar--has-dropdown rd-navbar-submenu"><a href="{{ path('esprit_gamesP') }}">Jeux</a>{% endblock jeux %}
+
+                                <span class="rd-navbar-submenu-toggle"></span></li>
+                            <li class="active rd-navbar--has-dropdown rd-navbar-submenu"><a href="{{ path('user_homepage') }}">Live</a>
+                                <ul class="rd-navbar-dropdown rd-navbar-open-right">
+                                    <li><a href="{{ path('live') }}">Twitch</a></li>
+                                    <li><a href="{{ path('live') }}">Youtube</a></li>
+                                </ul>
+                                <span class="rd-navbar-submenu-toggle"></span></li>
+
+                            <li><a href="{{ path('videosh') }}">vidéos</a></li>
+                            <li class="active rd-navbar--has-dropdown rd-navbar-submenu"><a href="{{ path('user_homepage') }}">News</a>
+                                <ul class="rd-navbar-dropdown rd-navbar-open-right">
+                                    <li><a href="{{ path('admin_actualite') }}">Actu</a></li>
+                                    <li><a href="{{ path('admin_evenement') }}">Event</a></li>
+                                </ul>
+                                <span class="rd-navbar-submenu-toggle"></span></li>
+
+
+
+                            <li><a href="{{ path('my_app_fourum_homepagef') }}">forum</a></li>
+                            {% block serveur %} <li><a href="{{ path('serveur') }}">serveur</a></li> {% endblock serveur %}
                             <li class="rd-navbar-fixed--visible rd-navbar--hidden"><a href="about.html">about</a></li>
                             <li class="rd-navbar-fixed--visible rd-navbar--hidden"><a href="contact.html">contact</a>
                             </li>
@@ -146,6 +162,7 @@
                             </li>
                         </ul>
                     </div>
+
                 </div>
             </nav>
         </div>

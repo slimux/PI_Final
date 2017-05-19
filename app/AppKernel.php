@@ -34,7 +34,7 @@ class AppKernel extends Kernel
             new Ensepar\Html2pdfBundle\EnseparHtml2pdfBundle(),
             new Liip\ImagineBundle\LiipImagineBundle(),
             new TGSBundle\TGSBundle(),
-            new MyApp\pidBundle\pidBundle(),
+
             new MyApp\VideoBundle\MyAppVideoBundle(),
             new MyApp\FourumBundle\MyAppFourumBundle(),
 

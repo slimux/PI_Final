@@ -1,4 +1,0 @@
-services:
-#    pid.example:
-#        class: MyApp\pidBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]

@@ -4,9 +4,7 @@ user_homepage:
 profile:
     path:     /front
     defaults: { _controller: MyAppVideoBundle:Default:show }
-serveur:
-    path:     /serveur
-    defaults: { _controller: MyAppVideoBundle:Default:serveur }
+
 
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"

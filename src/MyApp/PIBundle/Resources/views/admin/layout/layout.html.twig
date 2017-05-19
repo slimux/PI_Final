@@ -89,6 +89,56 @@
                         <li>
                             <a href="{{ path('adminUtilisateurs') }}"><i class="fa fa-fw fa-user"></i>Utilisateurs</a>
                         </li>
+                        <li>
+                            <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i
+                                        class="fa fa-fw fa-gamepad"></i> Jeux <i class="fa fa-fw fa-caret-down"></i></a>
+                            <ul id="demo1" class="collapse">
+                                <li>
+                                    <a href="{{ path('esprit_gameAdd') }}">ajout jeux</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('RechercheGame') }}">Recherche jeux</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('afficheJeu') }}">List jeux</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('Pie_chart') }}">stat</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:;" data-toggle="collapse" data-target="#demo2"><i
+                                        class="fa fa-fw fa-gamepad"></i> Astuces <i class="fa fa-fw fa-caret-down"></i></a>
+                            <ul id="demo2" class="collapse">
+                                <li>
+                                    <a href="{{ path('RechercheAstuce') }}">Recherche Astuce</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('Afficher_Astuce') }}">Afficher Astuce</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('Ajout_Astuce') }}">Ajout Astuce</a>
+                                </li>
+                          </ul>
+                        </li>
+                        <li>
+
+                            <a href="{{ path('BO') }}"><i class="fa fa-fw fa-facebook"></i> Forum</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" data-toggle="collapse" data-target="#demo5"><i class="fa fa-fw fa-video-camera"></i> Gerer Video <i class="fa fa-fw fa-caret-down"></i></a>
+                            <ul id="demo5" class="collapse">
+                                <li>
+                                    <a href="{{ path('video_index') }}">affichage video </a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('video_new') }}">add video</a>
+                                </li>
+                            </ul>
+                        </li>
+
                     {% endblock navbar %}
                 </ul>
             </div>

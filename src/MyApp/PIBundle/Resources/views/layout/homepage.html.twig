@@ -21,7 +21,7 @@
         <!--[if lt IE 10]>
         <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;">
             <a href="https://windows.microsoft.com/en-US/internet-explorer/"><img
-                    src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820"
+                    src="/PI/web/images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820"
                     alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a>
         </div>
         <script src="{{ asset('js/html5shiv.min.js') }}"></script>
@@ -81,7 +81,7 @@
                         <button data-rd-navbar-toggle=".rd-navbar-nav-wrap" class="rd-navbar-toggle toggle-original">
                             <span></span></button>
 
-                        <div class="rd-navbar-brand"><a href="../"><img src="{{ asset('images/logo.png') }}" alt=""></a></div>
+                        <div class="rd-navbar-brand"><a href="../"><img src="{{ asset('/PI/web/images/logo.png') }}" alt=""></a></div>
                         <ul class="rd-navbar-list-inline">
                             {% if app.user %}
                                 <li><a href="{{ path('fos_user_profile_show') }}" class="">{{ app.user.username }}</a></li>
@@ -91,27 +91,28 @@
                         </ul>
                     </div>
                     <div class="rd-navbar-nav-wrap toggle-original-elements">
-
                         <ul class="rd-navbar-nav">
-                            {% block jeux %}  <li class="active rd-navbar--has-dropdown rd-navbar-submenu"><a href="{{ path('pi_homepage') }}">Jeux</a>{% endblock jeux %}
-                                <ul class="rd-navbar-dropdown">
-                                    <li class="rd-navbar--has-dropdown rd-navbar-submenu"><a href="#">Post format</a>
-                                        <ul class="rd-navbar-dropdown rd-navbar-open-right">
-                                            <li><a href="blog-single-post.html">Standard Format</a></li>
-                                            <li><a href="blog-audio-post.html">Audio Format</a></li>
-                                            <li><a href="blog-video-post.html">Video Format</a></li>
-                                            <li><a href="blog-quote-post.html">Quote Format</a></li>
-                                            <li><a href="blog-gallery-post.html">Gallery Format</a></li>
-                                            <li><a href="blog-link-post.html">Link Format</a></li>
-                                        </ul>
-                                        <span class="rd-navbar-submenu-toggle"></span></li>
-                                    <li><a href="typography.html">Typography</a></li>
-                                    <li><a href="404.html">404</a></li>
+                            {% block jeux %}  <li class="active rd-navbar--has-dropdown rd-navbar-submenu"><a href="{{ path('esprit_gamesP') }}">Jeux</a>{% endblock jeux %}
+
+                                <span class="rd-navbar-submenu-toggle"></span></li>
+                            <li class="active rd-navbar--has-dropdown rd-navbar-submenu"><a href="{{ path('user_homepage') }}">Live</a>
+                                <ul class="rd-navbar-dropdown rd-navbar-open-right">
+                                    <li><a href="{{ path('live') }}">Twitch</a></li>
+                                    <li><a href="{{ path('live') }}">Youtube</a></li>
                                 </ul>
                                 <span class="rd-navbar-submenu-toggle"></span></li>
-                            <li><a href="previews.html">actu</a></li>
-                            <li><a href="reviews.html">vidéos</a></li>
-                            <li><a href="videos.html">forum</a></li>
+
+                            <li><a href="{{ path('videosh') }}">vidéos</a></li>
+                            <li class="active rd-navbar--has-dropdown rd-navbar-submenu"><a href="{{ path('user_homepage') }}">News</a>
+                                <ul class="rd-navbar-dropdown rd-navbar-open-right">
+                                    <li><a href="{{ path('admin_actualite') }}">Actu</a></li>
+                                    <li><a href="{{ path('admin_evenement') }}">Event</a></li>
+                                </ul>
+                                <span class="rd-navbar-submenu-toggle"></span></li>
+
+
+
+                            <li><a href="{{ path('my_app_fourum_homepagef') }}">forum</a></li>
                             {% block serveur %} <li><a href="{{ path('serveur') }}">serveur</a></li> {% endblock serveur %}
                             <li class="rd-navbar-fixed--visible rd-navbar--hidden"><a href="about.html">about</a></li>
                             <li class="rd-navbar-fixed--visible rd-navbar--hidden"><a href="contact.html">contact</a>
@@ -127,6 +128,7 @@
                             </li>
                         </ul>
                     </div>
+
                 </div>
             </nav>
         </div>
@@ -137,7 +139,7 @@
 
             <section>
                 <div class="news-items">
-                    <div class="news-item news-item-lg"><img src="images/index-01.jpg" width="1175" height="660" alt=""
+                    <div class="news-item news-item-lg"><img src="/PI/web/images/index-01.jpg" width="1175" height="660" alt=""
                                                              class="news-item-img">
                         <div class="news-item-caption">
                             <div><a href="PREVIEWS.html" class="label label-primary">Preview</a></div>
@@ -151,7 +153,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="news-item news-item-sm"><img src="images/index-02.jpg" width="805" height="330" alt=""
+                    <div class="news-item news-item-sm"><img src="/PI/web/images/index-02.jpg" width="805" height="330" alt=""
                                                              class="news-item-img">
                         <div class="news-item-caption">
                             <div><a href="../" class="label label-primary">NEWS</a></div>
@@ -165,7 +167,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="news-item news-item-sm"><img src="images/index-03.jpg" width="805" height="330" alt=""
+                    <div class="news-item news-item-sm"><img src="/PI/web/images/index-03.jpg" width="805" height="330" alt=""
                                                              class="news-item-img">
                         <div class="news-item-caption">
                             <div><a href="PREVIEWS.html" class="label label-primary">Preview</a></div>
@@ -198,7 +200,7 @@
                                         <div class="post-blog post-blog-no-link">
                                             <div class="post-blog-media">
                                                 <div class="thumbnail"><a href="blog-single-post.html"><img
-                                                                src="images/index-04.jpg" width="370" height="200" alt=""
+                                                                src="/PI/web/images/index-04.jpg" width="370" height="200" alt=""
                                                                 class="img-responsive"></a>
                                                     <div class="caption"><a href="../" class="label label-primary">news</a>
                                                     </div>
@@ -224,7 +226,7 @@
                                         <div class="post-blog post-blog-no-link">
                                             <div class="post-blog-media">
                                                 <div class="thumbnail"><a href="blog-single-post.html"><img
-                                                                src="images/index-05.jpg" width="370" height="200" alt=""
+                                                                src="/PI/web/images/index-05.jpg" width="370" height="200" alt=""
                                                                 class="img-responsive"></a>
                                                     <div class="caption"><a href="../" class="label label-primary">news</a>
                                                     </div>
@@ -250,7 +252,7 @@
                                         <div class="post-blog post-blog-no-link">
                                             <div class="post-blog-media">
                                                 <div class="thumbnail"><a href="blog-single-post.html"><img
-                                                                src="images/index-06.jpg" width="370" height="200" alt=""
+                                                                src="/PI/web/images/index-06.jpg" width="370" height="200" alt=""
                                                                 class="img-responsive"></a>
                                                     <div class="caption"><a href="../" class="label label-primary">news</a>
                                                     </div>
@@ -276,7 +278,7 @@
                                         <div class="post-blog post-blog-no-link">
                                             <div class="post-blog-media">
                                                 <div class="thumbnail"><a href="blog-single-post.html"><img
-                                                                src="images/index-07.jpg" width="370" height="200" alt=""
+                                                                src="/PI/web/images/index-07.jpg" width="370" height="200" alt=""
                                                                 class="img-responsive"></a>
                                                     <div class="caption"><a href="../" class="label label-primary">news</a>
                                                     </div>
@@ -361,7 +363,7 @@
                                                  data-slick-index="0" aria-hidden="false" tabindex="-1" role="option"
                                                  aria-describedby="slick-slide10">
                                                 <div class="img-outer">
-                                                    <div class="img-wrap"><img src="images/index-08.jpg" width="355"
+                                                    <div class="img-wrap"><img src="/PI/web/images/index-08.jpg" width="355"
                                                                                height="200" alt=""></div>
                                                 </div>
                                                 <div class="caption">
@@ -373,7 +375,7 @@
                                                  data-slick-index="1" aria-hidden="false" tabindex="-1" role="option"
                                                  aria-describedby="slick-slide11">
                                                 <div class="img-outer">
-                                                    <div class="img-wrap"><img src="images/index-09.jpg" width="355"
+                                                    <div class="img-wrap"><img src="/PI/web/images/index-09.jpg" width="355"
                                                                                height="200" alt=""></div>
                                                 </div>
                                                 <div class="caption">
@@ -384,7 +386,7 @@
                                                  data-slick-index="2" aria-hidden="false" tabindex="-1" role="option"
                                                  aria-describedby="slick-slide12">
                                                 <div class="img-outer">
-                                                    <div class="img-wrap"><img src="images/index-10.jpg" width="355"
+                                                    <div class="img-wrap"><img src="/PI/web/images/index-10.jpg" width="355"
                                                                                height="200" alt=""></div>
                                                 </div>
                                                 <div class="caption">
@@ -397,7 +399,7 @@
                                                  data-slick-index="3" aria-hidden="false" tabindex="-1" role="option"
                                                  aria-describedby="slick-slide13">
                                                 <div class="img-outer">
-                                                    <div class="img-wrap"><img src="images/index-11.jpg" width="355"
+                                                    <div class="img-wrap"><img src="/PI/web/images/index-11.jpg" width="355"
                                                                                height="200" alt=""></div>
                                                 </div>
                                                 <div class="caption">
@@ -421,7 +423,7 @@
                                         <div class="post-blog post-blog-no-link">
                                             <div class="post-blog-media">
                                                 <div class="thumbnail"><a href="blog-single-post.html"><img
-                                                                src="images/index-12.jpg" width="370" height="200" alt=""
+                                                                src="/PI/web/images/index-12.jpg" width="370" height="200" alt=""
                                                                 class="img-responsive"></a>
                                                     <div class="caption"><a href="Previews.html"
                                                                             class="label label-primary">Previews</a></div>
@@ -447,7 +449,7 @@
                                         <div class="post-blog post-blog-no-link">
                                             <div class="post-blog-media">
                                                 <div class="thumbnail"><a href="blog-single-post.html"><img
-                                                                src="images/index-13.jpg" width="370" height="200" alt=""
+                                                                src="/PI/web/images/index-13.jpg" width="370" height="200" alt=""
                                                                 class="img-responsive"></a>
                                                     <div class="caption"><a href="Previews.html"
                                                                             class="label label-primary">Previews</a></div>
@@ -473,7 +475,7 @@
                                         <div class="post-blog post-blog-no-link">
                                             <div class="post-blog-media">
                                                 <div class="thumbnail"><a href="blog-single-post.html"><img
-                                                                src="images/index-14.jpg" width="370" height="200" alt=""
+                                                                src="/PI/web/images/index-14.jpg" width="370" height="200" alt=""
                                                                 class="img-responsive"></a>
                                                     <div class="caption"><a href="Previews.html"
                                                                             class="label label-primary">Previews</a></div>
@@ -499,7 +501,7 @@
                                         <div class="post-blog post-blog-no-link">
                                             <div class="post-blog-media">
                                                 <div class="thumbnail"><a href="blog-single-post.html"><img
-                                                                src="images/index-15.jpg" width="370" height="200" alt=""
+                                                                src="/PI/web/images/index-15.jpg" width="370" height="200" alt=""
                                                                 class="img-responsive"></a>
                                                     <div class="caption"><a href="Previews.html"
                                                                             class="label label-primary">Previews</a></div>
@@ -534,7 +536,7 @@
                                         <div class="post-blog post-blog-no-link">
                                             <div class="post-blog-media">
                                                 <div class="thumbnail"><a href="blog-single-post.html"><img
-                                                                src="images/index-16.jpg" width="370" height="200" alt=""
+                                                                src="/PI/web/images/index-16.jpg" width="370" height="200" alt=""
                                                                 class="img-responsive"></a>
                                                     <div class="caption"><a href="Reviews.html" class="label label-primary">Reviews</a>
                                                     </div>
@@ -560,7 +562,7 @@
                                         <div class="post-blog post-blog-no-link">
                                             <div class="post-blog-media">
                                                 <div class="thumbnail"><a href="blog-single-post.html"><img
-                                                                src="images/index-17.jpg" width="370" height="200" alt=""
+                                                                src="/PI/web/images/index-17.jpg" width="370" height="200" alt=""
                                                                 class="img-responsive"></a>
                                                     <div class="caption"><a href="Reviews.html" class="label label-primary">Reviews</a>
                                                     </div>
@@ -586,7 +588,7 @@
                                         <div class="post-blog post-blog-no-link">
                                             <div class="post-blog-media">
                                                 <div class="thumbnail"><a href="blog-single-post.html"><img
-                                                                src="images/index-04.jpg" width="370" height="200" alt=""
+                                                                src="/PI/web/images/index-04.jpg" width="370" height="200" alt=""
                                                                 class="img-responsive"></a>
                                                     <div class="caption"><a href="../" class="label label-primary">news</a>
                                                     </div>
@@ -612,7 +614,7 @@
                                         <div class="post-blog post-blog-no-link">
                                             <div class="post-blog-media">
                                                 <div class="thumbnail"><a href="blog-single-post.html"><img
-                                                                src="images/index-07.jpg" width="370" height="200" alt=""
+                                                                src="/PI/web/images/index-07.jpg" width="370" height="200" alt=""
                                                                 class="img-responsive"></a>
                                                     <div class="caption"><a href="../" class="label label-primary">news</a>
                                                     </div>
@@ -678,7 +680,7 @@
                                                 <div class="unit unit-horizontal post-blog post-blog-sm">
                                                     <div class="unit-left"><a href="blog-single-post.html"
                                                                               class="thumbnail"><img
-                                                                    src="images/sidebar-01.jpg" width="85" height="85" alt=""
+                                                                    src="/PI/web/images/sidebar-01.jpg" width="85" height="85" alt=""
                                                                     class="img-responsive"></a></div>
                                                     <div class="unit-body">
                                                         <div class="small"><a href="../">News</a></div>
@@ -712,7 +714,7 @@
                                                 <div class="unit unit-horizontal post-blog post-blog-sm">
                                                     <div class="unit-left"><a href="blog-single-post.html"
                                                                               class="thumbnail"><img
-                                                                    src="images/sidebar-02.jpg" width="85" height="85" alt=""
+                                                                    src="/PI/web/images/sidebar-02.jpg" width="85" height="85" alt=""
                                                                     class="img-responsive"></a></div>
                                                     <div class="unit-body">
                                                         <div class="small"><a href="../">News</a></div>
@@ -746,7 +748,7 @@
                                                 <div class="unit unit-horizontal post-blog post-blog-sm">
                                                     <div class="unit-left"><a href="blog-single-post.html"
                                                                               class="thumbnail"><img
-                                                                    src="images/sidebar-03.jpg" width="85" height="85" alt=""
+                                                                    src="/PI/web/images/sidebar-03.jpg" width="85" height="85" alt=""
                                                                     class="img-responsive"></a></div>
                                                     <div class="unit-body">
                                                         <div class="small"><a href="../">News</a></div>
@@ -780,7 +782,7 @@
                                                 <div class="unit unit-horizontal post-blog post-blog-sm">
                                                     <div class="unit-left"><a href="blog-single-post.html"
                                                                               class="thumbnail"><img
-                                                                    src="images/sidebar-04.jpg" width="85" height="85" alt=""
+                                                                    src="/PI/web/images/sidebar-04.jpg" width="85" height="85" alt=""
                                                                     class="img-responsive"></a></div>
                                                     <div class="unit-body">
                                                         <div class="small"><a href="../">News</a></div>
@@ -814,7 +816,7 @@
                                                 <div class="unit unit-horizontal post-blog post-blog-sm">
                                                     <div class="unit-left"><a href="blog-single-post.html"
                                                                               class="thumbnail"><img
-                                                                    src="images/sidebar-05.jpg" width="85" height="85" alt=""
+                                                                    src="/PI/web/images/sidebar-05.jpg" width="85" height="85" alt=""
                                                                     class="img-responsive"></a></div>
                                                     <div class="unit-body">
                                                         <div class="small"><a href="../">News</a></div>
@@ -882,7 +884,7 @@
                                                 <div class="unit unit-horizontal post-blog post-blog-sm">
                                                     <div class="unit-left"><a href="blog-single-post.html"
                                                                               class="thumbnail"><img
-                                                                    src="images/sidebar-06.jpg" width="85" height="85" alt=""
+                                                                    src="/PI/web/images/sidebar-06.jpg" width="85" height="85" alt=""
                                                                     class="img-responsive"></a></div>
                                                     <div class="unit-body">
                                                         <div class="small"><a href="Platforms.html">Platforms</a></div>
@@ -916,7 +918,7 @@
                                                 <div class="unit unit-horizontal post-blog post-blog-sm">
                                                     <div class="unit-left"><a href="blog-single-post.html"
                                                                               class="thumbnail"><img
-                                                                    src="images/sidebar-07.jpg" width="85" height="85" alt=""
+                                                                    src="/PI/web/images/sidebar-07.jpg" width="85" height="85" alt=""
                                                                     class="img-responsive"></a></div>
                                                     <div class="unit-body">
                                                         <div class="small"><a href="../">News</a></div>
@@ -950,7 +952,7 @@
                                                 <div class="unit unit-horizontal post-blog post-blog-sm">
                                                     <div class="unit-left"><a href="blog-single-post.html"
                                                                               class="thumbnail"><img
-                                                                    src="images/sidebar-08.jpg" width="85" height="85" alt=""
+                                                                    src="/PI/web/images/sidebar-08.jpg" width="85" height="85" alt=""
                                                                     class="img-responsive"></a></div>
                                                     <div class="unit-body">
                                                         <div class="small"><a href="Platforms.html">Platforms</a></div>
@@ -984,7 +986,7 @@
                                                 <div class="unit unit-horizontal post-blog post-blog-sm">
                                                     <div class="unit-left"><a href="blog-single-post.html"
                                                                               class="thumbnail"><img
-                                                                    src="images/sidebar-09.jpg" width="85" height="85" alt=""
+                                                                    src="/PI/web/images/sidebar-09.jpg" width="85" height="85" alt=""
                                                                     class="img-responsive"></a></div>
                                                     <div class="unit-body">
                                                         <div class="small"><a href="../">News</a></div>
@@ -1018,7 +1020,7 @@
                                                 <div class="unit unit-horizontal post-blog post-blog-sm">
                                                     <div class="unit-left"><a href="blog-single-post.html"
                                                                               class="thumbnail"><img
-                                                                    src="images/sidebar-10.jpg" width="85" height="85" alt=""
+                                                                    src="/PI/web/images/sidebar-10.jpg" width="85" height="85" alt=""
                                                                     class="img-responsive"></a></div>
                                                     <div class="unit-body">
                                                         <div class="small"><a href="../">News</a></div>
@@ -1070,7 +1072,7 @@
                              style="transform: translate3d(0px, 0px, 0px); transition: 0s; width: 3130px;">
                             <div class="owl-item active" style="width: 391.25px; margin-right: 0px;">
                                 <div class="item">
-                                    <div class="thumbnail-custom"><img src="images/index-20.jpg" width="560" height="320"
+                                    <div class="thumbnail-custom"><img src="/PI/web/images/index-20.jpg" width="560" height="320"
                                                                        alt="" class="img-responsive">
                                         <div class="caption">
                                             <h4 class="caption-title"><a href="blog-single-post.html">Homefront: The
@@ -1086,7 +1088,7 @@
                             </div>
                             <div class="owl-item active" style="width: 391.25px; margin-right: 0px;">
                                 <div class="item">
-                                    <div class="thumbnail-custom"><img src="images/index-21.jpg" width="560" height="320"
+                                    <div class="thumbnail-custom"><img src="/PI/web/images/index-21.jpg" width="560" height="320"
                                                                        alt="" class="img-responsive">
                                         <div class="caption">
                                             <h4 class="caption-title"><a href="blog-single-post.html">“Enter the Gungeon”
@@ -1103,7 +1105,7 @@
                             </div>
                             <div class="owl-item active" style="width: 391.25px; margin-right: 0px;">
                                 <div class="item">
-                                    <div class="thumbnail-custom"><img src="images/index-22.jpg" width="560" height="320"
+                                    <div class="thumbnail-custom"><img src="/PI/web/images/index-22.jpg" width="560" height="320"
                                                                        alt="" class="img-responsive">
                                         <div class="caption">
                                             <h4 class="caption-title"><a href="blog-single-post.html">Quantum Break: PC
@@ -1119,7 +1121,7 @@
                             </div>
                             <div class="owl-item active" style="width: 391.25px; margin-right: 0px;">
                                 <div class="item">
-                                    <div class="thumbnail-custom"><img src="images/index-23.jpg" width="560" height="320"
+                                    <div class="thumbnail-custom"><img src="/PI/web/images/index-23.jpg" width="560" height="320"
                                                                        alt="" class="img-responsive">
                                         <div class="caption">
                                             <h4 class="caption-title"><a href="blog-single-post.html">Fallout 4</a></h4>
@@ -1134,7 +1136,7 @@
                             </div>
                             <div class="owl-item" style="width: 391.25px; margin-right: 0px;">
                                 <div class="item">
-                                    <div class="thumbnail-custom"><img src="images/index-20.jpg" width="560" height="320"
+                                    <div class="thumbnail-custom"><img src="/PI/web/images/index-20.jpg" width="560" height="320"
                                                                        alt="" class="img-responsive">
                                         <div class="caption">
                                             <h4 class="caption-title"><a href="blog-single-post.html">Homefront: The
@@ -1151,7 +1153,7 @@
                             </div>
                             <div class="owl-item" style="width: 391.25px; margin-right: 0px;">
                                 <div class="item">
-                                    <div class="thumbnail-custom"><img src="images/index-21.jpg" width="560" height="320"
+                                    <div class="thumbnail-custom"><img src="/PI/web/images/index-21.jpg" width="560" height="320"
                                                                        alt="" class="img-responsive">
                                         <div class="caption">
                                             <h4 class="caption-title"><a href="blog-single-post.html">“Enter the Gungeon”
@@ -1168,7 +1170,7 @@
                             </div>
                             <div class="owl-item" style="width: 391.25px; margin-right: 0px;">
                                 <div class="item">
-                                    <div class="thumbnail-custom"><img src="images/index-22.jpg" width="560" height="320"
+                                    <div class="thumbnail-custom"><img src="/PI/web/images/index-22.jpg" width="560" height="320"
                                                                        alt="" class="img-responsive">
                                         <div class="caption">
                                             <h4 class="caption-title"><a href="blog-single-post.html">Quantum Break: PC
@@ -1185,7 +1187,7 @@
                             </div>
                             <div class="owl-item" style="width: 391.25px; margin-right: 0px;">
                                 <div class="item">
-                                    <div class="thumbnail-custom"><img src="images/index-23.jpg" width="560" height="320"
+                                    <div class="thumbnail-custom"><img src="/PI/web/images/index-23.jpg" width="560" height="320"
                                                                        alt="" class="img-responsive">
                                         <div class="caption">
                                             <h4 class="caption-title"><a href="blog-single-post.html">Fallout 4</a></h4>
